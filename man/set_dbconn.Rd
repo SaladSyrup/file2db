@@ -18,3 +18,13 @@ Sets the database connection to be used when loading data.
 \details{
 The user is responsible for both opening and closing the database connection.
 }
+\examples{
+conn <- DBI::dbConnect(RSQLite::SQLite(), ":memory:")
+
+set_dbconn(conn)
+
+# Do things...
+
+DBI::dbDisconnect(get_dbconn())
+
+}

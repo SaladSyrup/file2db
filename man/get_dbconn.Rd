@@ -12,3 +12,13 @@ A DBIConnection object or NULL if no database connection has been set.
 \description{
 Gets the database connection previously set by \code{set_dbconn}.
 }
+\examples{
+conn <- DBI::dbConnect(RSQLite::SQLite(), ":memory:")
+
+set_dbconn(conn)
+
+# Do things...
+
+DBI::dbDisconnect(get_dbconn())
+
+}
