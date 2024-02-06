@@ -7,11 +7,14 @@ Authors@R:
 Description: A tool for automating the process of loading data from a
     large number of files into a database. file2db can pre-process files
     prior to reading and post-process data before writing to a database.
-    The user can provide alternate file and database functions to allow
-    file2db to work with any file format or database.
+    The user can provide alternate file functions to allow file2db to work
+    with any file format.
 License: MIT + file LICENSE
 URL: https://github.com/SaladSyrup/file2db
 BugReports: https://github.com/SaladSyrup/file2db/issues
+Imports: 
+    DBI,
+    methods
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
