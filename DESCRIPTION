@@ -5,10 +5,10 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Chris", "Fletcher", , "SaladSyrup@outlook.com", role = c("aut", "cre"))
 Description: A tool for automating the process of loading data from a
-    large number of files into a database. file2db can pre-process files
-    prior to reading and post-process data before writing to a database.
-    The user can provide alternate file functions to allow file2db to work
-    with any file format.
+    large number of files into a database. The loading process is fully
+    configurable and allows for processing/cleaning data at any point.
+    The user can provide alternate file and database functions to allow
+    file2db to work with any file format or database.
 License: MIT + file LICENSE
 URL: https://github.com/SaladSyrup/file2db
 BugReports: https://github.com/SaladSyrup/file2db/issues
