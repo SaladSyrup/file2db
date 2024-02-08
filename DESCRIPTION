@@ -13,7 +13,6 @@ License: MIT + file LICENSE
 URL: https://github.com/SaladSyrup/file2db
 BugReports: https://github.com/SaladSyrup/file2db/issues
 Imports: 
-    DBI,
     methods
 Suggests: 
     RSQLite
