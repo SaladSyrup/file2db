@@ -1,20 +1,20 @@
-#' file2dbNullTask class
+#' f2dbNullTask class
 #'
-#' A do-nothing task. This is the default nextTask for file2dbTask instances.
+#' A do-nothing task. This is the default nextTask for f2dbTask instances.
 #'
 #' @slot name "NULLTASK"
 #'
 #' @export
-methods::setClass("file2dbNullTask", contains = c("file2dbTask"),
+methods::setClass("f2dbNullTask", contains = c("f2dbTask"),
 
   prototype = list(
     name = "NULLTASK"
   )
 )
 
-#' Initialize function for file2dbNullTask objects
+#' Initialize function for f2dbNullTask objects
 #'
-#' This initializer explicitly avoids calling the parent file2dbTask initializer.
-methods::setMethod("initialize", "file2dbNullTask", function(.Object) .Object)
+#' This initializer explicitly avoids calling the parent f2dbTask initializer.
+methods::setMethod("initialize", "f2dbNullTask", function(.Object) .Object)
 
-#setMethod("runTask", "file2dbNullTask", function() return(TRUE))
+#setMethod("runTask", "f2dbNullTask", function() return(TRUE))
