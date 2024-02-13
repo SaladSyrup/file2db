@@ -6,7 +6,8 @@
 \title{f2dbTaskFunction class}
 \description{
 The f2dbTaskFunction class encapsulates the function that accomplishes the
-actual work of the task. This class is responsible for:
+actual work of the task. Along with the \code{f2dbRun} method, this class is
+responsible for:
 \enumerate{
 \item Calling the underlying task function
 \item Capturing and logging any warnings or errors
@@ -25,3 +26,10 @@ actual work of the task. This class is responsible for:
 \item{\code{auxParameters}}{Additional parameters to be passed to the task function}
 }}
 
+\seealso{
+Other file2db classes: 
+\code{\link{f2dbEndTask-class}},
+\code{\link{f2dbObject-class}},
+\code{\link{f2dbTask-class}}
+}
+\concept{file2db classes}

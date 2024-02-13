@@ -5,12 +5,12 @@
 \alias{f2dbTask-class}
 \title{f2dbTask class}
 \description{
-A virtual class for encapsulating an individual task.
+A class for encapsulating an individual task.
 }
 \section{Slots}{
 
 \describe{
-\item{\code{name}}{Task name. This name should be unique within the job.}
+\item{\code{name}}{Task name. This name normally be should be unique within the job.}
 
 \item{\code{taskFunction}}{Function that performs the actual work of the task.}
 
@@ -18,3 +18,10 @@ A virtual class for encapsulating an individual task.
 job sequence. nextTask takes the output of the current task as its input.}
 }}
 
+\seealso{
+Other file2db classes: 
+\code{\link{f2dbEndTask-class}},
+\code{\link{f2dbObject-class}},
+\code{\link{f2dbTaskFunction-class}}
+}
+\concept{file2db classes}
