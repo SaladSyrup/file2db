@@ -13,7 +13,9 @@ methods::setClass("f2dbObject", contains = c("VIRTUAL"))
 #'
 #' Generic method for running an f2dbObject
 #'
-#' @returns Logical value indicating success (TRUE) or failure (FALSE).
+#' @returns Logical value indicating success (`TRUE`) or failure (`FALSE`). Success
+#' only indicates that it is safe to proceed; it does not mean there are no
+#' warnings or errors.
 #'
 #' @name f2dbRun-generic
 #' @docType methods
