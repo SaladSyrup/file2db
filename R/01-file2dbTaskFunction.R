@@ -67,8 +67,8 @@ f2dbTaskFunction <- function(taskFunction, ..., inputName = NA, checklistItem = 
 #' @docType methods
 #' @family f2dbRun methods
 #' @export
-methods::setMethod("f2dbRun", "f2dbTaskFunction",
-
+methods::setMethod(
+  "f2dbRun", "f2dbTaskFunction",
   function(.Object, input = NA, checklistItem = NA) {
 
   }
