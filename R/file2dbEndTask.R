@@ -8,8 +8,8 @@
 #' @docType class
 #' @family file2db classes
 #' @export
-methods::setClass("f2dbEndTask", contains = c("f2dbTask"),
-
+methods::setClass("f2dbEndTask",
+  contains = c("f2dbTask"),
   prototype = list(
     name = "ENDTASK"
   )

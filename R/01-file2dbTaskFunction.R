@@ -21,13 +21,12 @@
 #' @docType class
 #' @family file2db classes
 #' @export
-methods::setClass("f2dbTaskFunction", contains = "f2dbObject",
-
+methods::setClass("f2dbTaskFunction",
+  contains = "f2dbObject",
   slots = c(
     taskFunction = "function",
     auxParameters = "character"
   ),
-
   prototype = list(
     taskFunction = NULL,
     auxParameters = ""

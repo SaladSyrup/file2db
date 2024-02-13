@@ -11,14 +11,13 @@
 #' @docType class
 #' @family file2db classes
 #' @export
-methods::setClass("f2dbTask", contains = c("f2dbObject"),
-
+methods::setClass("f2dbTask",
+  contains = c("f2dbObject"),
   slots = c(
     name = "character",
     taskFunction = "f2dbTaskFunction",
     nextTask = "f2dbObject"
   ),
-
   prototype = list(
     name = "<UNNAMED>",
     taskFunction = NULL,
@@ -27,11 +26,11 @@ methods::setClass("f2dbTask", contains = c("f2dbObject"),
 )
 
 #' Default initialize function for f2dbTask objects
-methods::setMethod("initialize", "f2dbTask",
-
- function(.Object) {
-   .Object <- methods::callNextMethod()
-   .Object@nextTask <- methods::new("f2dbEndTask")
-   .Object
- }
+methods::setMethod(
+  "initialize", "f2dbTask",
+  function(.Object) {
+    .Object <- methods::callNextMethod()
+    .Object@nextTask <- methods::new("f2dbEndTask")
+    .Object
+  }
 )

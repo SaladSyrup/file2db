@@ -20,6 +20,6 @@ methods::setClass("f2dbObject", contains = c("VIRTUAL"))
 #' @family f2dbRun methods
 #' @export
 methods::setGeneric("f2dbRun",
-                    function(.Object, ...) standardGeneric("f2dbRun"),
-                    signature = ".Object"
+  function(.Object, ...) standardGeneric("f2dbRun"),
+  signature = ".Object"
 )
