@@ -22,6 +22,7 @@ job sequence. nextTask takes the output of the current task as its input.}
 Other file2db classes: 
 \code{\link{f2dbEndTask-class}},
 \code{\link{f2dbObject-class}},
+\code{\link{f2dbTaskFunction}},
 \code{\link{f2dbTaskFunction-class}}
 }
 \concept{file2db classes}

@@ -11,12 +11,13 @@ responsible for:
 \enumerate{
 \item Calling the underlying task function
 \item Capturing and logging any warnings or errors
-\item Indicating whether or not the task executed successfully
-\item Returning task function output
+\item Capturing task function output for use by the calling \code{f2dbTask}
+\item Returning whether or not the task executed successfully
 }
 }
 \details{
-\strong{must} implement a method for the generic \code{run()}
+Classes inheriting from \code{f2dbTaskFunction} should fulfill the responsibilities
+listed above and implement the \code{f2dbRun} generic method.
 }
 \section{Slots}{
 
@@ -30,6 +31,7 @@ responsible for:
 Other file2db classes: 
 \code{\link{f2dbEndTask-class}},
 \code{\link{f2dbObject-class}},
-\code{\link{f2dbTask-class}}
+\code{\link{f2dbTask-class}},
+\code{\link{f2dbTaskFunction}}
 }
 \concept{file2db classes}
