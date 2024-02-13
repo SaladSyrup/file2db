@@ -7,11 +7,12 @@
 #'
 #' 1. Calling the underlying task function
 #' 1. Capturing and logging any warnings or errors
-#' 1. Indicating whether or not the task executed successfully
-#' 1. Returning task function output
+#' 1. Capturing task function output for use by the calling `f2dbTask`
+#' 1. Returning whether or not the task executed successfully
 #'
 #' @details
-#' **must** implement a method for the generic `run()`
+#' Classes inheriting from `f2dbTaskFunction` should fulfill the responsibilities
+#' listed above and implement their own `f2dbRun()`.
 #'
 #' @slot taskFunction The task function
 #' @slot auxParameters Additional parameters to be passed to the task function

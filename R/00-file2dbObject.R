@@ -13,6 +13,8 @@ methods::setClass("f2dbObject", contains = c("VIRTUAL"))
 #'
 #' Generic method for running an f2dbObject
 #'
+#' @returns Logical value indicating success (TRUE) or failure (FALSE).
+#'
 #' @name f2dbRun-generic
 #' @docType methods
 #' @family f2dbRun methods
