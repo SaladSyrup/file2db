@@ -22,9 +22,9 @@ listed above and implement the \code{f2dbRun} generic method.
 \section{Slots}{
 
 \describe{
-\item{\code{taskFunction}}{The task function}
+\item{\code{taskFunction}}{A call to the underlying task function}
 
-\item{\code{auxParameters}}{Additional parameters to be passed to the task function}
+\item{\code{taskOutput}}{Output of a task function call}
 }}
 
 \seealso{

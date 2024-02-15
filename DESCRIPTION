@@ -13,7 +13,8 @@ License: MIT + file LICENSE
 URL: https://github.com/SaladSyrup/file2db
 BugReports: https://github.com/SaladSyrup/file2db/issues
 Imports: 
-    methods
+    methods,
+    rlang
 Suggests: 
     RSQLite
 Encoding: UTF-8

@@ -13,7 +13,7 @@ Success only indicates that it is safe to proceed; it does not mean there are
 no warnings or errors.
 }
 \description{
-Generic method for running an f2dbObject
+Generic method for running an f2dbObject.
 }
 \seealso{
 Other f2dbRun methods: 

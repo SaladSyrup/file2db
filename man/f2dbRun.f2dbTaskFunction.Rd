@@ -8,7 +8,7 @@
 \S4method{f2dbRun}{f2dbTaskFunction}(.Object, input = NA, checklistItem = NA)
 }
 \arguments{
-\item{.Object}{A f2dbTaskFunction}
+\item{object}{An \code{f2dbTaskFunction} object}
 }
 \value{
 Logical value indicating success (\code{TRUE}) or failure (\code{FALSE}).

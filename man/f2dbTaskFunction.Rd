@@ -4,10 +4,10 @@
 \alias{f2dbTaskFunction}
 \title{f2dbTaskFunction}
 \usage{
-f2dbTaskFunction(taskFunction, ..., inputName = NA, checklistItem = NA)
+f2dbTaskFunction(taskFunction, ..., inputName = NA, checklistName = NA)
 }
 \arguments{
-\item{taskFunction}{Name of the function to call when running the task}
+\item{taskFunction}{Function to call when running the task}
 
 \item{...}{Parameters to pass to the task function}
 
@@ -15,9 +15,9 @@ f2dbTaskFunction(taskFunction, ..., inputName = NA, checklistItem = NA)
 unnamed first parameter. If \code{inputName} is provided, task input will be passed
 using \code{inputName}.}
 
-\item{checklistItemName}{By default, the current checklist item is not passed
-to the task function. If \code{checklistItemName} is provided, the checklist item
-will be passed using \code{checklistItemName}.}
+\item{checklistName}{By default, the current checklist item is not passed
+to the task function. If \code{checklistName} is provided, the checklist item
+will be passed using \code{checklistName}.}
 }
 \value{
 An \code{f2dbTaskFunction} object
