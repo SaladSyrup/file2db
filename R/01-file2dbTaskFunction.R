@@ -91,6 +91,6 @@ methods::setMethod(
     if (!is.na(input)) {
       taskInput <- input
     }
-    .Object@taskOutput <- eval(.Object@taskFunction)
+    slot(.Object, "taskOutput") <- eval(.Object@taskFunction)
   }
 )
