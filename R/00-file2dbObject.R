@@ -13,15 +13,18 @@ methods::setClass("f2dbObject", contains = c("VIRTUAL"))
 #'
 #' Generic method for running an f2dbObject.
 #'
-#' @returns Logical value indicating success (`TRUE`) or failure (`FALSE`).
+#' @returns
+#' A list
+#' \item{success}{Logical value indicating success (`TRUE`) or failure (`FALSE`).
 #' Success only indicates that it is safe to proceed; it does not mean there are
-#' no warnings or errors.
+#' no warnings or errors.}
+#' \item{output}{Run results, if any.}
 #'
-#' @name f2dbRun-generic
+#' @name f2dbRun.generic
 #' @docType methods
 #' @family f2dbRun methods
 #' @export
 methods::setGeneric("f2dbRun",
-  function(.Object, ...) standardGeneric("f2dbRun"),
-  signature = ".Object"
+  function(object, ...) standardGeneric("f2dbRun"),
+  signature = "object"
 )

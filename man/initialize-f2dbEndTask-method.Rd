@@ -2,7 +2,7 @@
 % Please edit documentation in R/file2dbEndTask.R
 \name{initialize,f2dbEndTask-method}
 \alias{initialize,f2dbEndTask-method}
-\title{Initialize function for f2dbNullTask objects}
+\title{Initialize function for f2dbEndTask objects}
 \usage{
 \S4method{initialize}{f2dbEndTask}(.Object)
 }

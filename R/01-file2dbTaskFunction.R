@@ -7,7 +7,7 @@
 #'
 #' 1. Calling the underlying task function
 #' 1. Capturing and logging any warnings or errors
-#' 1. Capturing task function output for use by the calling `f2dbTask`
+#' 1. Returning task function output
 #' 1. Returning whether or not the task executed successfully
 #'
 #' @details
@@ -15,21 +15,18 @@
 #' listed above and implement the `f2dbRun` generic method.
 #'
 #' @slot taskFunction A call to the underlying task function
-#' @slot taskOutput Output of a task function call
 #'
-#' @name f2dbTaskFunction-class
+#' @name f2dbTaskFunction.class
 #' @docType class
 #' @family file2db classes
 #' @export
 methods::setClass("f2dbTaskFunction",
   contains = "f2dbObject",
   slots = c(
-    taskFunction = "call",
-    taskOutput = "ANY"
+    taskFunction = "call"
   ),
   prototype = list(
-    taskFunction = NULL,
-    taskOutput = NULL
+    taskFunction = NULL
   )
 )
 
@@ -42,31 +39,28 @@ methods::setClass("f2dbTaskFunction",
 #' @param inputName By default, task input is passed to the task function as an
 #' unnamed first parameter. If `inputName` is provided, task input will be passed
 #' using `inputName`.
-#' @param checklistName By default, the current checklist item is not passed
-#' to the task function. If `checklistName` is provided, the checklist item
-#' will be passed using `checklistName`.
+#' @param itemName By default, the current batch item is not passed to the task
+#' function. If `itemName` is provided, the batch item will be passed
+#' using `itemName`.
 #'
 #' @returns An `f2dbTaskFunction` object
 #'
 #' @family file2db classes
 #' @export
-f2dbTaskFunction <- function(taskFunction, ..., inputName = NA, checklistName = NA) {
+f2dbTaskFunction <- function(taskFunction, ..., inputName = NA, itemName = NA) {
   taskFunction <- rlang::enexpr(taskFunction)
   stopifnot(rlang::is_callable(taskFunction))
 
-  params <- rlang::enexprs(...)
+  params <- c(rlang::expr(taskInput), rlang::enexprs(...))
 
-  if (is.na(inputName)) {
-    params <- c(rlang::expr(taskInput), params)
-  } else {
+  if (!is.na(inputName)) {
     stopifnot(identical(inputName, make.names(inputName)))
-    params[[inputName]] <- rlang::expr(taskInput)
+    names(params)[1] <- inputName
   }
 
-  if (is.na(checklistName)) {
-  } else {
-    stopifnot(identical(checklistName, make.names(checklistName)))
-    params[[checklistName]] <- rlang::expr(checklistItem)
+  if (!is.na(itemName)) {
+    stopifnot(identical(itemName, make.names(itemName)))
+    params[[itemName]] <- rlang::expr(batchItem)
   }
 
   methods::new("f2dbTaskFunction", taskFunction = rlang::call2(taskFunction, !!!params))
@@ -77,9 +71,10 @@ f2dbTaskFunction <- function(taskFunction, ..., inputName = NA, checklistName = 
 #' Runs the given task function.
 #'
 #' @param object An `f2dbTaskFunction` object
-#' @inheritParams f2dbRun-generic
+#' @param input Task input to pass to the task function
+#' @param item The current item being processed
 #'
-#' @inherit f2dbRun-generic return
+#' @inherit f2dbRun.generic return
 #'
 #' @name f2dbRun.f2dbTaskFunction
 #' @docType methods
@@ -87,10 +82,12 @@ f2dbTaskFunction <- function(taskFunction, ..., inputName = NA, checklistName = 
 #' @export
 methods::setMethod(
   "f2dbRun", "f2dbTaskFunction",
-  function(.Object, input = NA, checklistItem = NA) {
-    if (!is.na(input)) {
-      taskInput <- input
-    }
-    slot(.Object, "taskOutput") <- eval(.Object@taskFunction)
+  function(object, input = NA, item = NA) {
+    taskInput <- input
+    batchItem <- item
+
+    output <- eval(object@taskFunction)
+
+    list(success = TRUE, ouput = output)
   }
 )

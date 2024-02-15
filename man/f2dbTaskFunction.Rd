@@ -4,7 +4,7 @@
 \alias{f2dbTaskFunction}
 \title{f2dbTaskFunction}
 \usage{
-f2dbTaskFunction(taskFunction, ..., inputName = NA, checklistName = NA)
+f2dbTaskFunction(taskFunction, ..., inputName = NA, itemName = NA)
 }
 \arguments{
 \item{taskFunction}{Function to call when running the task}
@@ -15,9 +15,9 @@ f2dbTaskFunction(taskFunction, ..., inputName = NA, checklistName = NA)
 unnamed first parameter. If \code{inputName} is provided, task input will be passed
 using \code{inputName}.}
 
-\item{checklistName}{By default, the current checklist item is not passed
-to the task function. If \code{checklistName} is provided, the checklist item
-will be passed using \code{checklistName}.}
+\item{itemName}{By default, the current batch item is not passed to the task
+function. If \code{itemName} is provided, the batch item will be passed
+using \code{itemName}.}
 }
 \value{
 An \code{f2dbTaskFunction} object
@@ -30,6 +30,6 @@ Other file2db classes:
 \code{\link{f2dbEndTask-class}},
 \code{\link{f2dbObject-class}},
 \code{\link{f2dbTask-class}},
-\code{\link{f2dbTaskFunction-class}}
+\code{\link{f2dbTaskFunction.class}}
 }
 \concept{file2db classes}

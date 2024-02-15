@@ -18,6 +18,6 @@ Other file2db classes:
 \code{\link{f2dbObject-class}},
 \code{\link{f2dbTask-class}},
 \code{\link{f2dbTaskFunction}},
-\code{\link{f2dbTaskFunction-class}}
+\code{\link{f2dbTaskFunction.class}}
 }
 \concept{file2db classes}

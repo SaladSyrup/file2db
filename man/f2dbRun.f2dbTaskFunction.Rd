@@ -5,21 +5,27 @@
 \alias{f2dbRun.f2dbTaskFunction}
 \title{f2dbRun}
 \usage{
-\S4method{f2dbRun}{f2dbTaskFunction}(.Object, input = NA, checklistItem = NA)
+\S4method{f2dbRun}{f2dbTaskFunction}(object, input = NA, item = NA)
 }
 \arguments{
 \item{object}{An \code{f2dbTaskFunction} object}
+
+\item{input}{Task input to pass to the task function}
+
+\item{item}{The current item being processed}
 }
 \value{
-Logical value indicating success (\code{TRUE}) or failure (\code{FALSE}).
+A list
+\item{success}{Logical value indicating success (\code{TRUE}) or failure (\code{FALSE}).
 Success only indicates that it is safe to proceed; it does not mean there are
-no warnings or errors.
+no warnings or errors.}
+\item{output}{Run results, if any.}
 }
 \description{
 Runs the given task function.
 }
 \seealso{
 Other f2dbRun methods: 
-\code{\link{f2dbRun-generic}}
+\code{\link{f2dbRun.generic}}
 }
 \concept{f2dbRun methods}

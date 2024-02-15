@@ -15,7 +15,7 @@ methods::setClass("f2dbEndTask",
   )
 )
 
-#' Initialize function for f2dbNullTask objects
+#' Initialize function for f2dbEndTask objects
 #'
 #' This initializer explicitly avoids calling the parent f2dbTask initializer.
 methods::setMethod("initialize", "f2dbEndTask", function(.Object) .Object)
