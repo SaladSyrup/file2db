@@ -30,10 +30,9 @@ methods::setClass("f2dbTask",
 #' Default initialize function for f2dbTask objects
 methods::setMethod(
   "initialize", "f2dbTask",
-  function(.Object) {
-    .Object <- methods::callNextMethod()
+  function(.Object, ...) {
     .Object@nextTask <- methods::new("f2dbEndTask")
-    .Object
+    methods::callNextMethod()
   }
 )
 
@@ -48,5 +47,11 @@ methods::setMethod(
 #' @family file2db classes
 #' @export
 f2dbTask <- function(name = NA, taskFunction, ..., inputName = NA, itemName = NA) {
+  tskFunc <- f2dbTaskFunction(taskFunction, ..., inputName, itemName)
 
+  if (is.na(name)) {
+    name <- "<UNNAMED>"
+  }
+
+  methods::new("f2dbTask", name = name, taskFunction = tskFunc)
 }
