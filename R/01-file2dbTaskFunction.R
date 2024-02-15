@@ -51,7 +51,6 @@ methods::setClass("f2dbTaskFunction",
 #' @family file2db classes
 #' @export
 f2dbTaskFunction <- function(taskFunction, ..., inputName = NA, checklistName = NA) {
-
   taskFunction <- rlang::enexpr(taskFunction)
   stopifnot(rlang::is_callable(taskFunction))
 
@@ -89,8 +88,9 @@ f2dbTaskFunction <- function(taskFunction, ..., inputName = NA, checklistName = 
 methods::setMethod(
   "f2dbRun", "f2dbTaskFunction",
   function(.Object, input = NA, checklistItem = NA) {
-
-    if (!is.na(input)) { taskInput <- input }
+    if (!is.na(input)) {
+      taskInput <- input
+    }
     .Object@taskOutput <- eval(.Object@taskFunction)
   }
 )
