@@ -25,7 +25,12 @@ no warnings or errors.}
 Runs the given task function.
 }
 \seealso{
+Other file2dbTaskFunction: 
+\code{\link{f2dbTaskFunction}},
+\code{\link{f2dbTaskFunction.class}}
+
 Other f2dbRun methods: 
 \code{\link{f2dbRun.generic}}
 }
 \concept{f2dbRun methods}
+\concept{file2dbTaskFunction}

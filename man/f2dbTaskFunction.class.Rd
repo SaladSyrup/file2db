@@ -5,9 +5,9 @@
 \alias{f2dbTaskFunction.class}
 \title{f2dbTaskFunction class}
 \description{
-The f2dbTaskFunction class encapsulates the function that accomplishes the
-actual work of the task. Along with the \code{f2dbRun} method, this class is
-responsible for:
+The \code{f2dbTaskFunction} class encapsulates the function that accomplishes the
+actual work of the task. Along with the \code{\link[:f2dbRun.f2dbTaskFunction]{f2dbRun()}}
+method, this class is responsible for:
 \enumerate{
 \item Calling the underlying task function
 \item Capturing and logging any warnings or errors
@@ -22,14 +22,21 @@ listed above and implement the \code{f2dbRun} generic method.
 \section{Slots}{
 
 \describe{
-\item{\code{taskFunction}}{A call to the underlying task function}
+\item{\code{taskFunction}}{A call to the underlying task function. \code{taskFunction} is
+set by \code{\link[=f2dbTaskFunction]{f2dbTaskFunction()}} and should not be modified.}
 }}
 
 \seealso{
+Other file2dbTaskFunction: 
+\code{\link{f2dbRun.f2dbTaskFunction}},
+\code{\link{f2dbTaskFunction}}
+
 Other file2db classes: 
 \code{\link{f2dbEndTask-class}},
-\code{\link{f2dbObject-class}},
-\code{\link{f2dbTask-class}},
+\code{\link{f2dbObject.class}},
+\code{\link{f2dbTask}},
+\code{\link{f2dbTask.class}},
 \code{\link{f2dbTaskFunction}}
 }
 \concept{file2db classes}
+\concept{file2dbTaskFunction}

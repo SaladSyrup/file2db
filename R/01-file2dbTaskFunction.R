@@ -1,9 +1,9 @@
 #' f2dbTaskFunction class
 #'
 #' @description
-#' The f2dbTaskFunction class encapsulates the function that accomplishes the
-#' actual work of the task. Along with the `f2dbRun` method, this class is
-#' responsible for:
+#' The `f2dbTaskFunction` class encapsulates the function that accomplishes the
+#' actual work of the task. Along with the \code{\link[:f2dbRun.f2dbTaskFunction]{f2dbRun()}}
+#' method, this class is responsible for:
 #'
 #' 1. Calling the underlying task function
 #' 1. Capturing and logging any warnings or errors
@@ -14,10 +14,12 @@
 #' Classes inheriting from `f2dbTaskFunction` should fulfill the responsibilities
 #' listed above and implement the `f2dbRun` generic method.
 #'
-#' @slot taskFunction A call to the underlying task function
+#' @slot taskFunction A call to the underlying task function. `taskFunction` is
+#' set by [f2dbTaskFunction()] and should not be modified.
 #'
 #' @name f2dbTaskFunction.class
 #' @docType class
+#' @family file2dbTaskFunction
 #' @family file2db classes
 #' @export
 methods::setClass("f2dbTaskFunction",
@@ -32,7 +34,7 @@ methods::setClass("f2dbTaskFunction",
 
 #' f2dbTaskFunction
 #'
-#' Creates a new f2dbTaskFunction object.
+#' Creates a new `f2dbTaskFunction` object.
 #'
 #' @param taskFunction Function to call when running the task
 #' @param ... Parameters to pass to the task function
@@ -45,6 +47,7 @@ methods::setClass("f2dbTaskFunction",
 #'
 #' @returns An `f2dbTaskFunction` object
 #'
+#' @family file2dbTaskFunction
 #' @family file2db classes
 #' @export
 f2dbTaskFunction <- function(taskFunction, ..., inputName = NA, itemName = NA) {
@@ -78,6 +81,7 @@ f2dbTaskFunction <- function(taskFunction, ..., inputName = NA, itemName = NA) {
 #'
 #' @name f2dbRun.f2dbTaskFunction
 #' @docType methods
+#' @family file2dbTaskFunction
 #' @family f2dbRun methods
 #' @export
 methods::setMethod(

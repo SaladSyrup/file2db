@@ -3,7 +3,7 @@
 #' Base class from which all other f2db classes descend. This is a
 #' virtual class.
 #'
-#' @name f2dbObject-class
+#' @name f2dbObject.class
 #' @docType class
 #' @family file2db classes
 #' @export
