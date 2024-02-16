@@ -50,7 +50,7 @@ methods::setClass("f2dbTaskFunction",
 #' @family file2dbTaskFunction
 #' @family file2db classes
 #' @export
-f2dbTaskFunction <- function(taskFunction, ..., inputName = NA, itemName = NA) {
+f2dbTaskFunction <- function(taskFunction = NA, ..., inputName = NA, itemName = NA) {
   taskFunction <- rlang::enexpr(taskFunction)
   stopifnot(rlang::is_callable(taskFunction))
 
@@ -77,7 +77,11 @@ f2dbTaskFunction <- function(taskFunction, ..., inputName = NA, itemName = NA) {
 #' @param input Task input to pass to the task function
 #' @param item The current item being processed
 #'
-#' @inherit f2dbRun.generic return
+#' @inherit f2dbRun return
+#'
+#' @details
+#' When called with an \code{\link[:f2dbNullTaskFunction.class]{f2dbNullTaskFunction}}
+#' object, `f2dbRun` returns `list(success = TRUE, output = input)`.
 #'
 #' @name f2dbRun.f2dbTaskFunction
 #' @docType methods

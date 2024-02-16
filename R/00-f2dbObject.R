@@ -20,7 +20,7 @@ methods::setClass("f2dbObject", contains = c("VIRTUAL"))
 #' no warnings or errors.}
 #' \item{output}{Run results, if any.}
 #'
-#' @name f2dbRun.generic
+#' @name f2dbRun
 #' @docType methods
 #' @family f2dbRun methods
 #' @export

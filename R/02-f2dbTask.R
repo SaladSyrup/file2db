@@ -46,7 +46,7 @@ methods::setMethod(
 #' @family f2dbTask
 #' @family file2db classes
 #' @export
-f2dbTask <- function(name = NA, taskFunction, ..., inputName = NA, itemName = NA) {
+f2dbTask <- function(name = NA, taskFunction = NA, ..., inputName = NA, itemName = NA) {
   tskFunc <- f2dbTaskFunction(taskFunction, ..., inputName, itemName)
 
   if (is.na(name)) {

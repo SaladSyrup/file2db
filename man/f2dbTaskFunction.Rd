@@ -27,11 +27,13 @@ Creates a new \code{f2dbTaskFunction} object.
 }
 \seealso{
 Other file2dbTaskFunction: 
+\code{\link{f2dbNullTaskFunction.class}},
 \code{\link{f2dbRun.f2dbTaskFunction}},
 \code{\link{f2dbTaskFunction.class}}
 
 Other file2db classes: 
 \code{\link{f2dbEndTask-class}},
+\code{\link{f2dbNullTaskFunction.class}},
 \code{\link{f2dbObject.class}},
 \code{\link{f2dbTask}},
 \code{\link{f2dbTask.class}},
