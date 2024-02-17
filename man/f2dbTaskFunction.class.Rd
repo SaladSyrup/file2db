@@ -27,18 +27,15 @@ set by \code{\link[=f2dbTaskFunction]{f2dbTaskFunction()}} and should not be mod
 }}
 
 \seealso{
-Other file2dbTaskFunction: 
-\code{\link{f2dbNullTaskFunction.class}},
+Other f2dbTaskFunction: 
 \code{\link{f2dbRun.f2dbTaskFunction}},
 \code{\link{f2dbTaskFunction}}
 
-Other file2db classes: 
+Other f2db classes: 
 \code{\link{f2dbEndTask-class}},
-\code{\link{f2dbNullTaskFunction.class}},
 \code{\link{f2dbObject.class}},
-\code{\link{f2dbTask}},
 \code{\link{f2dbTask.class}},
 \code{\link{f2dbTaskFunction}}
 }
-\concept{file2db classes}
-\concept{file2dbTaskFunction}
+\concept{f2db classes}
+\concept{f2dbTaskFunction}

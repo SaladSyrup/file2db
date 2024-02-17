@@ -9,12 +9,10 @@ Base class from which all other f2db classes descend. This is a
 virtual class.
 }
 \seealso{
-Other file2db classes: 
+Other f2db classes: 
 \code{\link{f2dbEndTask-class}},
-\code{\link{f2dbNullTaskFunction.class}},
-\code{\link{f2dbTask}},
 \code{\link{f2dbTask.class}},
 \code{\link{f2dbTaskFunction}},
 \code{\link{f2dbTaskFunction.class}}
 }
-\concept{file2db classes}
+\concept{f2db classes}

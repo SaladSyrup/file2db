@@ -19,8 +19,8 @@
 #'
 #' @name f2dbTaskFunction.class
 #' @docType class
-#' @family file2dbTaskFunction
-#' @family file2db classes
+#' @family f2dbTaskFunction
+#' @family f2db classes
 #' @export
 methods::setClass("f2dbTaskFunction",
   contains = "f2dbObject",
@@ -47,8 +47,8 @@ methods::setClass("f2dbTaskFunction",
 #'
 #' @returns An `f2dbTaskFunction` object
 #'
-#' @family file2dbTaskFunction
-#' @family file2db classes
+#' @family f2dbTaskFunction
+#' @family f2db classes
 #' @export
 f2dbTaskFunction <- function(taskFunction = NA, ..., inputName = NA, itemName = NA) {
   taskFunction <- rlang::enexpr(taskFunction)
@@ -85,7 +85,7 @@ f2dbTaskFunction <- function(taskFunction = NA, ..., inputName = NA, itemName = 
 #'
 #' @name f2dbRun.f2dbTaskFunction
 #' @docType methods
-#' @family file2dbTaskFunction
+#' @family f2dbTaskFunction
 #' @family f2dbRun methods
 #' @export
 methods::setMethod(

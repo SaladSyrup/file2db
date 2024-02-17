@@ -9,18 +9,8 @@ A do-nothing, pass-through task function. This is the default task function
 when creating a new \code{f2dbTask} object.
 }
 \seealso{
-Other file2dbTaskFunction: 
-\code{\link{f2dbRun.f2dbTaskFunction}},
-\code{\link{f2dbTaskFunction}},
-\code{\link{f2dbTaskFunction.class}}
-
 Other file2db classes: 
-\code{\link{f2dbEndTask-class}},
-\code{\link{f2dbObject.class}},
-\code{\link{f2dbTask}},
-\code{\link{f2dbTask.class}},
-\code{\link{f2dbTaskFunction}},
-\code{\link{f2dbTaskFunction.class}}
+\code{\link{f2dbTask}}
 }
 \concept{file2db classes}
 \concept{file2dbTaskFunction}

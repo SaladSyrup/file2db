@@ -5,7 +5,7 @@
 #'
 #' @name f2dbObject.class
 #' @docType class
-#' @family file2db classes
+#' @family f2db classes
 #' @export
 methods::setClass("f2dbObject", contains = c("VIRTUAL"))
 

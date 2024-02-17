@@ -4,7 +4,14 @@
 \alias{f2dbTask}
 \title{f2dbTask}
 \usage{
-f2dbTask(name = NA, taskFunction, ..., inputName = NA, itemName = NA)
+f2dbTask(
+  name = NA,
+  taskFunction = NA,
+  ...,
+  inputName = NA,
+  itemName = NA,
+  env = rlang::caller_env()
+)
 }
 \arguments{
 \item{name}{Task name. This name normally be should be unique within the job.}
@@ -29,12 +36,7 @@ Other f2dbTask:
 \code{\link{f2dbTask.class}}
 
 Other file2db classes: 
-\code{\link{f2dbEndTask-class}},
-\code{\link{f2dbNullTaskFunction.class}},
-\code{\link{f2dbObject.class}},
-\code{\link{f2dbTask.class}},
-\code{\link{f2dbTaskFunction}},
-\code{\link{f2dbTaskFunction.class}}
+\code{\link{f2dbNullTaskFunction.class}}
 }
 \concept{f2dbTask}
 \concept{file2db classes}

@@ -32,8 +32,7 @@ When called with an \code{\link[:f2dbNullTaskFunction.class]{f2dbNullTaskFunctio
 object, \code{f2dbRun} returns \code{list(success = TRUE, output = input)}.
 }
 \seealso{
-Other file2dbTaskFunction: 
-\code{\link{f2dbNullTaskFunction.class}},
+Other f2dbTaskFunction: 
 \code{\link{f2dbTaskFunction}},
 \code{\link{f2dbTaskFunction.class}}
 
@@ -41,4 +40,4 @@ Other f2dbRun methods:
 \code{\link{f2dbRun}()}
 }
 \concept{f2dbRun methods}
-\concept{file2dbTaskFunction}
+\concept{f2dbTaskFunction}

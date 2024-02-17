@@ -4,7 +4,7 @@
 \alias{f2dbTaskFunction}
 \title{f2dbTaskFunction}
 \usage{
-f2dbTaskFunction(taskFunction, ..., inputName = NA, itemName = NA)
+f2dbTaskFunction(taskFunction = NA, ..., inputName = NA, itemName = NA)
 }
 \arguments{
 \item{taskFunction}{Function to call when running the task}
@@ -26,18 +26,15 @@ An \code{f2dbTaskFunction} object
 Creates a new \code{f2dbTaskFunction} object.
 }
 \seealso{
-Other file2dbTaskFunction: 
-\code{\link{f2dbNullTaskFunction.class}},
+Other f2dbTaskFunction: 
 \code{\link{f2dbRun.f2dbTaskFunction}},
 \code{\link{f2dbTaskFunction.class}}
 
-Other file2db classes: 
+Other f2db classes: 
 \code{\link{f2dbEndTask-class}},
-\code{\link{f2dbNullTaskFunction.class}},
 \code{\link{f2dbObject.class}},
-\code{\link{f2dbTask}},
 \code{\link{f2dbTask.class}},
 \code{\link{f2dbTaskFunction.class}}
 }
-\concept{file2db classes}
-\concept{file2dbTaskFunction}
+\concept{f2db classes}
+\concept{f2dbTaskFunction}

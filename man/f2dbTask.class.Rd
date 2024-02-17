@@ -23,13 +23,11 @@ This value is set when adding tasks to a job and should not be modified.}
 Other f2dbTask: 
 \code{\link{f2dbTask}}
 
-Other file2db classes: 
+Other f2db classes: 
 \code{\link{f2dbEndTask-class}},
-\code{\link{f2dbNullTaskFunction.class}},
 \code{\link{f2dbObject.class}},
-\code{\link{f2dbTask}},
 \code{\link{f2dbTaskFunction}},
 \code{\link{f2dbTaskFunction.class}}
 }
+\concept{f2db classes}
 \concept{f2dbTask}
-\concept{file2db classes}

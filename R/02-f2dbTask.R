@@ -11,7 +11,7 @@
 #' @name f2dbTask.class
 #' @docType class
 #' @family f2dbTask
-#' @family file2db classes
+#' @family f2db classes
 #' @export
 methods::setClass("f2dbTask",
   contains = c("f2dbObject"),
@@ -21,7 +21,7 @@ methods::setClass("f2dbTask",
     nextTask = "f2dbObject"
   ),
   prototype = list(
-    name = "<UNNAMED>",
+    name = "",
     taskFunction = NULL,
     nextTask = NULL
   )
@@ -40,18 +40,23 @@ methods::setMethod(
 #'
 #' Creates a new `f2dbTask` object.
 #'
-#' @param name Task name. This name normally be should be unique within the job.
+#' @param name Task name
 #' @inheritParams f2dbTaskFunction
 #'
 #' @family f2dbTask
 #' @family file2db classes
 #' @export
-f2dbTask <- function(name = NA, taskFunction = NA, ..., inputName = NA, itemName = NA) {
-  tskFunc <- f2dbTaskFunction(taskFunction, ..., inputName, itemName)
+f2dbTask <- function(name = NA, taskFunction = NA, ..., inputName = NA, itemName = NA, env = rlang::caller_env()) {
+  taskFunction <- rlang::enexpr(taskFunction)
+  taskFunctionDots <- rlang::enexprs(...)
+  inputName <- rlang::enexpr(inputName)
+  itemName <- rlang::enexpr(itemName)
+  taskFunctionCall <- rlang::expr(f2dbTaskFunction(taskFunction = !!taskFunction, !!!taskFunctionDots, inputName = !!inputName, itemName = !!itemName))
+  taskFunction <- eval(taskFunctionCall, env)
 
   if (is.na(name)) {
     name <- "<UNNAMED>"
   }
 
-  methods::new("f2dbTask", name = name, taskFunction = tskFunc)
+  methods::new("f2dbTask", name = name, taskFunction = taskFunction)
 }

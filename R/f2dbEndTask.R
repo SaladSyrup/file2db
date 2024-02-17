@@ -6,7 +6,7 @@
 #'
 #' @name f2dbEndTask-class
 #' @docType class
-#' @family file2db classes
+#' @family f2db classes
 #' @export
 methods::setClass("f2dbEndTask",
   contains = c("f2dbTask"),
