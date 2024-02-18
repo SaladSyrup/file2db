@@ -19,7 +19,7 @@ Generic method for running an f2dbObject.
 }
 \seealso{
 Other f2dbRun methods: 
-\code{\link{f2dbRun.f2dbTask}},
-\code{\link{f2dbRun.f2dbTaskFunction}}
+\code{\link{f2dbRun,f2dbTask-method}},
+\code{\link{f2dbRun,f2dbTaskFunction-method}}
 }
 \concept{f2dbRun methods}

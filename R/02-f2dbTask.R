@@ -8,7 +8,7 @@
 #' job sequence. `nextTask` takes the output of the current task as its input.
 #' This value is set when adding tasks to a job and should not be modified.
 #'
-#' @name f2dbTask.class
+#' @name f2dbTask-class
 #' @docType class
 #' @family f2dbTask
 #' @family f2db classes
@@ -72,11 +72,11 @@ f2dbTask <- function(name = NA, taskFunction = NA, ..., inputName = NA, itemName
 #'
 #' @param object An `f2dbTask` object
 #' @param input Task input
-#' @inherit f2dbRun.f2dbTaskFunction params
+#' @inherit f2dbRun,f2dbTaskFunction-method params
 #'
 #' @inherit f2dbRun return
 #'
-#' @name f2dbRun.f2dbTask
+#' @name f2dbRun,f2dbTask-method
 #' @docType methods
 #' @family f2dbTask
 #' @family f2dbRun methods

@@ -18,7 +18,7 @@
 #' set by [f2dbTaskFunction()] and should not be modified.
 #' @param env Environment in which the task function will be executed
 #'
-#' @name f2dbTaskFunction.class
+#' @name f2dbTaskFunction-class
 #' @docType class
 #' @family f2dbTaskFunction
 #' @family f2db classes
@@ -83,7 +83,7 @@ f2dbTaskFunction <- function(taskFunction = NA, ..., inputName = NA, itemName = 
 #'
 #' @inherit f2dbRun return
 #'
-#' @name f2dbRun.f2dbTaskFunction
+#' @name f2dbRun,f2dbTaskFunction-method
 #' @docType methods
 #' @family f2dbTaskFunction
 #' @family f2dbRun methods
