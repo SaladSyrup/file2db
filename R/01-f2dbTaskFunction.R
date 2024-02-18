@@ -93,7 +93,8 @@ f2dbTaskFunction <- function(taskFunction = NA,
 #' @family f2dbTaskFunction
 #' @family f2dbRun methods
 #' @export
-methods::setMethod("f2dbRun", "f2dbTaskFunction",
+methods::setMethod(
+  "f2dbRun", "f2dbTaskFunction",
   function(object, input = NA, item = NA) {
     callEnv <- rlang::env(object@env, taskInput = input, batchItem = item)
 

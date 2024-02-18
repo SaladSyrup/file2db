@@ -40,7 +40,8 @@ methods::setClass("f2dbTask",
 #' @name initialize,f2dbTask-method
 #' @docType methods
 #' @noRd
-methods::setMethod("initialize", "f2dbTask",
+methods::setMethod(
+  "initialize", "f2dbTask",
   function(.Object, ...) {
     .Object@nextTask <- methods::new("f2dbEndTask")
     methods::callNextMethod()
@@ -57,11 +58,11 @@ methods::setMethod("initialize", "f2dbTask",
 #' @family f2dbTask
 #' @export
 f2dbTask <- function(name = NA,
-                    taskFunction = NA,
-                    ...,
-                    inputName = NA,
-                    itemName = NA,
-                    env = rlang::caller_env()) {
+                     taskFunction = NA,
+                     ...,
+                     inputName = NA,
+                     itemName = NA,
+                     env = rlang::caller_env()) {
   if (is.na(name)) {
     name <- "<UNNAMED>"
   }
@@ -97,7 +98,8 @@ f2dbTask <- function(name = NA,
 #' @family f2dbTask
 #' @family f2dbRun methods
 #' @export
-methods::setMethod("f2dbRun", "f2dbTask",
+methods::setMethod(
+  "f2dbRun", "f2dbTask",
   function(object, input = NA, item = NA) {
     functionOutput <- f2dbRun(object@taskFunction, input, item)
 
