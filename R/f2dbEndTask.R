@@ -54,11 +54,10 @@ methods::setMethod(
 #' @name initialize,f2dbEndTask-method
 #' @docType methods
 #' @noRd
-methods::setMethod("initialize", "f2dbEndTask",
-   function(.Object, name, taskFunction, nextTask) {
-     .Object@name <- name;
-  .Object
-}
+methods::setMethod(
+  "initialize", "f2dbEndTask",
+  function(.Object, name, taskFunction, nextTask) {
+    .Object@name <- name
+    .Object
+  }
 )
-
-
