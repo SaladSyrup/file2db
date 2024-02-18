@@ -21,6 +21,7 @@ This value is set when adding tasks to a job and should not be modified.}
 
 \seealso{
 Other f2dbTask: 
+\code{\link{f2dbRun.f2dbTask}},
 \code{\link{f2dbTask}}
 
 Other f2db classes: 

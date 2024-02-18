@@ -24,17 +24,14 @@ no warnings or errors.}
 \description{
 Runs the given task function.
 }
-\details{
-When called with an \code{\link[:f2dbNullTaskFunction.class]{f2dbNullTaskFunction}}
-object, \code{f2dbRun} returns \code{list(success = TRUE, output = input)}.
-}
 \seealso{
 Other f2dbTaskFunction: 
 \code{\link{f2dbTaskFunction}},
 \code{\link{f2dbTaskFunction.class}}
 
 Other f2dbRun methods: 
-\code{\link{f2dbRun}()}
+\code{\link{f2dbRun}()},
+\code{\link{f2dbRun.f2dbTask}}
 }
 \concept{f2dbRun methods}
 \concept{f2dbTaskFunction}

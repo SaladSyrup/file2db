@@ -13,7 +13,7 @@ actual work of the task. Along with the \code{\link[:f2dbRun.f2dbTaskFunction]{f
 method, this class is responsible for:
 \enumerate{
 \item Calling the underlying task function
-\item Capturing and logging any warnings or errors
+\item Capturing any warnings or errors
 \item Returning task function output
 \item Returning whether or not the task executed successfully
 }

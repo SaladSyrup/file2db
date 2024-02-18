@@ -6,7 +6,7 @@
 #' method, this class is responsible for:
 #'
 #' 1. Calling the underlying task function
-#' 1. Capturing and logging any warnings or errors
+#' 1. Capturing any warnings or errors
 #' 1. Returning task function output
 #' 1. Returning whether or not the task executed successfully
 #'
@@ -83,10 +83,6 @@ f2dbTaskFunction <- function(taskFunction = NA, ..., inputName = NA, itemName = 
 #'
 #' @inherit f2dbRun return
 #'
-#' @details
-#' When called with an \code{\link[:f2dbNullTaskFunction.class]{f2dbNullTaskFunction}}
-#' object, `f2dbRun` returns `list(success = TRUE, output = input)`.
-#'
 #' @name f2dbRun.f2dbTaskFunction
 #' @docType methods
 #' @family f2dbTaskFunction
@@ -102,8 +98,3 @@ methods::setMethod(
     list(success = TRUE, ouput = output)
   }
 )
-
-#' f2dbPassThrough
-#'
-#' A do-nothing, pass-through task function.
-f2dbPassThrough <- function(input) input

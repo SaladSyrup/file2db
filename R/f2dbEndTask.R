@@ -19,3 +19,12 @@ methods::setClass("f2dbEndTask",
 #'
 #' This initializer explicitly avoids calling the parent f2dbTask initializer.
 methods::setMethod("initialize", "f2dbEndTask", function(.Object) .Object)
+
+#' @rdname f2dbRun.f2dbTask
+#' @export
+methods::setMethod(
+  "f2dbRun", "f2dbEndTask",
+  function(object, input = NA, item = NA) {
+    list(success = TRUE, output = object@name)
+  }
+)
