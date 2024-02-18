@@ -16,7 +16,7 @@
 #'
 #' @slot taskFunction A call to the underlying task function. `taskFunction` is
 #' set by [f2dbTaskFunction()] and should not be modified.
-#' @param env Environment in which the task function will be executed
+#' @slot env Environment in which the task function will be executed
 #'
 #' @name f2dbTaskFunction-class
 #' @docType class
@@ -52,7 +52,6 @@ methods::setClass("f2dbTaskFunction",
 #' @returns An `f2dbTaskFunction` object
 #'
 #' @family f2dbTaskFunction
-#' @family f2db classes
 #' @export
 f2dbTaskFunction <- function(taskFunction = NA, ..., inputName = NA, itemName = NA, env = rlang::caller_env()) {
   taskFunction <- rlang::enexpr(taskFunction)

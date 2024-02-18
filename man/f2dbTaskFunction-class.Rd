@@ -4,9 +4,6 @@
 \name{f2dbTaskFunction-class}
 \alias{f2dbTaskFunction-class}
 \title{f2dbTaskFunction class}
-\arguments{
-\item{env}{Environment in which the task function will be executed}
-}
 \description{
 The \code{f2dbTaskFunction} class encapsulates the function that accomplishes the
 actual work of the task. Along with the \code{f2dbRun} method, this class is
@@ -27,6 +24,8 @@ listed above and implement the \code{f2dbRun} generic method.
 \describe{
 \item{\code{taskFunction}}{A call to the underlying task function. \code{taskFunction} is
 set by \code{\link[=f2dbTaskFunction]{f2dbTaskFunction()}} and should not be modified.}
+
+\item{\code{env}}{Environment in which the task function will be executed}
 }}
 
 \seealso{
@@ -36,9 +35,9 @@ Other f2dbTaskFunction:
 
 Other f2db classes: 
 \code{\link{f2dbEndTask-class}},
+\code{\link{f2dbJob-class}},
 \code{\link{f2dbObject-class}},
-\code{\link{f2dbTask-class}},
-\code{\link{f2dbTaskFunction}}
+\code{\link{f2dbTask-class}}
 }
 \concept{f2db classes}
 \concept{f2dbTaskFunction}

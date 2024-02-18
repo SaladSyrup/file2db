@@ -54,7 +54,6 @@ methods::setMethod(
 #' @inheritParams f2dbTaskFunction
 #'
 #' @family f2dbTask
-#' @family file2db classes
 #' @export
 f2dbTask <- function(name = NA, taskFunction = NA, ..., inputName = NA, itemName = NA, env = rlang::caller_env()) {
   if (is.na(name)) {

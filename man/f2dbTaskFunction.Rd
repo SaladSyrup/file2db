@@ -37,12 +37,5 @@ Creates a new \code{f2dbTaskFunction} object.
 Other f2dbTaskFunction: 
 \code{\link{f2dbRun,f2dbTaskFunction-method}},
 \code{\link{f2dbTaskFunction-class}}
-
-Other f2db classes: 
-\code{\link{f2dbEndTask-class}},
-\code{\link{f2dbObject-class}},
-\code{\link{f2dbTask-class}},
-\code{\link{f2dbTaskFunction-class}}
 }
-\concept{f2db classes}
 \concept{f2dbTaskFunction}

@@ -26,8 +26,8 @@ Other f2dbTask:
 
 Other f2db classes: 
 \code{\link{f2dbEndTask-class}},
+\code{\link{f2dbJob-class}},
 \code{\link{f2dbObject-class}},
-\code{\link{f2dbTaskFunction}},
 \code{\link{f2dbTaskFunction-class}}
 }
 \concept{f2db classes}

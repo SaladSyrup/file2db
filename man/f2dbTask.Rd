@@ -39,4 +39,3 @@ Other f2dbTask:
 \code{\link{f2dbTask-class}}
 }
 \concept{f2dbTask}
-\concept{file2db classes}

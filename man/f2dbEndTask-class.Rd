@@ -15,9 +15,9 @@ A do-nothing task. This is the default nextTask for f2dbTask instances.
 
 \seealso{
 Other f2db classes: 
+\code{\link{f2dbJob-class}},
 \code{\link{f2dbObject-class}},
 \code{\link{f2dbTask-class}},
-\code{\link{f2dbTaskFunction}},
 \code{\link{f2dbTaskFunction-class}}
 }
 \concept{f2db classes}
