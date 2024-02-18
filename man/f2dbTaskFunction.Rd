@@ -37,6 +37,7 @@ An \code{f2dbTaskFunction} object.
 \seealso{
 Other f2dbTaskFunction: 
 \code{\link{f2dbRun,f2dbTaskFunction-method}},
-\code{\link{f2dbTaskFunction-class}}
+\code{\link{f2dbTaskFunction-class}},
+\code{\link{taskCall-method}}
 }
 \concept{f2dbTaskFunction}

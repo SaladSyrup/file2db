@@ -22,7 +22,7 @@ responsibilities listed above and implement the \code{\link[=f2dbRun]{f2dbRun()}
 \section{Slots}{
 
 \describe{
-\item{\code{taskFunction}}{A call to the underlying task function.}
+\item{\code{taskCall}}{A call to the underlying task function.}
 
 \item{\code{env}}{Environment in which the task function will be executed.}
 }}
@@ -30,7 +30,8 @@ responsibilities listed above and implement the \code{\link[=f2dbRun]{f2dbRun()}
 \seealso{
 Other f2dbTaskFunction: 
 \code{\link{f2dbRun,f2dbTaskFunction-method}},
-\code{\link{f2dbTaskFunction}}
+\code{\link{f2dbTaskFunction}},
+\code{\link{taskCall-method}}
 
 Other f2db classes: 
 \code{\link{f2dbEndTask-class}},

@@ -14,7 +14,7 @@
 #' Classes inheriting from `f2dbTaskFunction` should fulfill the
 #' responsibilities listed above and implement the [f2dbRun()] generic method.
 #'
-#' @slot taskFunction A call to the underlying task function.
+#' @slot taskCall A call to the underlying task function.
 #' @slot env Environment in which the task function will be executed.
 #'
 #' @name f2dbTaskFunction-class
@@ -25,11 +25,11 @@
 methods::setClass("f2dbTaskFunction",
   contains = "f2dbObject",
   slots = c(
-    taskFunction = "call",
+    taskCall = "call",
     env = "environment"
   ),
   prototype = list(
-    taskFunction = NULL,
+    taskCall = NULL,
     env = NULL
   )
 )
@@ -78,8 +78,36 @@ f2dbTaskFunction <- function(taskFunction,
     params[[itemName]] <- rlang::expr(batchItem)
   }
 
-  methods::new("f2dbTaskFunction", taskFunction = rlang::call2(taskFunction, !!!params), env = env)
+  methods::new("f2dbTaskFunction", taskCall = rlang::call2(taskFunction, !!!params), env = env)
 }
+
+#-------------------------------------------------------------------------------
+#' taskCall
+#'
+#' Returns the task call of an `f2dbTaskFunction`.
+#'
+#' @param object An `f2dbTaskFunction` object
+#'
+#' @returns The `taskCall` evaluated when the given `f2dbTaskFunction` is run.
+#'
+#' @name taskCall-method
+#' @aliases taskCall
+#' @docType methods
+#' @family f2dbTaskFunction
+#' @family f2dbTaskFunction methods
+#' @export
+methods::setGeneric("taskCall",
+                    function(object) standardGeneric("taskCall"),
+                    signature = "object"
+)
+
+#-------------------------------------------------------------------------------
+#' @name taskCall,f2dbTaskFunction-method
+#' @rdname taskCall-method
+#' @export
+methods::setMethod("taskCall", "f2dbTaskFunction", function(object) {
+  object@taskCall
+})
 
 #-------------------------------------------------------------------------------
 #' f2dbRun
@@ -95,14 +123,15 @@ f2dbTaskFunction <- function(taskFunction,
 #' @name f2dbRun,f2dbTaskFunction-method
 #' @docType methods
 #' @family f2dbTaskFunction
+#' @family f2dbTaskFunction methods
 #' @family f2dbRun methods
 #' @export
 methods::setMethod(
   "f2dbRun", "f2dbTaskFunction",
-  function(object, input, item) {
+  function(object, input = NA, item = NA) {
     callEnv <- rlang::env(object@env, taskInput = input, batchItem = item)
 
-    output <- eval(object@taskFunction, callEnv)
+    output <- eval(object@taskCall, callEnv)
 
     list(success = TRUE, ouput = output)
   }

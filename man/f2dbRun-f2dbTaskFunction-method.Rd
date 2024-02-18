@@ -27,7 +27,11 @@ Runs the given task function.
 \seealso{
 Other f2dbTaskFunction: 
 \code{\link{f2dbTaskFunction}},
-\code{\link{f2dbTaskFunction-class}}
+\code{\link{f2dbTaskFunction-class}},
+\code{\link{taskCall-method}}
+
+Other f2dbTaskFunction methods: 
+\code{\link{taskCall-method}}
 
 Other f2dbRun methods: 
 \code{\link{f2dbRun,f2dbTask-method}},
@@ -35,3 +39,4 @@ Other f2dbRun methods:
 }
 \concept{f2dbRun methods}
 \concept{f2dbTaskFunction}
+\concept{f2dbTaskFunction methods}

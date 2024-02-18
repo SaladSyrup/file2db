@@ -28,59 +28,34 @@ methods::setClass("f2dbTask",
 )
 
 #-------------------------------------------------------------------------------
-#' initialize
-#'
-#' Initializer function for `f2dbTask` objects.
-#'
-#' @param .Object `f2dbTask` object.
-#' @param ... <[`dynamic-dots`][rlang::dyn-dots]> Extra parameters.
-#'
-#' @returns Initialized `f2dbTask` object.
-#'
-#' @name initialize,f2dbTask-method
-#' @docType methods
-#' @noRd
-methods::setMethod(
-  "initialize", "f2dbTask",
-  function(.Object, ...) {
-    .Object@nextTask <- f2dbEndTask()
-    methods::callNextMethod()
-  }
-)
-
-#-------------------------------------------------------------------------------
 #' f2dbTask
 #'
-#' Creates a new `f2dbTask` object.
+#' `f2dbTask` constructor.
 #'
 #' @param name Task name.
 #' @inheritParams f2dbTaskFunction
 #'
+#' @returns An `f2dbTask` object.
+#'
 #' @family f2dbTask
 #' @export
-f2dbTask <- function(name = NA,
-                     taskFunction = NA,
+f2dbTask <- function(name,
+                     taskFunction,
                      ...,
-                     inputName = NA,
-                     itemName = NA,
+                     inputName,
+                     itemName,
                      env = rlang::caller_env()) {
-  if (is.na(name)) {
-    name <- "<UNNAMED>"
-  }
+  if (!methods::hasArg(name)) name <- "<UNNAMED>"
 
-  if (missing(taskFunction)) {
-    # Default do-nothing task function
-    taskFunction <- f2dbTaskFunction(function(x) x)
-  } else {
-    taskFunction <- rlang::enexpr(taskFunction)
-    taskFunctionDots <- rlang::enexprs(...)
-    inputName <- rlang::enexpr(inputName)
-    itemName <- rlang::enexpr(itemName)
-    taskFunctionCall <- rlang::expr(f2dbTaskFunction(taskFunction = !!taskFunction, !!!taskFunctionDots, inputName = !!inputName, itemName = !!itemName))
-    taskFunction <- eval(taskFunctionCall, env)
-  }
+  params <- list()
+  if (methods::hasArg(taskFunction)) params[["taskFunction"]] <- rlang::enexpr(taskFunction)
+  params <- c(params, rlang::enexprs(...))
+  if (methods::hasArg(inputName)) params[["inputName"]] <- rlang::enexpr(inputName)
+  if (methods::hasArg(itemName)) params[["itemName"]] <- rlang::enexpr(itemName)
+  taskFunctionCall <- rlang::expr(f2dbTaskFunction(!!!params))
+  taskFunction <- eval(taskFunctionCall, env)
 
-  methods::new("f2dbTask", name = name, taskFunction = taskFunction)
+  methods::new("f2dbTask", name = name, taskFunction = taskFunction, nextTask = f2dbEndTask())
 }
 
 #-------------------------------------------------------------------------------

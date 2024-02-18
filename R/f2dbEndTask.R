@@ -44,10 +44,11 @@ methods::setMethod(
 #'
 #' This initializer explicitly does not call the superclass `f2dbTask`
 #' initializer to avoid complaints about `taskFunction` and `nextTask` being set
-#' to `NULL`. This is acceptable because `f2dbRun` will not attempt to call run
+#' to `NULL`. This is acceptable because `f2dbRun` will not attempt to run
 #' either one.
 #'
 #' @param .Object `f2dbEndTask` object.
+#' @param name <ENDTASK>
 #'
 #' @returns `f2dbEndTask` object.
 #'
@@ -56,7 +57,7 @@ methods::setMethod(
 #' @noRd
 methods::setMethod(
   "initialize", "f2dbEndTask",
-  function(.Object, name, taskFunction, nextTask) {
+  function(.Object, name) {
     .Object@name <- name
     .Object
   }
