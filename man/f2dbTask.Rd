@@ -36,9 +36,6 @@ Creates a new \code{f2dbTask} object.
 \seealso{
 Other f2dbTask: 
 \code{\link{f2dbTask.class}}
-
-Other file2db classes: 
-\code{\link{f2dbNullTaskFunction.class}}
 }
 \concept{f2dbTask}
 \concept{file2db classes}

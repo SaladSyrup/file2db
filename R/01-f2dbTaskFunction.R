@@ -102,3 +102,8 @@ methods::setMethod(
     list(success = TRUE, ouput = output)
   }
 )
+
+#' f2dbPassThrough
+#'
+#' A do-nothing, pass-through task function.
+f2dbPassThrough <- function(input) input

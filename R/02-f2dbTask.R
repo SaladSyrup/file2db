@@ -47,12 +47,16 @@ methods::setMethod(
 #' @family file2db classes
 #' @export
 f2dbTask <- function(name = NA, taskFunction = NA, ..., inputName = NA, itemName = NA, env = rlang::caller_env()) {
+  if (is.na(taskFunction)) {
+    taskFunction <- f2dbTaskFunction(function(x) x)
+  } else {
   taskFunction <- rlang::enexpr(taskFunction)
   taskFunctionDots <- rlang::enexprs(...)
   inputName <- rlang::enexpr(inputName)
   itemName <- rlang::enexpr(itemName)
   taskFunctionCall <- rlang::expr(f2dbTaskFunction(taskFunction = !!taskFunction, !!!taskFunctionDots, inputName = !!inputName, itemName = !!itemName))
   taskFunction <- eval(taskFunctionCall, env)
+  }
 
   if (is.na(name)) {
     name <- "<UNNAMED>"
