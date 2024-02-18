@@ -9,8 +9,8 @@
 }
 \description{
 The \code{f2dbTaskFunction} class encapsulates the function that accomplishes the
-actual work of the task. Along with the \code{\link[:f2dbRun.f2dbTaskFunction]{f2dbRun()}}
-method, this class is responsible for:
+actual work of the task. Along with the \code{f2dbRun} method, this class is
+responsible for:
 \enumerate{
 \item Calling the underlying task function
 \item Capturing any warnings or errors

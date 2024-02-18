@@ -27,7 +27,17 @@ methods::setClass("f2dbTask",
   )
 )
 
-#' Default initialize function for f2dbTask objects
+#' initialize
+#'
+#' Initializer function for f2dbTask objects.
+#'
+#' @param .Object f2dbTask object
+#' @param ... <[`dynamic-dots`][rlang::dyn-dots]> Extra parameters
+#'
+#' @returns Initialized f2dbTask object
+#'
+#' @name initialize,f2dbTask-method
+#' @docType methods
 methods::setMethod(
   "initialize", "f2dbTask",
   function(.Object, ...) {
@@ -74,7 +84,7 @@ f2dbTask <- function(name = NA, taskFunction = NA, ..., inputName = NA, itemName
 #' @param input Task input
 #' @inherit f2dbRun,f2dbTaskFunction-method params
 #'
-#' @inherit f2dbRun return
+#' @inherit f2dbRun-method return
 #'
 #' @name f2dbRun,f2dbTask-method
 #' @docType methods

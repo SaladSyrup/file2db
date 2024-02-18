@@ -18,7 +18,7 @@ f2dbTask(
 
 \item{taskFunction}{Function to call when running the task}
 
-\item{...}{Parameters to pass to the task function}
+\item{...}{<\code{\link[rlang:dyn-dots]{dynamic-dots}}> Parameters passed to the task function}
 
 \item{inputName}{By default, task input is passed to the task function as an
 unnamed first parameter. If \code{inputName} is provided, task input will be passed

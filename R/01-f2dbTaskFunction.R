@@ -2,8 +2,8 @@
 #'
 #' @description
 #' The `f2dbTaskFunction` class encapsulates the function that accomplishes the
-#' actual work of the task. Along with the \code{\link[:f2dbRun.f2dbTaskFunction]{f2dbRun()}}
-#' method, this class is responsible for:
+#' actual work of the task. Along with the `f2dbRun` method, this class is
+#' responsible for:
 #'
 #' 1. Calling the underlying task function
 #' 1. Capturing any warnings or errors
@@ -40,7 +40,7 @@ methods::setClass("f2dbTaskFunction",
 #' Creates a new `f2dbTaskFunction` object.
 #'
 #' @param taskFunction Function to call when running the task
-#' @param ... Parameters to pass to the task function
+#' @param ... <[`dynamic-dots`][rlang::dyn-dots]> Parameters passed to the task function
 #' @param inputName By default, task input is passed to the task function as an
 #' unnamed first parameter. If `inputName` is provided, task input will be passed
 #' using `inputName`.
@@ -81,7 +81,7 @@ f2dbTaskFunction <- function(taskFunction = NA, ..., inputName = NA, itemName = 
 #' @param input Task input to pass to the task function
 #' @param item The current item being processed
 #'
-#' @inherit f2dbRun return
+#' @inherit f2dbRun-method return
 #'
 #' @name f2dbRun,f2dbTaskFunction-method
 #' @docType methods

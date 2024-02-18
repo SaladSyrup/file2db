@@ -15,12 +15,22 @@ methods::setClass("f2dbEndTask",
   )
 )
 
-#' Initialize function for f2dbEndTask objects
+#' initialize
 #'
-#' This initializer explicitly avoids calling the parent f2dbTask initializer.
+#' Initializer function for f2dbEndTask objects. This initializer explicitly
+#' avoids calling the parent f2dbTask initializer.
+#'
+#' @param .Object f2dbEndTask object
+#'
+#' @returns Initialized f2dbEndTask object
+#'
+#' @name initialize,f2dbEndTask-method
+#' @docType methods
 methods::setMethod("initialize", "f2dbEndTask", function(.Object) .Object)
 
-#' @rdname f2dbRun,f2dbTask-method
+#' f2dbRun
+#' @name f2dbRun,f2dbEndTask-method
+#' @rdname f2dbRun-f2dbTask-method
 #' @export
 methods::setMethod(
   "f2dbRun", "f2dbEndTask",

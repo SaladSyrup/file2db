@@ -30,8 +30,8 @@ Other f2dbTaskFunction:
 \code{\link{f2dbTaskFunction-class}}
 
 Other f2dbRun methods: 
-\code{\link{f2dbRun}()},
-\code{\link{f2dbRun,f2dbTask-method}}
+\code{\link{f2dbRun,f2dbTask-method}},
+\code{\link{f2dbRun-method}}
 }
 \concept{f2dbRun methods}
 \concept{f2dbTaskFunction}
