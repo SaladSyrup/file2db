@@ -9,20 +9,20 @@
 f2dbRun(object, ...)
 }
 \arguments{
-\item{object}{An f2dbObject to run}
+\item{object}{An \code{f2dbObject} to run}
 
-\item{...}{<\code{\link[rlang:dyn-dots]{dynamic-dots}}> Parameters passed to class-specific
-\code{f2dbRun} implementations.}
+\item{...}{<\code{\link[rlang:dyn-dots]{dynamic-dots}}> Parameters passed to
+class-specific \code{f2dbRun} implementations.}
 }
 \value{
-A list
+A list:
 \item{success}{Logical value indicating success (\code{TRUE}) or failure (\code{FALSE}).
-Success only indicates that it is safe to proceed; it does not mean there are
-no warnings or errors.}
+Success only indicates that it is safe to proceed; it does not mean there
+are no warnings or errors.}
 \item{output}{Run results, if any.}
 }
 \description{
-Generic method for running an f2dbObject.
+Generic method for running an \code{f2dbObject}.
 }
 \seealso{
 Other f2dbRun methods: 

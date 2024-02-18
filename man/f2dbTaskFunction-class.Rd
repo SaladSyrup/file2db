@@ -6,26 +6,25 @@
 \title{f2dbTaskFunction class}
 \description{
 The \code{f2dbTaskFunction} class encapsulates the function that accomplishes the
-actual work of the task. Along with the \code{f2dbRun} method, this class is
+actual work of the task. Along with \code{\link[=f2dbRun]{f2dbRun()}} method, this class is
 responsible for:
 \enumerate{
-\item Calling the underlying task function
-\item Capturing any warnings or errors
-\item Returning task function output
-\item Returning whether or not the task executed successfully
+\item Calling the underlying task function.
+\item Capturing any warnings or errors.
+\item Returning task function output.
+\item Returning whether or not the task executed successfully.
 }
 }
 \details{
-Classes inheriting from \code{f2dbTaskFunction} should fulfill the responsibilities
-listed above and implement the \code{f2dbRun} generic method.
+Classes inheriting from \code{f2dbTaskFunction} should fulfill the
+responsibilities listed above and implement the \code{\link[=f2dbRun]{f2dbRun()}} generic method.
 }
 \section{Slots}{
 
 \describe{
-\item{\code{taskFunction}}{A call to the underlying task function. \code{taskFunction} is
-set by \code{\link[=f2dbTaskFunction]{f2dbTaskFunction()}} and should not be modified.}
+\item{\code{taskFunction}}{A call to the underlying task function.}
 
-\item{\code{env}}{Environment in which the task function will be executed}
+\item{\code{env}}{Environment in which the task function will be executed.}
 }}
 
 \seealso{

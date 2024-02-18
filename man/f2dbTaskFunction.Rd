@@ -13,22 +13,23 @@ f2dbTaskFunction(
 )
 }
 \arguments{
-\item{taskFunction}{Function to call when running the task}
+\item{taskFunction}{Function to call when running the task.}
 
-\item{...}{<\code{\link[rlang:dyn-dots]{dynamic-dots}}> Parameters passed to the task function}
+\item{...}{<\code{\link[rlang:dyn-dots]{dynamic-dots}}> Parameters passed to the task
+function.}
 
 \item{inputName}{By default, task input is passed to the task function as an
-unnamed first parameter. If \code{inputName} is provided, task input will be passed
-using \code{inputName}.}
+unnamed first parameter. If \code{inputName} is provided, task input will be
+passed using \code{inputName}.}
 
 \item{itemName}{By default, the current batch item is not passed to the task
-function. If \code{itemName} is provided, the batch item will be passed
-using \code{itemName}.}
+function. If \code{itemName} is provided, the batch item will be passed using
+\code{itemName}.}
 
-\item{env}{Environment in which the task function will be executed}
+\item{env}{Environment in which the task function will be executed.}
 }
 \value{
-An \code{f2dbTaskFunction} object
+An \code{f2dbTaskFunction} object.
 }
 \description{
 Creates a new \code{f2dbTaskFunction} object.

@@ -11,17 +11,17 @@
 \S4method{f2dbRun}{f2dbEndTask}(object, input = NA, item = NA)
 }
 \arguments{
-\item{object}{An \code{f2dbTask} object}
+\item{object}{An \code{f2dbTask} object.}
 
-\item{input}{Task input}
+\item{input}{Task input.}
 
-\item{item}{The current item being processed}
+\item{item}{The current item being processed.}
 }
 \value{
-A list
+A list:
 \item{success}{Logical value indicating success (\code{TRUE}) or failure (\code{FALSE}).
-Success only indicates that it is safe to proceed; it does not mean there are
-no warnings or errors.}
+Success only indicates that it is safe to proceed; it does not mean there
+are no warnings or errors.}
 \item{output}{Run results, if any.}
 }
 \description{

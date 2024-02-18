@@ -3,10 +3,10 @@
 #' A class for encapsulating an individual task.
 #'
 #' @slot name Task name. This name normally be should be unique within the job.
-#' @slot taskFunction An `f2dbTaskFunction` to perform the actual work of the task.
+#' @slot taskFunction An `f2dbTaskFunction` object to perform the actual work of
+#'   the task.
 #' @slot nextTask An `f2dbTaskObject` object that performs the next task in the
-#' job sequence. `nextTask` takes the output of the current task as its input.
-#' This value is set when adding tasks to a job and should not be modified.
+#'   job sequence. `nextTask` takes the output of the current task as its input.
 #'
 #' @name f2dbTask-class
 #' @docType class
@@ -27,19 +27,20 @@ methods::setClass("f2dbTask",
   )
 )
 
+#-------------------------------------------------------------------------------
 #' initialize
 #'
-#' Initializer function for f2dbTask objects.
+#' Initializer function for `f2dbTask` objects.
 #'
-#' @param .Object f2dbTask object
-#' @param ... <[`dynamic-dots`][rlang::dyn-dots]> Extra parameters
+#' @param .Object `f2dbTask` object.
+#' @param ... <[`dynamic-dots`][rlang::dyn-dots]> Extra parameters.
 #'
-#' @returns Initialized f2dbTask object
+#' @returns Initialized `f2dbTask` object.
 #'
 #' @name initialize,f2dbTask-method
 #' @docType methods
-methods::setMethod(
-  "initialize", "f2dbTask",
+#' @noRd
+methods::setMethod("initialize", "f2dbTask",
   function(.Object, ...) {
     .Object@nextTask <- methods::new("f2dbEndTask")
     methods::callNextMethod()
@@ -50,12 +51,17 @@ methods::setMethod(
 #'
 #' Creates a new `f2dbTask` object.
 #'
-#' @param name Task name
+#' @param name Task name.
 #' @inheritParams f2dbTaskFunction
 #'
 #' @family f2dbTask
 #' @export
-f2dbTask <- function(name = NA, taskFunction = NA, ..., inputName = NA, itemName = NA, env = rlang::caller_env()) {
+f2dbTask <- function(name = NA,
+                    taskFunction = NA,
+                    ...,
+                    inputName = NA,
+                    itemName = NA,
+                    env = rlang::caller_env()) {
   if (is.na(name)) {
     name <- "<UNNAMED>"
   }
@@ -75,12 +81,13 @@ f2dbTask <- function(name = NA, taskFunction = NA, ..., inputName = NA, itemName
   methods::new("f2dbTask", name = name, taskFunction = taskFunction)
 }
 
+#-------------------------------------------------------------------------------
 #' f2dbRun
 #'
 #' Executes the given task and passes output to the next task.
 #'
-#' @param object An `f2dbTask` object
-#' @param input Task input
+#' @param object An `f2dbTask` object.
+#' @param input Task input.
 #' @inherit f2dbRun,f2dbTaskFunction-method params
 #'
 #' @inherit f2dbRun-method return
@@ -90,8 +97,7 @@ f2dbTask <- function(name = NA, taskFunction = NA, ..., inputName = NA, itemName
 #' @family f2dbTask
 #' @family f2dbRun methods
 #' @export
-methods::setMethod(
-  "f2dbRun", "f2dbTask",
+methods::setMethod("f2dbRun", "f2dbTask",
   function(object, input = NA, item = NA) {
     functionOutput <- f2dbRun(object@taskFunction, input, item)
 

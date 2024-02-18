@@ -12,11 +12,11 @@ A class for encapsulating an individual task.
 \describe{
 \item{\code{name}}{Task name. This name normally be should be unique within the job.}
 
-\item{\code{taskFunction}}{An \code{f2dbTaskFunction} to perform the actual work of the task.}
+\item{\code{taskFunction}}{An \code{f2dbTaskFunction} object to perform the actual work of
+the task.}
 
 \item{\code{nextTask}}{An \code{f2dbTaskObject} object that performs the next task in the
-job sequence. \code{nextTask} takes the output of the current task as its input.
-This value is set when adding tasks to a job and should not be modified.}
+job sequence. \code{nextTask} takes the output of the current task as its input.}
 }}
 
 \seealso{

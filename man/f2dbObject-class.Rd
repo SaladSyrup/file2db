@@ -5,8 +5,7 @@
 \alias{f2dbObject-class}
 \title{f2dbObject class}
 \description{
-Base class from which all other f2db classes descend. This is a
-virtual class.
+Base class from which all other f2db classes descend. This is a virtual class.
 }
 \seealso{
 Other f2db classes: 

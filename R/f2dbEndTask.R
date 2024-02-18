@@ -1,6 +1,6 @@
 #' f2dbEndTask class
 #'
-#' A do-nothing task. This is the default nextTask for f2dbTask instances.
+#' A do-nothing task. This is the default `nextTask` for `f2dbTask` instances.
 #'
 #' @slot name "ENDTASK"
 #'
@@ -15,17 +15,19 @@ methods::setClass("f2dbEndTask",
   )
 )
 
+#-------------------------------------------------------------------------------
 #' initialize
 #'
-#' Initializer function for f2dbEndTask objects. This initializer explicitly
-#' avoids calling the parent f2dbTask initializer.
+#' Initializer function for `f2dbEndTask` objects. This initializer explicitly
+#' avoids calling the parent `f2dbTask` initializer.
 #'
-#' @param .Object f2dbEndTask object
+#' @param .Object `f2dbEndTask` object.
 #'
-#' @returns Initialized f2dbEndTask object
+#' @returns Initialized `f2dbEndTask` object.
 #'
 #' @name initialize,f2dbEndTask-method
 #' @docType methods
+#' @noRd
 methods::setMethod("initialize", "f2dbEndTask", function(.Object) .Object)
 
 #' f2dbRun

@@ -5,7 +5,7 @@
 \alias{f2dbEndTask-class}
 \title{f2dbEndTask class}
 \description{
-A do-nothing task. This is the default nextTask for f2dbTask instances.
+A do-nothing task. This is the default \code{nextTask} for \code{f2dbTask} instances.
 }
 \section{Slots}{
 

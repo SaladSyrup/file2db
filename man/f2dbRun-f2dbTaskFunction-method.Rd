@@ -8,17 +8,17 @@
 \S4method{f2dbRun}{f2dbTaskFunction}(object, input = NA, item = NA)
 }
 \arguments{
-\item{object}{An \code{f2dbTaskFunction} object}
+\item{object}{An \code{f2dbTaskFunction} object.}
 
-\item{input}{Task input to pass to the task function}
+\item{input}{Task input to pass to the task function.}
 
-\item{item}{The current item being processed}
+\item{item}{The current item being processed.}
 }
 \value{
-A list
+A list:
 \item{success}{Logical value indicating success (\code{TRUE}) or failure (\code{FALSE}).
-Success only indicates that it is safe to proceed; it does not mean there are
-no warnings or errors.}
+Success only indicates that it is safe to proceed; it does not mean there
+are no warnings or errors.}
 \item{output}{Run results, if any.}
 }
 \description{
