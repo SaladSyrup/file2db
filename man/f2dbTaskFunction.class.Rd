@@ -4,6 +4,9 @@
 \name{f2dbTaskFunction.class}
 \alias{f2dbTaskFunction.class}
 \title{f2dbTaskFunction class}
+\arguments{
+\item{env}{Environment in which the task function will be executed}
+}
 \description{
 The \code{f2dbTaskFunction} class encapsulates the function that accomplishes the
 actual work of the task. Along with the \code{\link[:f2dbRun.f2dbTaskFunction]{f2dbRun()}}

@@ -14,7 +14,7 @@ f2dbTask(
 )
 }
 \arguments{
-\item{name}{Task name. This name normally be should be unique within the job.}
+\item{name}{Task name}
 
 \item{taskFunction}{Function to call when running the task}
 
@@ -27,6 +27,8 @@ using \code{inputName}.}
 \item{itemName}{By default, the current batch item is not passed to the task
 function. If \code{itemName} is provided, the batch item will be passed
 using \code{itemName}.}
+
+\item{env}{Environment in which the task function will be executed}
 }
 \description{
 Creates a new \code{f2dbTask} object.

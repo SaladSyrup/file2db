@@ -16,6 +16,7 @@
 #'
 #' @slot taskFunction A call to the underlying task function. `taskFunction` is
 #' set by [f2dbTaskFunction()] and should not be modified.
+#' @param env Environment in which the task function will be executed
 #'
 #' @name f2dbTaskFunction.class
 #' @docType class
@@ -25,10 +26,12 @@
 methods::setClass("f2dbTaskFunction",
   contains = "f2dbObject",
   slots = c(
-    taskFunction = "call"
+    taskFunction = "call",
+    env = "environment"
   ),
   prototype = list(
-    taskFunction = NULL
+    taskFunction = NULL,
+    env = rlang::empty_env()
   )
 )
 
@@ -44,13 +47,14 @@ methods::setClass("f2dbTaskFunction",
 #' @param itemName By default, the current batch item is not passed to the task
 #' function. If `itemName` is provided, the batch item will be passed
 #' using `itemName`.
+#' @param env Environment in which the task function will be executed
 #'
 #' @returns An `f2dbTaskFunction` object
 #'
 #' @family f2dbTaskFunction
 #' @family f2db classes
 #' @export
-f2dbTaskFunction <- function(taskFunction = NA, ..., inputName = NA, itemName = NA) {
+f2dbTaskFunction <- function(taskFunction = NA, ..., inputName = NA, itemName = NA, env = rlang::caller_env()) {
   taskFunction <- rlang::enexpr(taskFunction)
   stopifnot(rlang::is_callable(taskFunction))
 
@@ -66,7 +70,7 @@ f2dbTaskFunction <- function(taskFunction = NA, ..., inputName = NA, itemName = 
     params[[itemName]] <- rlang::expr(batchItem)
   }
 
-  methods::new("f2dbTaskFunction", taskFunction = rlang::call2(taskFunction, !!!params))
+  methods::new("f2dbTaskFunction", taskFunction = rlang::call2(taskFunction, !!!params), env = env)
 }
 
 #' f2dbRun
@@ -91,10 +95,9 @@ f2dbTaskFunction <- function(taskFunction = NA, ..., inputName = NA, itemName = 
 methods::setMethod(
   "f2dbRun", "f2dbTaskFunction",
   function(object, input = NA, item = NA) {
-    taskInput <- input
-    batchItem <- item
+    callEnv <- rlang::env(object@env, taskInput = input, batchItem = item)
 
-    output <- eval(object@taskFunction)
+    output <- eval(object@taskFunction, callEnv)
 
     list(success = TRUE, ouput = output)
   }
