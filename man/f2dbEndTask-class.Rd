@@ -5,15 +5,19 @@
 \alias{f2dbEndTask-class}
 \title{f2dbEndTask class}
 \description{
-A do-nothing task. This is the default \code{nextTask} for \code{f2dbTask} instances.
+A do-nothing task that marks the end of a task list. This is the default
+\code{nextTask} for \code{f2dbTask} instances.
 }
-\section{Slots}{
-
-\describe{
-\item{\code{name}}{"ENDTASK"}
-}}
-
 \seealso{
+Other f2dbEndTask: 
+\code{\link{f2dbEndTask}}
+
+Other f2dbTask: 
+\code{\link{f2dbEndTask}},
+\code{\link{f2dbRun,f2dbTask-method}},
+\code{\link{f2dbTask}},
+\code{\link{f2dbTask-class}}
+
 Other f2db classes: 
 \code{\link{f2dbJob-class}},
 \code{\link{f2dbObject-class}},
@@ -21,3 +25,5 @@ Other f2db classes:
 \code{\link{f2dbTaskFunction-class}}
 }
 \concept{f2db classes}
+\concept{f2dbEndTask}
+\concept{f2dbTask}

@@ -29,6 +29,8 @@ Executes the given task and passes output to the next task.
 }
 \seealso{
 Other f2dbTask: 
+\code{\link{f2dbEndTask}},
+\code{\link{f2dbEndTask-class}},
 \code{\link{f2dbTask}},
 \code{\link{f2dbTask-class}}
 

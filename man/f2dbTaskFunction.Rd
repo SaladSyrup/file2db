@@ -5,10 +5,10 @@
 \title{f2dbTaskFunction}
 \usage{
 f2dbTaskFunction(
-  taskFunction = NA,
+  taskFunction,
   ...,
-  inputName = NA,
-  itemName = NA,
+  inputName,
+  itemName,
   env = rlang::caller_env()
 )
 }
@@ -32,7 +32,7 @@ function. If \code{itemName} is provided, the batch item will be passed using
 An \code{f2dbTaskFunction} object.
 }
 \description{
-Creates a new \code{f2dbTaskFunction} object.
+\code{f2dbTaskFunction} constructor.
 }
 \seealso{
 Other f2dbTaskFunction: 

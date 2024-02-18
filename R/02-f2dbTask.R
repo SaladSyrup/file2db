@@ -43,11 +43,12 @@ methods::setClass("f2dbTask",
 methods::setMethod(
   "initialize", "f2dbTask",
   function(.Object, ...) {
-    .Object@nextTask <- methods::new("f2dbEndTask")
+    .Object@nextTask <- f2dbEndTask()
     methods::callNextMethod()
   }
 )
 
+#-------------------------------------------------------------------------------
 #' f2dbTask
 #'
 #' Creates a new `f2dbTask` object.

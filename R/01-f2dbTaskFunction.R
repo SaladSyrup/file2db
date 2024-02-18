@@ -30,14 +30,14 @@ methods::setClass("f2dbTaskFunction",
   ),
   prototype = list(
     taskFunction = NULL,
-    env = rlang::empty_env()
+    env = NULL
   )
 )
 
 #-------------------------------------------------------------------------------
 #' f2dbTaskFunction
 #'
-#' Creates a new `f2dbTaskFunction` object.
+#' `f2dbTaskFunction` constructor.
 #'
 #' @param taskFunction Function to call when running the task.
 #' @param ... <[`dynamic-dots`][rlang::dyn-dots]> Parameters passed to the task
@@ -54,22 +54,26 @@ methods::setClass("f2dbTaskFunction",
 #'
 #' @family f2dbTaskFunction
 #' @export
-f2dbTaskFunction <- function(taskFunction = NA,
+f2dbTaskFunction <- function(taskFunction,
                              ...,
-                             inputName = NA,
-                             itemName = NA,
+                             inputName,
+                             itemName,
                              env = rlang::caller_env()) {
-  taskFunction <- rlang::enexpr(taskFunction)
+  if (methods::hasArg("taskFunction")) {
+    taskFunction <- rlang::enexpr(taskFunction)
+  } else {
+    taskFunction <- function(x) x
+  }
   stopifnot(rlang::is_callable(taskFunction))
 
   params <- c(rlang::expr(taskInput), rlang::enexprs(...))
 
-  if (!is.na(inputName)) {
+  if (methods::hasArg(inputName)) {
     stopifnot(identical(inputName, make.names(inputName)))
     names(params)[1] <- inputName
   }
 
-  if (!is.na(itemName)) {
+  if (methods::hasArg(itemName)) {
     stopifnot(identical(itemName, make.names(itemName)))
     params[[itemName]] <- rlang::expr(batchItem)
   }
@@ -95,7 +99,7 @@ f2dbTaskFunction <- function(taskFunction = NA,
 #' @export
 methods::setMethod(
   "f2dbRun", "f2dbTaskFunction",
-  function(object, input = NA, item = NA) {
+  function(object, input, item) {
     callEnv <- rlang::env(object@env, taskInput = input, batchItem = item)
 
     output <- eval(object@taskFunction, callEnv)
