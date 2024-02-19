@@ -202,7 +202,7 @@ methods::setMethod(
   "nextTask<-",
   signature(object = "f2dbTask", value = "f2dbTask"),
   function(object, value) {
-    if (!is(value, "f2dbEndTask")) {
+    if (!methods::is(value, "f2dbEndTask")) {
       stopifnot(methods::validObject(value))
       object@nextTask <- value
     }
