@@ -44,6 +44,7 @@ Other f2dbTask:
 \code{\link{f2dbRun,f2dbTask-method}},
 \code{\link{f2dbTask-class}},
 \code{\link{name-method}},
+\code{\link{nextTask-method}},
 \code{\link{taskFunction-method}},
 \code{\link{taskFunction-set-method}}
 }

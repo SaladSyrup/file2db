@@ -27,6 +27,7 @@ Other f2dbTask:
 \code{\link{f2dbTask}},
 \code{\link{f2dbTask-class}},
 \code{\link{name-method}},
+\code{\link{nextTask-method}},
 \code{\link{taskFunction-method}}
 }
 \concept{f2dbTask}

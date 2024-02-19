@@ -143,11 +143,48 @@ methods::setMethod(
   function(object, value) {
     stopifnot(methods::validObject(value))
     object@taskFunction <- value
+    object
   }
 )
+
+#-------------------------------------------------------------------------------
+#' nextTask
+#'
+#' Returns the `nextTask`.
+#'
+#' @param object An `f2dbTask`
+#'
+#' @returns An `f2dbTask`
+#'
+#' @name nextTask-method
+#' @aliases nextTask
+#' @docType methods
+#' @family f2dbTask
+#' @export
+methods::setGeneric("nextTask",
+                    function(object) standardGeneric("nextTask"),
+                    signature = "object"
+)
+
+#-------------------------------------------------------------------------------
+#' @name nextTask,f2dbTask-method
+#' @rdname nextTask-method
+#' @export
+methods::setMethod("nextTask", "f2dbTask", function(object) object@nextTask)
 
 #-------------------------------------------------------------------------------
 #' @name name,f2dbTask-method
 #' @rdname name-method
 #' @export
 methods::setMethod("name", "f2dbTask", function(object) object@name)
+
+#-------------------------------------------------------------------------------
+# Miscellaneous Generic Method Implementations
+#-------------------------------------------------------------------------------
+#' @name show,f2dbTask-method
+#' @noRd
+#' @export
+methods::setMethod("show", "f2dbTask", function(object) {
+  cat("<", class(a)[1], "> ", sep = "")
+  cat(name(object))
+})
