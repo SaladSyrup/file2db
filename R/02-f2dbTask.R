@@ -87,3 +87,65 @@ methods::setMethod(
     c(list(taskName = object@name, success = TRUE, functionOutput = functionOutput$output), taskOutput)
   }
 )
+
+#-------------------------------------------------------------------------------
+# Accessors
+#-------------------------------------------------------------------------------
+#' taskFunction
+#'
+#' Returns the `f2dbTaskFunction` held by the `f2dbTask`
+#'
+#' @param object An `f2dbTask`
+#'
+#' @returns An `f2dbTaskFunction`
+#'
+#' @name taskFunction-method
+#' @aliases taskFunction
+#' @docType methods
+#' @family f2dbTask
+#' @export
+methods::setGeneric("taskFunction",
+                    function(object) standardGeneric("taskFunction"),
+                    signature = "object"
+)
+
+#-------------------------------------------------------------------------------
+#' @name taskFunction,f2dbTask-method
+#' @rdname taskFunction-method
+#' @export
+methods::setMethod("taskFunction", "f2dbTask", function(object) object@taskFunction)
+
+#-------------------------------------------------------------------------------
+#' taskFunction<-
+#'
+#' Sets the `f2dbTaskFunction` held by the `f2dbTask`.
+#'
+#' @param object An `f2dbTask`.
+#' @param value An `f2dbTaskFunction`.
+#'
+#' @name taskFunction-set-method
+#' @aliases taskFunction<-
+#' @docType methods
+#' @family f2dbTask
+#' @export
+methods::setGeneric("taskFunction<-",
+                    function(object, value) standardGeneric("taskFunction<-"),
+                    signature = c("object", "value")
+)
+
+#-------------------------------------------------------------------------------
+#' @name taskFunction<-,f2dbTask,f2dbTaskFunction-method
+#' @rdname taskFunction-set-method
+#' @export
+methods::setMethod("taskFunction<-",
+                   signature(object = "f2dbTask", value = "f2dbTaskFunction"),
+                   function(object, value) {
+                        stopifnot(methods::validObject(value))
+                        object@taskFunction <- value;
+                     })
+
+#-------------------------------------------------------------------------------
+#' @name name,f2dbTask-method
+#' @rdname name-method
+#' @export
+methods::setMethod("name", "f2dbTask", function(object) object@name)

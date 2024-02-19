@@ -33,3 +33,28 @@ methods::setGeneric("f2dbRun",
   function(object, ...) standardGeneric("f2dbRun"),
   signature = "object"
 )
+
+#-------------------------------------------------------------------------------
+#' name
+#'
+#' Returns the name of an `f2dbObject`.
+#'
+#' @param object An `f2dbObject`.
+#'
+#' @returns A name.
+#'
+#' @name name-method
+#' @aliases name
+#' @docType methods
+#' @family f2dbTask
+#' @export
+methods::setGeneric("name",
+                    function(object) standardGeneric("name"),
+                    signature = "object"
+)
+
+#-------------------------------------------------------------------------------
+#' @name name,f2dbObject-method
+#' @rdname name-method
+#' @export
+methods::setMethod("name", "f2dbObject", function(object) class(object)[1])

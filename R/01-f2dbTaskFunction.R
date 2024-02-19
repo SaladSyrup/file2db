@@ -82,34 +82,6 @@ f2dbTaskFunction <- function(taskFunction,
 }
 
 #-------------------------------------------------------------------------------
-#' taskCall
-#'
-#' Returns the task call of an `f2dbTaskFunction`.
-#'
-#' @param object An `f2dbTaskFunction` object
-#'
-#' @returns The `taskCall` evaluated when the given `f2dbTaskFunction` is run.
-#'
-#' @name taskCall-method
-#' @aliases taskCall
-#' @docType methods
-#' @family f2dbTaskFunction
-#' @family f2dbTaskFunction methods
-#' @export
-methods::setGeneric("taskCall",
-                    function(object) standardGeneric("taskCall"),
-                    signature = "object"
-)
-
-#-------------------------------------------------------------------------------
-#' @name taskCall,f2dbTaskFunction-method
-#' @rdname taskCall-method
-#' @export
-methods::setMethod("taskCall", "f2dbTaskFunction", function(object) {
-  object@taskCall
-})
-
-#-------------------------------------------------------------------------------
 #' f2dbRun
 #'
 #' Runs the given task function.
@@ -136,3 +108,30 @@ methods::setMethod(
     list(success = TRUE, ouput = output)
   }
 )
+
+#-------------------------------------------------------------------------------
+# Accessors
+#-------------------------------------------------------------------------------
+#' taskCall
+#'
+#' Returns the task call of an `f2dbTaskFunction`.
+#'
+#' @param object An `f2dbTaskFunction` object.
+#'
+#' @returns The `taskCall` evaluated when the given object is run.
+#'
+#' @name taskCall-method
+#' @aliases taskCall
+#' @docType methods
+#' @family f2dbTaskFunction
+#' @export
+methods::setGeneric("taskCall",
+                    function(object) standardGeneric("taskCall"),
+                    signature = "object"
+)
+
+#-------------------------------------------------------------------------------
+#' @name taskCall,f2dbTaskFunction-method
+#' @rdname taskCall-method
+#' @export
+methods::setMethod("taskCall", "f2dbTaskFunction", function(object) object@taskCall)

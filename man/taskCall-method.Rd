@@ -12,10 +12,10 @@ taskCall(object)
 \S4method{taskCall}{f2dbTaskFunction}(object)
 }
 \arguments{
-\item{object}{An \code{f2dbTaskFunction} object}
+\item{object}{An \code{f2dbTaskFunction} object.}
 }
 \value{
-The \code{taskCall} evaluated when the given \code{f2dbTaskFunction} is run.
+The \code{taskCall} evaluated when the given object is run.
 }
 \description{
 Returns the task call of an \code{f2dbTaskFunction}.
@@ -25,9 +25,5 @@ Other f2dbTaskFunction:
 \code{\link{f2dbRun,f2dbTaskFunction-method}},
 \code{\link{f2dbTaskFunction}},
 \code{\link{f2dbTaskFunction-class}}
-
-Other f2dbTaskFunction methods: 
-\code{\link{f2dbRun,f2dbTaskFunction-method}}
 }
 \concept{f2dbTaskFunction}
-\concept{f2dbTaskFunction methods}

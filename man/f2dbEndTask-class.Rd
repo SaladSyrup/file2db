@@ -16,7 +16,10 @@ Other f2dbTask:
 \code{\link{f2dbEndTask}},
 \code{\link{f2dbRun,f2dbTask-method}},
 \code{\link{f2dbTask}},
-\code{\link{f2dbTask-class}}
+\code{\link{f2dbTask-class}},
+\code{\link{name-method}},
+\code{\link{taskFunction-method}},
+\code{\link{taskFunction-set-method}}
 
 Other f2db classes: 
 \code{\link{f2dbJob-class}},
