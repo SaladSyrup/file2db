@@ -103,7 +103,7 @@ methods::setMethod(
   function(object, input = NA, item = NA) {
     callEnv <- rlang::env(object@env, taskInput = input, batchItem = item)
 
-    output <- eval(object@taskCall, callEnv)
+    output <- eval(taskCall(object), callEnv)
 
     list(success = TRUE, ouput = output)
   }

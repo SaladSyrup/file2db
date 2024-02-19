@@ -77,14 +77,14 @@ f2dbTask <- function(name,
 methods::setMethod(
   "f2dbRun", "f2dbTask",
   function(object, input = NA, item = NA) {
-    functionOutput <- f2dbRun(object@taskFunction, input, item)
+    functionOutput <- f2dbRun(taskFunction(object), input, item)
 
     if (functionOutput$success == FALSE) {
-      return(list(taskName = object@name, success = FALSE, functionOutput = functionOutput$output))
+      return(list(taskName = name(object), success = FALSE, functionOutput = functionOutput$output))
     }
 
-    taskOutput <- f2dbRun(object@nextTask, functionOutput$output, item)
-    c(list(taskName = object@name, success = TRUE, functionOutput = functionOutput$output), taskOutput)
+    taskOutput <- f2dbRun(nextTask(object), functionOutput$output, item)
+    c(list(taskName = name(object), success = TRUE, functionOutput = functionOutput$output), taskOutput)
   }
 )
 
