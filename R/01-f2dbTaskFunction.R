@@ -126,8 +126,8 @@ methods::setMethod(
 #' @family f2dbTaskFunction
 #' @export
 methods::setGeneric("taskCall",
-                    function(object) standardGeneric("taskCall"),
-                    signature = "object"
+  function(object) standardGeneric("taskCall"),
+  signature = "object"
 )
 
 #-------------------------------------------------------------------------------

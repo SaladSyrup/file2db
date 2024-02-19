@@ -49,8 +49,8 @@ methods::setGeneric("f2dbRun",
 #' @family f2dbTask
 #' @export
 methods::setGeneric("name",
-                    function(object) standardGeneric("name"),
-                    signature = "object"
+  function(object) standardGeneric("name"),
+  signature = "object"
 )
 
 #-------------------------------------------------------------------------------

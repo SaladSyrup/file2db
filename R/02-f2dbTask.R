@@ -105,8 +105,8 @@ methods::setMethod(
 #' @family f2dbTask
 #' @export
 methods::setGeneric("taskFunction",
-                    function(object) standardGeneric("taskFunction"),
-                    signature = "object"
+  function(object) standardGeneric("taskFunction"),
+  signature = "object"
 )
 
 #-------------------------------------------------------------------------------
@@ -129,20 +129,22 @@ methods::setMethod("taskFunction", "f2dbTask", function(object) object@taskFunct
 #' @family f2dbTask
 #' @export
 methods::setGeneric("taskFunction<-",
-                    function(object, value) standardGeneric("taskFunction<-"),
-                    signature = c("object", "value")
+  function(object, value) standardGeneric("taskFunction<-"),
+  signature = c("object", "value")
 )
 
 #-------------------------------------------------------------------------------
 #' @name taskFunction<-,f2dbTask,f2dbTaskFunction-method
 #' @rdname taskFunction-set-method
 #' @export
-methods::setMethod("taskFunction<-",
-                   signature(object = "f2dbTask", value = "f2dbTaskFunction"),
-                   function(object, value) {
-                        stopifnot(methods::validObject(value))
-                        object@taskFunction <- value;
-                     })
+methods::setMethod(
+  "taskFunction<-",
+  signature(object = "f2dbTask", value = "f2dbTaskFunction"),
+  function(object, value) {
+    stopifnot(methods::validObject(value))
+    object@taskFunction <- value
+  }
+)
 
 #-------------------------------------------------------------------------------
 #' @name name,f2dbTask-method
