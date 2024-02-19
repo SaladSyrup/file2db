@@ -10,8 +10,9 @@
 #' @family f2db classes
 #' @export
 methods::setClass("f2dbObject",
-                  slots = c(name = "character"),
-                  prototype = list( name = "f2dbObject"))
+  slots = c(name = "character"),
+  prototype = list(name = "f2dbObject")
+)
 
 #-------------------------------------------------------------------------------
 #' f2dbObject

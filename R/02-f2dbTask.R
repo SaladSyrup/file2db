@@ -198,8 +198,8 @@ methods::setMethod(
   "nextTask<-",
   signature(object = "f2dbTask", value = "f2dbTask"),
   function(object, value) {
-      stopifnot(methods::validObject(value))
-      object@nextTask <- value
+    stopifnot(methods::validObject(value))
+    object@nextTask <- value
     object
   }
 )
