@@ -64,7 +64,7 @@ methods::setGeneric("f2dbRun",
 #' @export
 methods::setMethod(
   "f2dbRun", "f2dbObject",
-  function(object, input = NA, item = NA) {
+  function(object, ...) {
     list(success = TRUE, output = name(object))
   }
 )

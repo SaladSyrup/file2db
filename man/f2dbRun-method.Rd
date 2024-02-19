@@ -9,7 +9,7 @@
 \usage{
 f2dbRun(object, ...)
 
-\S4method{f2dbRun}{f2dbObject}(object, input = NA, item = NA)
+\S4method{f2dbRun}{f2dbObject}(object, ...)
 }
 \arguments{
 \item{object}{An \code{f2dbObject} to run}
