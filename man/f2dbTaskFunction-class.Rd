@@ -34,7 +34,6 @@ Other f2dbTaskFunction:
 \code{\link{taskCall-method}}
 
 Other f2db classes: 
-\code{\link{f2dbEndTask-class}},
 \code{\link{f2dbJob-class}},
 \code{\link{f2dbObject-class}},
 \code{\link{f2dbTask-class}}

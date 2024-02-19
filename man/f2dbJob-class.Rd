@@ -9,7 +9,6 @@ f2dbJob class
 }
 \seealso{
 Other f2db classes: 
-\code{\link{f2dbEndTask-class}},
 \code{\link{f2dbObject-class}},
 \code{\link{f2dbTask-class}},
 \code{\link{f2dbTaskFunction-class}}

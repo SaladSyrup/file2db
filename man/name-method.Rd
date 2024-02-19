@@ -24,15 +24,9 @@ A name.
 Returns the name of an \code{f2dbObject}.
 }
 \seealso{
-Other f2dbTask: 
-\code{\link{f2dbEndTask}},
-\code{\link{f2dbEndTask-class}},
-\code{\link{f2dbRun,f2dbTask-method}},
-\code{\link{f2dbTask}},
-\code{\link{f2dbTask-class}},
-\code{\link{nextTask-method}},
-\code{\link{nextTask-set-method}},
-\code{\link{taskFunction-method}},
-\code{\link{taskFunction-set-method}}
+Other f2dbObject: 
+\code{\link{f2dbObject}},
+\code{\link{f2dbObject-class}},
+\code{\link{f2dbRun-method}}
 }
-\concept{f2dbTask}
+\concept{f2dbObject}

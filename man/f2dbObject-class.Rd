@@ -5,13 +5,24 @@
 \alias{f2dbObject-class}
 \title{f2dbObject class}
 \description{
-Base class from which all other f2db classes descend. This is a virtual class.
+Base class from which all other f2db classes descend.
 }
+\section{Slots}{
+
+\describe{
+\item{\code{name}}{Object name.}
+}}
+
 \seealso{
+Other f2dbObject: 
+\code{\link{f2dbObject}},
+\code{\link{f2dbRun-method}},
+\code{\link{name-method}}
+
 Other f2db classes: 
-\code{\link{f2dbEndTask-class}},
 \code{\link{f2dbJob-class}},
 \code{\link{f2dbTask-class}},
 \code{\link{f2dbTaskFunction-class}}
 }
 \concept{f2db classes}
+\concept{f2dbObject}

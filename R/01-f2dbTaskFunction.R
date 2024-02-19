@@ -78,7 +78,7 @@ f2dbTaskFunction <- function(taskFunction,
     params[[itemName]] <- rlang::expr(batchItem)
   }
 
-  methods::new("f2dbTaskFunction", taskCall = rlang::call2(taskFunction, !!!params), env = env)
+  methods::new("f2dbTaskFunction", name = rlang::expr_deparse(taskFunction), taskCall = rlang::call2(taskFunction, !!!params), env = env)
 }
 
 #-------------------------------------------------------------------------------

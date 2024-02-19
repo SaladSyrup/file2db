@@ -55,7 +55,7 @@ f2dbTask <- function(name,
   taskFunctionCall <- rlang::expr(f2dbTaskFunction(!!!params))
   taskFunction <- eval(taskFunctionCall, env)
 
-  methods::new("f2dbTask", name = name, taskFunction = taskFunction, nextTask = f2dbEndTask())
+  methods::new("f2dbTask", name = name, taskFunction = taskFunction, nextTask = f2dbObject("END"))
 }
 
 #-------------------------------------------------------------------------------
@@ -120,8 +120,6 @@ methods::setMethod("taskFunction", "f2dbTask", function(object) object@taskFunct
 #'
 #' Sets the `f2dbTaskFunction` held by the `f2dbTask`.
 #'
-#' The `taskFunction` of `f2dbEndTask` objects cannot be set.
-#'
 #' @param object An `f2dbTask`.
 #' @param value An `f2dbTaskFunction`.
 #'
@@ -179,8 +177,6 @@ methods::setMethod("nextTask", "f2dbTask", function(object) object@nextTask)
 #'
 #' Sets the `nextTask`.
 #'
-#' The `nextTask` of `f2dbEndTask` objects cannot be set.
-#'
 #' @param object An `f2dbTask`.
 #' @param value An `f2dbTask`.
 #'
@@ -202,10 +198,8 @@ methods::setMethod(
   "nextTask<-",
   signature(object = "f2dbTask", value = "f2dbTask"),
   function(object, value) {
-    if (!methods::is(value, "f2dbEndTask")) {
       stopifnot(methods::validObject(value))
       object@nextTask <- value
-    }
     object
   }
 )

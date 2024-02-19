@@ -4,9 +4,12 @@
 \name{f2dbRun-method}
 \alias{f2dbRun-method}
 \alias{f2dbRun}
+\alias{f2dbRun,f2dbObject-method}
 \title{f2dbRun}
 \usage{
 f2dbRun(object, ...)
+
+\S4method{f2dbRun}{f2dbObject}(object, input = NA, item = NA)
 }
 \arguments{
 \item{object}{An \code{f2dbObject} to run}
@@ -25,8 +28,14 @@ are no warnings or errors.}
 Generic method for running an \code{f2dbObject}.
 }
 \seealso{
+Other f2dbObject: 
+\code{\link{f2dbObject}},
+\code{\link{f2dbObject-class}},
+\code{\link{name-method}}
+
 Other f2dbRun methods: 
 \code{\link{f2dbRun,f2dbTask-method}},
 \code{\link{f2dbRun,f2dbTaskFunction-method}}
 }
+\concept{f2dbObject}
 \concept{f2dbRun methods}
