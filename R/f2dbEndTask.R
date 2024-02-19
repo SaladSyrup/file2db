@@ -62,3 +62,25 @@ methods::setMethod(
     .Object
   }
 )
+
+#-------------------------------------------------------------------------------
+# Accessors
+#-------------------------------------------------------------------------------
+#' @name taskFunction<-,f2dbEndTask,f2dbTaskFunction-method
+#' @rdname taskFunction-set-method
+#' @export
+methods::setMethod(
+  "taskFunction<-",
+  signature(object = "f2dbEndTask", value = "f2dbTaskFunction"),
+  function(object, value) object
+)
+
+#-------------------------------------------------------------------------------
+#' @name nextTask<-,f2dbEndTask,f2dbTask-method
+#' @rdname nextTask-set-method
+#' @export
+methods::setMethod(
+  "nextTask<-",
+  signature(object = "f2dbEndTask", value = "f2dbTask"),
+  function(object, value) object
+)
