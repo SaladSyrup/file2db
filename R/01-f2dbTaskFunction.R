@@ -14,6 +14,7 @@
 #' Classes inheriting from `f2dbTaskFunction` should fulfill the
 #' responsibilities listed above and implement the [f2dbRun()] generic method.
 #'
+#' @slot name Set to the name of the underlying task function by the constructor.
 #' @slot taskCall A call to the underlying task function.
 #' @slot env Environment in which the task function will be executed.
 #'

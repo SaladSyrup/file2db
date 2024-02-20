@@ -7,6 +7,12 @@
 \description{
 f2dbJob class
 }
+\section{Slots}{
+
+\describe{
+\item{\code{jobInput}}{Input supplied to the first task.}
+}}
+
 \seealso{
 Other f2db classes: 
 \code{\link{f2dbObject-class}},

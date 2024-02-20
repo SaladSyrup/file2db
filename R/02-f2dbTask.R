@@ -16,12 +16,10 @@
 methods::setClass("f2dbTask",
   contains = c("f2dbObject"),
   slots = c(
-    name = "character",
     taskFunction = "f2dbTaskFunction",
     nextTask = "f2dbObject"
   ),
   prototype = list(
-    name = "",
     taskFunction = NULL,
     nextTask = NULL
   )

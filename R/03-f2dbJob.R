@@ -1,5 +1,9 @@
 #' f2dbJob class
 #'
+#'
+#'
+#' @slot jobInput Input supplied to the first task.
+#'
 #' @name f2dbJob-class
 #' @docType class
 #' @family f2dbJob
@@ -8,13 +12,9 @@
 methods::setClass("f2dbJob",
   contains = c("f2dbObject"),
   slots = c(
-    name = "character",
-    firstTask = "f2dbTask",
     jobInput = "ANY"
   ),
   prototype = list(
-    name = "",
-    firstTask = NULL,
     jobInput = NULL
   )
 )
