@@ -42,9 +42,65 @@ f2dbJob <- function(name, input) {
     name <- as.character(name)
   }
 
+  if (!methods::hasArg(input)) input <- ""
+
   methods::new("f2dbJob", name = name, jobInput = input)
 }
 
 #-------------------------------------------------------------------------------
 # Accessors
 #-------------------------------------------------------------------------------
+#' jobInput
+#'
+#' Returns job input to the first task
+#'
+#' @param object An `f2dbJob` object
+#'
+#' @returns `jobInput
+#'
+#' @name jobInput-method
+#' @aliases jobInput
+#' @docType methods
+#' @family f2dbJob`
+#' @export
+methods::setGeneric("jobInput",
+  function(object) standardGeneric("jobInput"),
+  signature = "object"
+)
+
+#-------------------------------------------------------------------------------
+#' @name jobInput,f2dbJob-method
+#' @rdname jobInput-method
+#' @export
+methods::setMethod("jobInput", "f2dbJob", function(object) object@jobInput)
+
+#-------------------------------------------------------------------------------
+#' jobInput<-
+#'
+#' Sets job input to the first task
+#'
+#' @param object An `f2dbJob`
+#' @param value `jobInput`
+#'
+#' @name jobInput-set-method
+#' @aliases jobInput<-
+#' @docType methods
+#' @family f2dbJob
+#' @export
+methods::setGeneric("jobInput<-",
+  function(object, value) standardGeneric("jobInput<-"),
+  signature = c("object", "value")
+)
+
+#-------------------------------------------------------------------------------
+#' @name jobInput<-,f2dbJob-method
+#' @rdname jobInput-set-method
+#' @export
+methods::setMethod(
+  "jobInput<-",
+  signature(object = "f2dbJob", value = "ANY"),
+  function(object, value) {
+    object@jobInput <- value
+    object
+  }
+)

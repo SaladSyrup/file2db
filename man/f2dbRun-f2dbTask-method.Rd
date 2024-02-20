@@ -26,6 +26,7 @@ Executes the given task and passes output to the next task.
 }
 \seealso{
 Other f2dbTask: 
+\code{\link{f2dbEndTask-class}},
 \code{\link{f2dbTask}},
 \code{\link{f2dbTask-class}},
 \code{\link{nextTask-method}},
@@ -34,6 +35,7 @@ Other f2dbTask:
 \code{\link{taskFunction-set-method}}
 
 Other f2dbRun methods: 
+\code{\link{f2dbRun,f2dbEndTask-method}},
 \code{\link{f2dbRun,f2dbTaskFunction-method}},
 \code{\link{f2dbRun-method}}
 }
