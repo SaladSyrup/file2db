@@ -2,7 +2,7 @@
 #'
 #' A class for encapsulating an individual task.
 #'
-#' @slot name Task name. This name normally be should be unique within the job.
+#' @slot name Task name. This should be unique within the job.
 #' @slot taskFunction An `f2dbTaskFunction` object to perform the actual work of
 #'   the task.
 #' @slot nextTask An `f2dbTaskObject` object that performs the next task in the
@@ -43,7 +43,11 @@ f2dbTask <- function(name,
                      inputName,
                      itemName,
                      env = rlang::caller_env()) {
-  if (!methods::hasArg(name)) name <- "<UNNAMED>"
+  if (!methods::hasArg(name)) {
+    name <- "<Unnamed f2dbTask>"
+  } else {
+    name <- as.character(name)
+  }
 
   params <- list()
   if (methods::hasArg(taskFunction)) params[["taskFunction"]] <- rlang::enexpr(taskFunction)

@@ -8,7 +8,7 @@
 #'
 #' @noRd
 showTask <- function(object) {
-  rslt <- paste0("Task: ", name(object))
+  rslt <- paste0(class(object)[1], ": ", name(object))
   rslt <- c(rslt, paste0("Function: ", rlang::expr_deparse(taskCall(taskFunction(object)))))
   rslt <- c(rslt, paste0("Next task: ", name(nextTask(object))))
 }

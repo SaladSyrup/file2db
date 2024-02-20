@@ -2,6 +2,7 @@
 
 export("nextTask<-")
 export("taskFunction<-")
+export(f2dbJob)
 export(f2dbObject)
 export(f2dbRun)
 export(f2dbTask)

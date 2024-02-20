@@ -5,15 +5,22 @@
 \alias{f2dbJob-class}
 \title{f2dbJob class}
 \description{
-f2dbJob class
+A container for job tasks.
 }
 \section{Slots}{
 
 \describe{
+\item{\code{name}}{Job name. This should be unique within the job batch.}
+
 \item{\code{jobInput}}{Input supplied to the first task.}
+
+\item{\code{tasks}}{List of job tasks.}
 }}
 
 \seealso{
+Other f2dbJob: 
+\code{\link{f2dbJob}}
+
 Other f2db classes: 
 \code{\link{f2dbObject-class}},
 \code{\link{f2dbTask-class}},

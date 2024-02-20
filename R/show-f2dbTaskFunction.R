@@ -7,7 +7,7 @@
 #' @returns A character vector
 #'
 #' @noRd
-showTaskFunction <- function(object) rlang::expr_deparse(taskCall(object))
+showTaskFunction <- function(object) paste0(class(object)[1], ": ", name(object))
 
 #-------------------------------------------------------------------------------
 #' show

@@ -10,7 +10,7 @@ A class for encapsulating an individual task.
 \section{Slots}{
 
 \describe{
-\item{\code{name}}{Task name. This name normally be should be unique within the job.}
+\item{\code{name}}{Task name. This should be unique within the job.}
 
 \item{\code{taskFunction}}{An \code{f2dbTaskFunction} object to perform the actual work of
 the task.}

@@ -25,7 +25,12 @@ methods::setClass("f2dbObject",
 #' @family f2dbObject
 #' @export
 f2dbObject <- function(name) {
-  if (!methods::hasArg(name)) name <- "<f2dbObject>"
+  if (!methods::hasArg(name)) {
+    name <- "<Unnamed f2dbObject>"
+  } else {
+    name <- as.character(name)
+  }
+
   methods::new("f2dbObject", name = name)
 }
 
