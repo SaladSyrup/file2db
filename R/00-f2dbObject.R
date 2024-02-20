@@ -8,7 +8,6 @@
 #' @docType class
 #' @family f2dbObject
 #' @family f2db classes
-#' @export
 methods::setClass("f2dbObject",
   slots = c(name = "character"),
   prototype = list(name = "f2dbObject")
@@ -58,18 +57,6 @@ methods::setGeneric("f2dbRun",
 )
 
 #-------------------------------------------------------------------------------
-#' f2dbRun
-#' @name f2dbRun,f2dbObject-method
-#' @rdname f2dbRun-method
-#' @export
-methods::setMethod(
-  "f2dbRun", "f2dbObject",
-  function(object, ...) {
-    list(success = TRUE, output = name(object))
-  }
-)
-
-#-------------------------------------------------------------------------------
 #' name
 #'
 #' Returns the name of an `f2dbObject`.
@@ -87,9 +74,3 @@ methods::setGeneric("name",
   function(object) standardGeneric("name"),
   signature = "object"
 )
-
-#-------------------------------------------------------------------------------
-#' @name name,f2dbObject-method
-#' @rdname name-method
-#' @export
-methods::setMethod("name", "f2dbObject", function(object) object@name)
