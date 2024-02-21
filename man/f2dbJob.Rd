@@ -19,6 +19,7 @@ An \code{f2dbJob} object.
 }
 \seealso{
 Other f2dbJob: 
+\code{\link{appendTask-method}},
 \code{\link{f2dbJob-class}},
 \code{\link{jobInput-set-method}}
 }

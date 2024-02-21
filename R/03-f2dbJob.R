@@ -15,11 +15,11 @@ methods::setClass("f2dbJob",
   contains = c("f2dbObject"),
   slots = c(
     jobInput = "ANY",
-    tasks = "list"
+    taskList = "list"
   ),
   prototype = list(
     jobInput = NULL,
-    tasks = list()
+    taskList = list()
   )
 )
 
@@ -37,7 +37,7 @@ methods::setClass("f2dbJob",
 #' @export
 f2dbJob <- function(name, input) {
   if (!methods::hasArg(name)) {
-    name <- "<Unnamed f2dbTask>"
+    name <- "<Unnamed f2dbJob>"
   } else {
     name <- as.character(name)
   }

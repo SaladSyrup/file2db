@@ -19,6 +19,7 @@ A container for job tasks.
 
 \seealso{
 Other f2dbJob: 
+\code{\link{appendTask-method}},
 \code{\link{f2dbJob}},
 \code{\link{jobInput-set-method}}
 

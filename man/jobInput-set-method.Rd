@@ -21,6 +21,7 @@ Sets job input to the first task
 }
 \seealso{
 Other f2dbJob: 
+\code{\link{appendTask-method}},
 \code{\link{f2dbJob}},
 \code{\link{f2dbJob-class}}
 }
