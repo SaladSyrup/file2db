@@ -27,7 +27,7 @@ methods::setMethod(
     stopifnot(methods::validObject(job))
     stopifnot(methods::validObject(task))
 
-    jobSymbol <- match.call(appendTask, rlang::current_call())$job
+    jobSymbol <- match.call(addTask, rlang::current_call())$job
     stopifnot(is.symbol(jobSymbol))
     env <- rlang::caller_env()
 
