@@ -67,7 +67,7 @@ f2dbTaskFunction <- function(taskFunction,
   }
   stopifnot(rlang::is_callable(taskFunction))
 
-  params <- c(rlang::expr(taskInput), rlang::enexprs(...))
+  params <- c(rlang::expr(!!as.symbol("taskInput")), rlang::enexprs(...))
 
   if (methods::hasArg(inputName)) {
     stopifnot(identical(inputName, make.names(inputName)))
@@ -76,7 +76,7 @@ f2dbTaskFunction <- function(taskFunction,
 
   if (methods::hasArg(itemName)) {
     stopifnot(identical(itemName, make.names(itemName)))
-    params[[itemName]] <- rlang::expr(batchItem)
+    params[[itemName]] <- rlang::expr(!!as.symbol("batchItem"))
   }
 
   methods::new("f2dbTaskFunction", name = rlang::expr_deparse(taskFunction), taskCall = rlang::call2(taskFunction, !!!params), env = env)

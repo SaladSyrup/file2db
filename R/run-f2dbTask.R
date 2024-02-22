@@ -23,6 +23,6 @@ methods::setMethod(
     }
 
     taskOutput <- f2dbRun(nextTask(object), functionOutput$output, item)
-    c(list(taskName = name(object), success = TRUE, functionOutput = functionOutput$output), taskOutput)
+    list(list(taskName = name(object), success = TRUE, functionOutput = functionOutput$output), taskOutput)
   }
 )
