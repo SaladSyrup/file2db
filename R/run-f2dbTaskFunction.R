@@ -17,7 +17,7 @@
 methods::setMethod(
   "f2dbRun", "f2dbTaskFunction",
   function(object, input = NA, item = NA) {
-    callEnv <- rlang::env(object@env, taskInput = input, batchItem = item)
+    callEnv <- rlang::env(rlang::caller_env(), taskInput = input, batchItem = item)
 
     output <- eval(taskCall(object), callEnv)
 

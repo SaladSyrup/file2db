@@ -5,8 +5,7 @@ methods::setGeneric("addNewTask", function(job, name,
                                            taskFunction,
                                            ...,
                                            inputName,
-                                           itemName,
-                                           env = rlang::caller_env()) {
+                                           itemName) {
   standardGeneric("addNewTask")
 },
 signature = c("job")
@@ -21,9 +20,9 @@ methods::setMethod(
            taskFunction,
            ...,
            inputName,
-           itemName,
-           env = rlang::caller_env()) {
+           itemName) {
     stopifnot(validObject(job))
+    env <- rlang::caller_env()
 
     params <- list()
     if (methods::hasArg(name)) params[["name"]] <- rlang::enexpr(name)
@@ -36,9 +35,8 @@ methods::setMethod(
 
     jobSymbol <- match.call(addNewTask, rlang::current_call())$job
     stopifnot(is.symbol(jobSymbol))
-    jobEnv <- rlang::caller_env()
 
-    appendTask(job, task, jobSymbol, jobEnv)
+    appendTask(job, task, jobSymbol, env)
 
     invisible()
   }

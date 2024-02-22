@@ -25,8 +25,6 @@ responsibilities listed above and implement the \code{\link[=f2dbRun]{f2dbRun()}
 \item{\code{name}}{Set to the name of the underlying task function by the constructor.}
 
 \item{\code{taskCall}}{A call to the underlying task function.}
-
-\item{\code{env}}{Environment in which the task function will be executed.}
 }}
 
 \seealso{

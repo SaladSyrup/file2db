@@ -16,7 +16,6 @@
 #'
 #' @slot name Set to the name of the underlying task function by the constructor.
 #' @slot taskCall A call to the underlying task function.
-#' @slot env Environment in which the task function will be executed.
 #'
 #' @name f2dbTaskFunction-class
 #' @docType class
@@ -26,12 +25,10 @@
 methods::setClass("f2dbTaskFunction",
   contains = "f2dbObject",
   slots = c(
-    taskCall = "call",
-    env = "environment"
+    taskCall = "call"
   ),
   prototype = list(
-    taskCall = NULL,
-    env = NULL
+    taskCall = NULL
   )
 )
 
@@ -49,7 +46,6 @@ methods::setClass("f2dbTaskFunction",
 #' @param itemName By default, the current batch item is not passed to the task
 #'   function. If `itemName` is provided, the batch item will be passed using
 #'   `itemName`.
-#' @param env Environment in which the task function will be executed.
 #'
 #' @returns An `f2dbTaskFunction` object.
 #'
@@ -58,8 +54,7 @@ methods::setClass("f2dbTaskFunction",
 f2dbTaskFunction <- function(taskFunction,
                              ...,
                              inputName,
-                             itemName,
-                             env = rlang::caller_env()) {
+                             itemName) {
   if (methods::hasArg("taskFunction")) {
     taskFunction <- rlang::enexpr(taskFunction)
   } else {
@@ -79,7 +74,7 @@ f2dbTaskFunction <- function(taskFunction,
     params[[itemName]] <- as.symbol("batchItem")
   }
 
-  methods::new("f2dbTaskFunction", name = rlang::expr_deparse(taskFunction), taskCall = rlang::call2(taskFunction, !!!params), env = env)
+  methods::new("f2dbTaskFunction", name = rlang::expr_deparse(taskFunction), taskCall = rlang::call2(taskFunction, !!!params))
 }
 
 #-------------------------------------------------------------------------------

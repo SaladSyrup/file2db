@@ -4,13 +4,7 @@
 \alias{f2dbTaskFunction}
 \title{f2dbTaskFunction}
 \usage{
-f2dbTaskFunction(
-  taskFunction,
-  ...,
-  inputName,
-  itemName,
-  env = rlang::caller_env()
-)
+f2dbTaskFunction(taskFunction, ..., inputName, itemName)
 }
 \arguments{
 \item{taskFunction}{Function to call when running the task.}
@@ -25,8 +19,6 @@ passed using \code{inputName}.}
 \item{itemName}{By default, the current batch item is not passed to the task
 function. If \code{itemName} is provided, the batch item will be passed using
 \code{itemName}.}
-
-\item{env}{Environment in which the task function will be executed.}
 }
 \value{
 An \code{f2dbTaskFunction} object.

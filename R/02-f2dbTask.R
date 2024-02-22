@@ -41,8 +41,7 @@ f2dbTask <- function(name,
                      taskFunction,
                      ...,
                      inputName,
-                     itemName,
-                     env = rlang::caller_env()) {
+                     itemName) {
   if (!methods::hasArg(name)) {
     name <- "Unnamed"
   } else {
@@ -55,7 +54,7 @@ f2dbTask <- function(name,
   if (methods::hasArg(inputName)) params[["inputName"]] <- rlang::enexpr(inputName)
   if (methods::hasArg(itemName)) params[["itemName"]] <- rlang::enexpr(itemName)
   taskFunctionCall <- rlang::expr(f2dbTaskFunction(!!!params))
-  taskFunction <- eval(taskFunctionCall, env)
+  taskFunction <- eval(taskFunctionCall, rlang::caller_env())
 
   methods::new("f2dbTask", name = name, taskFunction = taskFunction, nextTask = f2dbObject("END"))
 }
