@@ -7,12 +7,12 @@
 \alias{appendTask,f2dbJob,f2dbTask-method}
 \title{appendTask}
 \usage{
-appendTask(object, task, ...)
+appendTask(job, task)
 
-\S4method{appendTask}{f2dbJob,f2dbTask}(object, task)
+\S4method{appendTask}{f2dbJob,f2dbTask}(job, task)
 }
 \arguments{
-\item{object}{An \code{f2dbJob}.}
+\item{job}{The \code{f2dbJob} to add a job to.}
 
 \item{task}{The \code{f2dbTask} to add.}
 }

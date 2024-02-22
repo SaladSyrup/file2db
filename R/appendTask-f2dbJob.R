@@ -3,7 +3,7 @@
 #' Adds an existing `f2dbTask` object to the end of the task list and updates
 #' the `nextTask` slot of the next-to-last task to point to the newly added task.
 #'
-#' @param object An `f2dbJob`.
+#' @param job The `f2dbJob` to add a job to.
 #' @param task The `f2dbTask` to add.
 #'
 #' @returns `NULL`, invisibly.
@@ -13,8 +13,8 @@
 #' @docType methods
 #' @family f2dbJob
 #' @export
-methods::setGeneric("appendTask", function(object, task, ...) standardGeneric("appendTask"),
-  signature = c("object", "task")
+methods::setGeneric("appendTask", function(job, task) standardGeneric("appendTask"),
+  signature = c("job", "task")
 )
 
 #-------------------------------------------------------------------------------
@@ -22,24 +22,34 @@ methods::setGeneric("appendTask", function(object, task, ...) standardGeneric("a
 #' @rdname appendTask-method
 #' @export
 methods::setMethod(
-  "appendTask", signature(object = "f2dbJob", task = "f2dbTask"),
-  function(object, task) {
-    stopifnot(methods::validObject(object))
+  "appendTask", signature(job = "f2dbJob", task = "f2dbTask"),
+  function(job, task) {
+    stopifnot(methods::validObject(job))
     stopifnot(methods::validObject(task))
 
-    numTasks <- length(object@taskList)
+    taskNames <- names(job@taskList)
+    numTasks <- length(job@taskList)
 
     if (numTasks != 0) {
-      if (isa(object@taskList[[numTasks]], "f2dbEndTask")) {
+      if (isa(job@taskList[[numTasks]], "f2dbEndTask")) {
         stop("Cannot add new tasks after an end task")
       }
 
-      nextTask(object@taskList[[numTasks]]) <- task
-      object@taskList <- c(object@taskList, task)
+      nextTask(job@taskList[[numTasks]]) <- task
+      job@taskList <- c(job@taskList, task)
     } else {
-      object@taskList <- list(task)
+      job@taskList <- list(task)
     }
 
-    object
+    taskNames <- c(taskNames, name(task))
+    taskNames <- make.names(taskNames, unique = TRUE)
+    names(job@taskList) <- taskNames
+
+    jobSymbol <- match.call(appendTask, rlang::current_call())$job
+    stopifnot(is.symbol(jobSymbol))
+    env <- rlang::caller_env()
+    rlang::env_poke(env, rlang::as_string(jobSymbol), job)
+
+    invisible()
   }
 )
