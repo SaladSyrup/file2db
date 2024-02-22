@@ -1,13 +1,19 @@
-#' showObject
+#' f2dbShow
 #'
-#' Pretty-prints for show()
+#' Pretty prints for show. This is an internal function.
 #'
-#' @param object An `f2dbObject`.
+#' @param object
 #'
-#' @returns A character vector
+#' @returns A named character vector
 #'
+#' @name f2dbShow-method
 #' @noRd
-showObject <- function(object) paste0(class(object)[1], ": ", name(object))
+methods::setGeneric("f2dbShow", function(object) standardGeneric("f2dbShow"), signature = "object")
+
+#-------------------------------------------------------------------------------
+#' @name f2dbShow,f2dbObject-method
+#' @noRd
+methods::setMethod("f2dbShow", "f2dbObject", function(object) c(name = paste0("<", class(object)[1], ">: ", name(object))))
 
 #-------------------------------------------------------------------------------
 #' show
@@ -17,4 +23,4 @@ showObject <- function(object) paste0(class(object)[1], ": ", name(object))
 #' @name show,f2dbObject-method
 #' @docType methods
 #' @noRd
-methods::setMethod("show", "f2dbObject", function(object) cat(showObject(object)))
+methods::setMethod("show", "f2dbObject", function(object) cat(f2dbShow(object), sep = "\n  "))
