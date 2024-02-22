@@ -14,24 +14,25 @@
 #' @family f2dbJob
 #' @export
 methods::setGeneric("addTask", function(job, task) standardGeneric("addTask"),
-                    signature = c("job", "task")
+  signature = c("job", "task")
 )
 
 #-------------------------------------------------------------------------------
 #' @name addTask,f2dbJob,f2dbTask-method
 #' @rdname addTask-method
 #' @export
-methods::setMethod("addTask", signature(job = "f2dbJob", task = "f2dbTask"),
-                   function(job, task) {
+methods::setMethod(
+  "addTask", signature(job = "f2dbJob", task = "f2dbTask"),
+  function(job, task) {
+    stopifnot(methods::validObject(job))
+    stopifnot(methods::validObject(task))
 
-                     stopifnot(methods::validObject(job))
-                     stopifnot(methods::validObject(task))
+    jobSymbol <- match.call(appendTask, rlang::current_call())$job
+    stopifnot(is.symbol(jobSymbol))
+    env <- rlang::caller_env()
 
-                     jobSymbol <- match.call(appendTask, rlang::current_call())$job
-                     stopifnot(is.symbol(jobSymbol))
-                     env <- rlang::caller_env()
+    appendTask(job, task, rlang::as_string(jobSymbol), env)
 
-                     appendTask(job, task, rlang::as_string(jobSymbol), env)
-
-                     invisible()
-                   })
+    invisible()
+  }
+)
