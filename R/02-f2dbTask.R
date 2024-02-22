@@ -44,7 +44,7 @@ f2dbTask <- function(name,
                      itemName,
                      env = rlang::caller_env()) {
   if (!methods::hasArg(name)) {
-    name <- "<Unnamed f2dbTask>"
+    name <- "Unnamed"
   } else {
     name <- as.character(name)
   }

@@ -37,7 +37,7 @@ methods::setClass("f2dbJob",
 #' @export
 f2dbJob <- function(name, input) {
   if (!methods::hasArg(name)) {
-    name <- "<Unnamed f2dbJob>"
+    name <- "Unnamed"
   } else {
     name <- as.character(name)
   }
