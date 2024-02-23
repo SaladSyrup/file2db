@@ -1,10 +1,11 @@
-#' addTask
+#' addTask, addNewTask
 #'
-#' Adds an existing `f2dbTask` object to the end of the task list and updates
-#' the `nextTask` slot of the next-to-last task to point to the newly added task.
+#' Add a `f2dbTask` object to the end of the task list and update the `nextTask`
+#' slot of the next-to-last task to point to the newly added task.
 #'
-#' @param job The `f2dbJob` to add a job to.
-#' @param task The `f2dbTask` to add.
+#' @param job An `f2dbJob` to add a task to.
+#' @param task An existing `f2dbTask` to add.
+#' @inheritParams f2dbTask
 #'
 #' @returns `NULL`, invisibly.
 #'
@@ -13,12 +14,12 @@
 #' @docType methods
 #' @family f2dbJob
 #' @export
-methods::setGeneric("addTask", function(job, task) standardGeneric("addTask"),
+methods::setGeneric("addTask", function(job, task, ...) standardGeneric("addTask"),
   signature = c("job", "task")
 )
 
 #-------------------------------------------------------------------------------
-#' @name addTask,f2dbJob,f2dbTask-method
+#' @name addTask,f2dbJob-method
 #' @rdname addTask-method
 #' @export
 methods::setMethod(

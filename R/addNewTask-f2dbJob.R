@@ -1,18 +1,14 @@
 #' @name addNewTask-method
-#' @docType methods
+#' @aliases addNewTask
+#' @rdname addTask-method
 #' @export
-methods::setGeneric("addNewTask", function(job, name,
-                                           taskFunction,
-                                           ...,
-                                           inputName,
-                                           itemName) {
-  standardGeneric("addNewTask")
-},
-signature = c("job")
+methods::setGeneric("addNewTask", function(job, ...) standardGeneric("addNewTask"),
+  signature = c("job")
 )
 
 #-------------------------------------------------------------------------------
 #' @name addNewTask,f2dbJob-method
+#' @rdname addTask-method
 #' @export
 methods::setMethod(
   "addNewTask", signature(job = "f2dbJob"),
