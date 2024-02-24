@@ -8,6 +8,7 @@
 \alias{addTask-method}
 \alias{addTask}
 \alias{addTask,f2dbJob-method}
+\alias{addTask,list-method}
 \title{addTask, addNewTask}
 \usage{
 addNewTask(job, ...)
@@ -17,9 +18,11 @@ addNewTask(job, ...)
 addTask(job, task, ...)
 
 \S4method{addTask}{f2dbJob,f2dbTask}(job, task)
+
+\S4method{addTask}{f2dbJob,list}(job, task)
 }
 \arguments{
-\item{job}{An \code{f2dbJob} to add a job to.}
+\item{job}{An \code{f2dbJob} to add a task to.}
 
 \item{...}{<\code{\link[rlang:dyn-dots]{dynamic-dots}}> Parameters passed to the task
 function.}

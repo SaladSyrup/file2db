@@ -27,12 +27,38 @@ methods::setMethod(
   function(job, task) {
     stopifnot(methods::validObject(job))
     stopifnot(methods::validObject(task))
+    n <- sys.parent()
+    env <- rlang::caller_env(n)
 
-    jobSymbol <- match.call(addTask, rlang::current_call())$job
+    jobSymbol <- match.call(addTask, sys.call(-n))$job
     stopifnot(is.symbol(jobSymbol))
-    env <- rlang::caller_env()
 
     appendTask(job, task, rlang::as_string(jobSymbol), env)
+
+    invisible()
+  }
+)
+
+#-------------------------------------------------------------------------------
+#' @name addTask,list-method
+#' @rdname addTask-method
+#' @export
+methods::setMethod(
+  "addTask", signature(job = "f2dbJob", task = "list"),
+  function(job, task) {
+    stopifnot(methods::validObject(job))
+    tasklist <- as.list(task)
+    n <- sys.parent()
+    env <- rlang::caller_env(n)
+
+    params <- list()
+    params[["job"]] <- match.call(addTask, sys.call(-n))$job
+
+    for(task in tasklist) {
+      params[["task"]] <- task
+      addCall <- rlang::expr(addTask(!!!params))
+      eval(addCall, env)
+    }
 
     invisible()
   }
