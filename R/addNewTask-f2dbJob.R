@@ -11,30 +11,30 @@ methods::setGeneric("addNewTask", function(job, ...) standardGeneric("addNewTask
 #' @rdname addTask-method
 #' @export
 methods::setMethod(
-"addNewTask", signature(job = "f2dbJob"),
-function(job, name,
-         taskFunction,
-         ...,
-         inputName,
-         itemName) {
-  stopifnot(methods::validObject(job))
-  env <- rlang::caller_env()
-  params <- list()
+  "addNewTask", signature(job = "f2dbJob"),
+  function(job, name,
+           taskFunction,
+           ...,
+           inputName,
+           itemName) {
+    stopifnot(methods::validObject(job))
+    env <- rlang::caller_env()
+    params <- list()
 
     if (methods::hasArg(name)) params[["name"]] <- rlang::enexpr(name)
-  if (methods::hasArg(taskFunction)) params[["taskFunction"]] <- rlang::enexpr(taskFunction)
-  params <- c(params, rlang::enexprs(...))
-  if (methods::hasArg(inputName)) params[["inputName"]] <- rlang::enexpr(inputName)
-  if (methods::hasArg(itemName)) params[["itemName"]] <- rlang::enexpr(itemName)
+    if (methods::hasArg(taskFunction)) params[["taskFunction"]] <- rlang::enexpr(taskFunction)
+    params <- c(params, rlang::enexprs(...))
+    if (methods::hasArg(inputName)) params[["inputName"]] <- rlang::enexpr(inputName)
+    if (methods::hasArg(itemName)) params[["itemName"]] <- rlang::enexpr(itemName)
 
-  taskCall <- rlang::expr(f2dbTask(!!!params))
-  task <- eval(taskCall, env)
+    taskCall <- rlang::expr(f2dbTask(!!!params))
+    task <- eval(taskCall, env)
 
-  jobSymbol <- match.call(addNewTask, rlang::current_call())$job
-  stopifnot(is.symbol(jobSymbol))
+    jobSymbol <- match.call(addNewTask, rlang::current_call())$job
+    stopifnot(is.symbol(jobSymbol))
 
-  appendTask(job, task, jobSymbol, env)
+    appendTask(job, task, jobSymbol, env)
 
     invisible()
-}
+  }
 )

@@ -47,15 +47,16 @@ methods::setMethod(
   "addTask", signature(job = "f2dbJob", task = "list"),
   function(job, task) {
     stopifnot(methods::validObject(job))
-    tasklist <- as.list(task)
+
+    task <- as.list(task)
     n <- sys.parent()
     env <- rlang::caller_env(n)
 
     params <- list()
     params[["job"]] <- match.call(addTask, sys.call(-n))$job
 
-    for(task in tasklist) {
-      params[["task"]] <- task
+    for (tsk in task) {
+      params[["task"]] <- tsk
       addCall <- rlang::expr(addTask(!!!params))
       eval(addCall, env)
     }
