@@ -20,6 +20,7 @@ methods::setGeneric("addTask", function(job, task, ...) standardGeneric("addTask
 
 #-------------------------------------------------------------------------------
 #' @name addTask,f2dbJob-method
+#' @aliases addTask-method
 #' @rdname addTask-method
 #' @export
 methods::setMethod(
@@ -41,6 +42,7 @@ methods::setMethod(
 
 #-------------------------------------------------------------------------------
 #' @name addTask,list-method
+#' @aliases addTask-method
 #' @rdname addTask-method
 #' @export
 methods::setMethod(
