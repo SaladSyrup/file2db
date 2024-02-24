@@ -7,19 +7,19 @@
 \alias{addNewTask,f2dbJob-method}
 \alias{addTask-method}
 \alias{addTask}
-\alias{addTask,f2dbJob-method}
-\alias{addTask,list-method}
+\alias{addTask,f2dbJob,f2dbTask-method}
+\alias{addTask,f2dbJob,list-method}
 \title{addTask, addNewTask}
 \usage{
 addNewTask(job, ...)
 
 \S4method{addNewTask}{f2dbJob}(job, name, taskFunction, ..., inputName, itemName)
 
-addTask(job, task, ...)
+addTask(job, task, followNext, ...)
 
-\S4method{addTask}{f2dbJob,f2dbTask}(job, task)
+\S4method{addTask}{f2dbJob,f2dbTask}(job, task, followNext = FALSE)
 
-\S4method{addTask}{f2dbJob,list}(job, task)
+\S4method{addTask}{f2dbJob,list}(job, task, followNext = FALSE)
 }
 \arguments{
 \item{job}{An \code{f2dbJob} to add a task to.}
@@ -40,6 +40,8 @@ function. If \code{itemName} is provided, the batch item will be passed using
 \code{itemName}.}
 
 \item{task}{An existing \code{f2dbTask} to add.}
+
+\item{followNext}{Recursively adds \code{nextTask}}
 }
 \value{
 \code{NULL}, invisibly.
