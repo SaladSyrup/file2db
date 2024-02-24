@@ -22,7 +22,6 @@ job sequence. \code{nextTask} takes the output of the current task as its input.
 \seealso{
 Other f2dbTask: 
 \code{\link{f2dbEndTask-class}},
-\code{\link{f2dbRun,f2dbTask-method}},
 \code{\link{f2dbTask}},
 \code{\link{nextTask-method}},
 \code{\link{nextTask-set-method}},

@@ -1,5 +1,3 @@
-#' f2dbRun
-#' @name f2dbRun,f2dbObject-method
 #' @rdname f2dbRun-method
 #' @export
 methods::setMethod(

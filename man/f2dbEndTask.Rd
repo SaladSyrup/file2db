@@ -14,7 +14,6 @@ An \code{f2dbEndTask} object
 }
 \seealso{
 Other f2dbEndTask: 
-\code{\link{f2dbEndTask-class}},
-\code{\link{f2dbRun,f2dbEndTask-method}}
+\code{\link{f2dbEndTask-class}}
 }
 \concept{f2dbEndTask}

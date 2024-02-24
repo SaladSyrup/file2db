@@ -22,7 +22,6 @@ Returns the task call of an \code{f2dbTaskFunction}.
 }
 \seealso{
 Other f2dbTaskFunction: 
-\code{\link{f2dbRun,f2dbTaskFunction-method}},
 \code{\link{f2dbTaskFunction}},
 \code{\link{f2dbTaskFunction-class}}
 }

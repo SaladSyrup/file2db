@@ -15,7 +15,6 @@ modified.
 }
 \seealso{
 Other f2dbTask: 
-\code{\link{f2dbRun,f2dbTask-method}},
 \code{\link{f2dbTask}},
 \code{\link{f2dbTask-class}},
 \code{\link{nextTask-method}},
@@ -24,8 +23,7 @@ Other f2dbTask:
 \code{\link{taskFunction-set-method}}
 
 Other f2dbEndTask: 
-\code{\link{f2dbEndTask}},
-\code{\link{f2dbRun,f2dbEndTask-method}}
+\code{\link{f2dbEndTask}}
 
 Other f2db classes: 
 \code{\link{f2dbJob-class}},

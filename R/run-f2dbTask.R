@@ -1,17 +1,4 @@
-#' f2dbRun
-#'
-#' Executes the given task and passes output to the next task.
-#'
-#' @param object An `f2dbTask` object.
-#' @param input Task input.
-#' @inherit f2dbRun,f2dbTaskFunction-method params
-#'
-#' @inherit f2dbRun-method return
-#'
-#' @name f2dbRun,f2dbTask-method
-#' @docType methods
-#' @family f2dbTask
-#' @family f2dbRun methods
+#' @rdname f2dbRun-method
 #' @export
 methods::setMethod(
   "f2dbRun", "f2dbTask",

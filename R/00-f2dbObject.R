@@ -37,7 +37,7 @@ f2dbObject <- function(name) {
 #-------------------------------------------------------------------------------
 #' f2dbRun
 #'
-#' Generic method for running an `f2dbObject`.
+#' Run an `f2dbObject`.
 #'
 #' @param object An `f2dbObject` to run
 #' @param ... <[`dynamic-dots`][rlang::dyn-dots]> Parameters passed to
@@ -48,7 +48,7 @@ f2dbObject <- function(name) {
 #' \item{success}{Logical value indicating success (`TRUE`) or failure (`FALSE`).
 #'   Success only indicates that it is safe to proceed; it does not mean there
 #'   are no warnings or errors.}
-#' \item{output}{Run results, if any.}
+#' \item{...}{Additional values, depending upon the object that is run.}
 #'
 #' @name f2dbRun-method
 #' @aliases f2dbRun

@@ -15,7 +15,7 @@ addNewTask(job, ...)
 
 \S4method{addNewTask}{f2dbJob}(job, name, taskFunction, ..., inputName, itemName)
 
-addTask(job, task, followNext, ...)
+addTask(job, task, followNext = FALSE, ...)
 
 \S4method{addTask}{f2dbJob,f2dbTask}(job, task, followNext = FALSE)
 

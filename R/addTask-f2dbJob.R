@@ -15,7 +15,7 @@
 #' @docType methods
 #' @family f2dbJob
 #' @export
-methods::setGeneric("addTask", function(job, task, followNext, ...) standardGeneric("addTask"),
+methods::setGeneric("addTask", function(job, task, followNext = FALSE, ...) standardGeneric("addTask"),
   signature = c("job", "task")
 )
 
@@ -27,13 +27,21 @@ methods::setMethod(
   function(job, task, followNext = FALSE) {
     stopifnot(methods::validObject(job))
     stopifnot(methods::validObject(task))
+    stopifnot(is.logical(followNext))
+
     n <- sys.parent()
     env <- rlang::caller_env(n)
+    addCall <- match.call(addTask, sys.call(-n))
 
-    jobSymbol <- match.call(addTask, sys.call(-n))$job
+    jobSymbol <- addCall$job
     stopifnot(is.symbol(jobSymbol))
 
     appendTask(job, task, rlang::as_string(jobSymbol), env)
+
+    if ((followNext == TRUE) && (isa(nextTask(task), "f2dbTask"))) {
+      addCall[["task"]] <- nextTask(task)
+      eval(addCall, env)
+    }
 
     invisible()
   }
@@ -50,13 +58,10 @@ methods::setMethod(
     task <- as.list(task)
     n <- sys.parent()
     env <- rlang::caller_env(n)
+    addCall <- match.call(addTask, sys.call(-n))
 
-    params <- list()
-    params[["job"]] <- match.call(addTask, sys.call(-n))$job
-
-    for (tsk in task) {
-      params[["task"]] <- tsk
-      addCall <- rlang::expr(addTask(!!!params))
+    for (t in task) {
+      addCall[["task"]] <- t
       eval(addCall, env)
     }
 
