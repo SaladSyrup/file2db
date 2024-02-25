@@ -26,6 +26,10 @@ f2dbRun(object, ...)
 
 \item{...}{<\code{\link[rlang:dyn-dots]{dynamic-dots}}> Parameters passed to
 class-specific \code{f2dbRun} implementations.}
+
+\item{input}{Input passed to the object being run.}
+
+\item{item}{Batch job}
 }
 \value{
 A list:

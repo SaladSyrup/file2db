@@ -40,6 +40,8 @@ f2dbObject <- function(name) {
 #' Run an `f2dbObject`.
 #'
 #' @param object An `f2dbObject` to run
+#' @param input Input passed to the object being run.
+#' @param item Batch job
 #' @param ... <[`dynamic-dots`][rlang::dyn-dots]> Parameters passed to
 #'   class-specific `f2dbRun` implementations.
 #'
