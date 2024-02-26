@@ -17,7 +17,7 @@
 \value{
 A list of lists. The first list contains:
 \item{success}{Logical value indicating success (\code{TRUE}) or failure
-(\code{FALSE}). \code{TRUE} is returned if both the \code{taskFunction} and \code{nextTask} are
+(\code{FALSE}). \code{TRUE} is returned if both \code{taskFunction} and \code{nextTask} are
 successful. Otherwise, \code{FALSE} is returned.}
 \item{object}{The type of object being run.}
 \item{name}{The name of the object being run.}

@@ -2,7 +2,6 @@
 #'
 #' Run an `f2dbTask`.
 #'
-#' @details
 #' When called on an `f2dbTask` object, `f2dbRun` will run `taskFunction`. If
 #' `taskFunction` is successful, then `f2dbRun` is called with `nextTask`.
 #'
@@ -13,7 +12,7 @@
 #' @returns
 #' A list of lists. The first list contains:
 #' \item{success}{Logical value indicating success (`TRUE`) or failure
-#' (`FALSE`). `TRUE` is returned if both the `taskFunction` and `nextTask` are
+#' (`FALSE`). `TRUE` is returned if both `taskFunction` and `nextTask` are
 #' successful. Otherwise, `FALSE` is returned.}
 #' \item{object}{The type of object being run.}
 #' \item{name}{The name of the object being run.}
