@@ -17,7 +17,8 @@
 \value{
 A list of lists. The first list contains:
 \item{success}{Logical value indicating success (\code{TRUE}) or failure
-(\code{FALSE}).}
+(\code{FALSE}). \code{TRUE} is returned if both the \code{taskFunction} and \code{nextTask} are
+successful. Otherwise, \code{FALSE} is returned.}
 \item{object}{The type of object being run.}
 \item{name}{The name of the object being run.}
 \item{messages}{Captured error, warning, or informational messages.}
@@ -27,9 +28,14 @@ Subsequent lists contain the output from running \code{nextTask}.
 \description{
 Run an \code{f2dbTask}.
 }
+\details{
+When called on an \code{f2dbTask} object, \code{f2dbRun} will run \code{taskFunction}. If
+\code{taskFunction} is successful, then \code{f2dbRun} is called with \code{nextTask}.
+}
 \seealso{
 Other f2dbTask: 
 \code{\link{f2dbEndTask-class}},
+\code{\link{f2dbRun,f2dbEndTask-method}},
 \code{\link{f2dbTask}},
 \code{\link{f2dbTask-class}},
 \code{\link{nextTask-method}},
@@ -38,6 +44,7 @@ Other f2dbTask:
 \code{\link{taskFunction-set-method}}
 
 Other f2dbRun methods: 
+\code{\link{f2dbRun,f2dbEndTask-method}},
 \code{\link{f2dbRun,f2dbObject-method}},
 \code{\link{f2dbRun,f2dbTaskFunction-method}},
 \code{\link{f2dbRun-method}}

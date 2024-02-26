@@ -2,6 +2,10 @@
 #'
 #' Run an `f2dbTask`.
 #'
+#' @details
+#' When called on an `f2dbTask` object, `f2dbRun` will run `taskFunction`. If
+#' `taskFunction` is successful, then `f2dbRun` is called with `nextTask`.
+#'
 #' @param object An `f2dbTask` to run.
 #' @param input Input to pass to the underlying task function.
 #' @param item The job item being processed.
@@ -9,7 +13,8 @@
 #' @returns
 #' A list of lists. The first list contains:
 #' \item{success}{Logical value indicating success (`TRUE`) or failure
-#' (`FALSE`).}
+#' (`FALSE`). `TRUE` is returned if both the `taskFunction` and `nextTask` are
+#' successful. Otherwise, `FALSE` is returned.}
 #' \item{object}{The type of object being run.}
 #' \item{name}{The name of the object being run.}
 #' \item{messages}{Captured error, warning, or informational messages.}
@@ -25,16 +30,17 @@ methods::setMethod(
   "f2dbRun", "f2dbTask",
   function(object, input = NA, item = NA) {
     functionOutput <- f2dbRun(taskFunction(object), input, item)
-    retValue <- list(
+    result <- list(
       success = functionOutput$success, object = class(object)[1],
       name = name(object), messages = functionOutput$messages
     )
 
     if (functionOutput$success == FALSE) {
-      return(retValue)
+      return(result)
     }
 
-    retNextTask <- f2dbRun(nextTask(object), functionOutput$output, item)
-    c(retValue, retNextTask)
+    resultNextTask <- f2dbRun(nextTask(object), functionOutput$output, item)
+    result$success <- (result$success && resultNextTask$success)
+    c(result, resultNextTask)
   }
 )
