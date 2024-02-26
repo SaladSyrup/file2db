@@ -8,7 +8,7 @@
 \S4method{f2dbRun}{f2dbTaskFunction}(object, input = NA, item = NA)
 }
 \arguments{
-\item{object}{An \code{f2dbTaskFunction} to run}
+\item{object}{An \code{f2dbTaskFunction} to run.}
 
 \item{input}{Input to pass to the underlying task function.}
 
@@ -36,6 +36,7 @@ Other f2dbTaskFunction:
 
 Other f2dbRun methods: 
 \code{\link{f2dbRun,f2dbObject-method}},
+\code{\link{f2dbRun,f2dbTask-method}},
 \code{\link{f2dbRun-method}}
 }
 \concept{f2dbRun methods}

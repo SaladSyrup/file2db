@@ -29,6 +29,7 @@ Other f2dbObject:
 \code{\link{name-method}}
 
 Other f2dbRun methods: 
+\code{\link{f2dbRun,f2dbTask-method}},
 \code{\link{f2dbRun,f2dbTaskFunction-method}},
 \code{\link{f2dbRun-method}}
 }

@@ -15,6 +15,7 @@ modified.
 }
 \seealso{
 Other f2dbTask: 
+\code{\link{f2dbRun,f2dbTask-method}},
 \code{\link{f2dbTask}},
 \code{\link{f2dbTask-class}},
 \code{\link{nextTask-method}},
