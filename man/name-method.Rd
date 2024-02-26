@@ -24,6 +24,7 @@ Returns the name of an \code{f2dbObject}.
 Other f2dbObject: 
 \code{\link{f2dbObject}},
 \code{\link{f2dbObject-class}},
+\code{\link{f2dbRun,f2dbObject-method}},
 \code{\link{f2dbRun-method}}
 }
 \concept{f2dbObject}

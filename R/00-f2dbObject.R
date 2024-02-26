@@ -41,16 +41,20 @@ f2dbObject <- function(name) {
 #'
 #' @param object An `f2dbObject` to run
 #' @param input Input passed to the object being run.
-#' @param item Batch job
+#' @param item Job item being processed.
 #' @param ... <[`dynamic-dots`][rlang::dyn-dots]> Parameters passed to
 #'   class-specific `f2dbRun` implementations.
 #'
 #' @returns
-#' A list:
+#' All objects return a list with the following values:
 #' \item{success}{Logical value indicating success (`TRUE`) or failure (`FALSE`).
 #'   Success only indicates that it is safe to proceed; it does not mean there
 #'   are no warnings or errors.}
-#' \item{...}{Additional values, depending upon the object that is run.}
+#' \item{object}{The type of object being run.}
+#' \item{name}{The name of the object being run.}
+#'
+#' Additional values are returned depending on the type of object being run. See
+#' help topics for object-specific `f2dbRun` implementations.
 #'
 #' @name f2dbRun-method
 #' @aliases f2dbRun
@@ -59,7 +63,7 @@ f2dbObject <- function(name) {
 #' @family f2dbRun methods
 #' @export
 methods::setGeneric("f2dbRun",
-  function(object, ...) standardGeneric("f2dbRun"),
+  function(object, input, item, ...) standardGeneric("f2dbRun"),
   signature = "object"
 )
 

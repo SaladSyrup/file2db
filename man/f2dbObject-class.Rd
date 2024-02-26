@@ -16,6 +16,7 @@ Base class from which all other f2db classes descend.
 \seealso{
 Other f2dbObject: 
 \code{\link{f2dbObject}},
+\code{\link{f2dbRun,f2dbObject-method}},
 \code{\link{f2dbRun-method}},
 \code{\link{name-method}}
 
