@@ -40,8 +40,6 @@ f2dbObject <- function(name) {
 #' Run an `f2dbObject`.
 #'
 #' @param object An `f2dbObject` to run
-#' @param input Input passed to the object being run.
-#' @param item Job item being processed.
 #' @param ... <[`dynamic-dots`][rlang::dyn-dots]> Parameters passed to
 #'   class-specific `f2dbRun` implementations.
 #'
@@ -63,7 +61,7 @@ f2dbObject <- function(name) {
 #' @family f2dbRun methods
 #' @export
 methods::setGeneric("f2dbRun",
-  function(object, input, item, ...) standardGeneric("f2dbRun"),
+  function(object, ...) standardGeneric("f2dbRun"),
   signature = "object"
 )
 

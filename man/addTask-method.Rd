@@ -35,8 +35,8 @@ function.}
 unnamed first parameter. If \code{inputName} is provided, task input will be
 passed using \code{inputName}.}
 
-\item{itemName}{By default, the current batch item is not passed to the task
-function. If \code{itemName} is provided, the batch item will be passed using
+\item{itemName}{By default, the current job item is not passed to the task
+function. If \code{itemName} is provided, the job item will be passed using
 \code{itemName}.}
 
 \item{task}{An existing \code{f2dbTask} to add.}

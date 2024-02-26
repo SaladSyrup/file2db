@@ -5,10 +5,12 @@
 \alias{f2dbRun,f2dbObject-method}
 \title{f2dbRun}
 \usage{
-\S4method{f2dbRun}{f2dbObject}(object, input, item, ...)
+\S4method{f2dbRun}{f2dbObject}(object, ...)
 }
 \arguments{
 \item{object}{An \code{f2dbObject}.}
+
+\item{...}{<\code{\link[rlang:dyn-dots]{dynamic-dots}}> Unused.}
 }
 \value{
 A list:
@@ -27,6 +29,7 @@ Other f2dbObject:
 \code{\link{name-method}}
 
 Other f2dbRun methods: 
+\code{\link{f2dbRun,f2dbTaskFunction-method}},
 \code{\link{f2dbRun-method}}
 }
 \concept{f2dbObject}

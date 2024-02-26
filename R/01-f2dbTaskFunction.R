@@ -43,8 +43,8 @@ methods::setClass("f2dbTaskFunction",
 #' @param inputName By default, task input is passed to the task function as an
 #'   unnamed first parameter. If `inputName` is provided, task input will be
 #'   passed using `inputName`.
-#' @param itemName By default, the current batch item is not passed to the task
-#'   function. If `itemName` is provided, the batch item will be passed using
+#' @param itemName By default, the current job item is not passed to the task
+#'   function. If `itemName` is provided, the job item will be passed using
 #'   `itemName`.
 #'
 #' @returns An `f2dbTaskFunction` object.
@@ -71,7 +71,7 @@ f2dbTaskFunction <- function(taskFunction,
 
   if (methods::hasArg(itemName)) {
     stopifnot(identical(itemName, make.names(itemName)))
-    params[[itemName]] <- as.symbol("batchItem")
+    params[[itemName]] <- as.symbol("jobItem")
   }
 
   methods::new("f2dbTaskFunction", name = rlang::expr_deparse(taskFunction), taskCall = rlang::call2(taskFunction, !!!params))

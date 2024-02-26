@@ -29,6 +29,7 @@ responsibilities listed above and implement the \code{\link[=f2dbRun]{f2dbRun()}
 
 \seealso{
 Other f2dbTaskFunction: 
+\code{\link{f2dbRun,f2dbTaskFunction-method}},
 \code{\link{f2dbTaskFunction}},
 \code{\link{taskCall-method}}
 

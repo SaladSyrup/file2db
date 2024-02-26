@@ -3,6 +3,7 @@
 #' This is the default `f2dbRun` method for `f2dbObject`s.
 #'
 #' @param object An `f2dbObject`.
+#' @param ... <[`dynamic-dots`][rlang::dyn-dots]> Unused.
 #'
 #' @returns
 #' A list:

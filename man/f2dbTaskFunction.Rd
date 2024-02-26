@@ -16,8 +16,8 @@ function.}
 unnamed first parameter. If \code{inputName} is provided, task input will be
 passed using \code{inputName}.}
 
-\item{itemName}{By default, the current batch item is not passed to the task
-function. If \code{itemName} is provided, the batch item will be passed using
+\item{itemName}{By default, the current job item is not passed to the task
+function. If \code{itemName} is provided, the job item will be passed using
 \code{itemName}.}
 }
 \value{
@@ -28,6 +28,7 @@ An \code{f2dbTaskFunction} object.
 }
 \seealso{
 Other f2dbTaskFunction: 
+\code{\link{f2dbRun,f2dbTaskFunction-method}},
 \code{\link{f2dbTaskFunction-class}},
 \code{\link{taskCall-method}}
 }
