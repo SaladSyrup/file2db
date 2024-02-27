@@ -2,6 +2,8 @@
 #'
 #' Run an `f2dbTaskFunction`.
 #'
+#' `f2dbRun` only returns `FALSE` if an error is thrown.
+#'
 #' @param object An `f2dbTaskFunction` to run.
 #' @param input Input to pass to the underlying task function.
 #' @param item The job item being processed. This is passed to the task function
@@ -11,7 +13,7 @@
 #' A list:
 #' \item{success}{Logical value indicating success (`TRUE`) or failure (`FALSE`).
 #'   Success only indicates that it is safe to proceed; it does not mean there
-#'   are no warnings or errors.}
+#'   are no warnings or messages.}
 #' \item{object}{The type of object being run.}
 #' \item{name}{The name of the object being run.}
 #' \item{output}{Task function output}

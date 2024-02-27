@@ -39,7 +39,11 @@ methods::setMethod(
     }
 
     resultNextTask <- f2dbRun(nextTask(object), functionOutput$output, item)
-    result$success <- (result$success && resultNextTask$success)
-    c(result, resultNextTask)
+    if (!rlang::is_list(resultNextTask[[1]])) {
+      resultNextTask <- list(resultNextTask)
+    }
+
+    result$success <- (result$success && resultNextTask[[1]]$success)
+    c(list(result), resultNextTask)
   }
 )

@@ -19,7 +19,7 @@ if the \code{f2dbTaskFunction} was created with an \code{itemName}.}
 A list:
 \item{success}{Logical value indicating success (\code{TRUE}) or failure (\code{FALSE}).
 Success only indicates that it is safe to proceed; it does not mean there
-are no warnings or errors.}
+are no warnings or messages.}
 \item{object}{The type of object being run.}
 \item{name}{The name of the object being run.}
 \item{output}{Task function output}
@@ -27,6 +27,9 @@ are no warnings or errors.}
 }
 \description{
 Run an \code{f2dbTaskFunction}.
+}
+\details{
+\code{f2dbRun} only returns \code{FALSE} if an error is thrown.
 }
 \seealso{
 Other f2dbTaskFunction: 

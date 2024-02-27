@@ -35,8 +35,8 @@ methods::setMethod(
         stop("Cannot add new tasks after an end task")
       }
 
-      nextTask(job@taskList[[numTasks]]) <- task
-      job@taskList <- c(job@taskList, task)
+      job@taskList <- append(job@taskList, task)
+      nextTask(job@taskList[[numTasks]]) <- job@taskList[[numTasks + 1]]
     } else {
       job@taskList <- list(task)
     }
