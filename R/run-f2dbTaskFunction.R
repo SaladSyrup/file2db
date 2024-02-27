@@ -39,7 +39,7 @@ methods::setMethod(
     tryCatch(
       error = function(cnd) {
         success <<- FALSE
-        msgs <<- append(msgs, rlang::cnd_message(cnd))
+        msgs <<- append(msgs, paste0(class(cnd)[1], ": ", rlang::cnd_message(cnd)))
       },
       withCallingHandlers(
         message = saveMsgs,
