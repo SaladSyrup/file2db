@@ -23,7 +23,7 @@ are no warnings or errors.}
 \item{object}{The type of object being run.}
 \item{name}{The name of the object being run.}
 \item{output}{Task function output}
-\item{messages}{Captured error, warning, or informational messages.}
+\item{messages}{A list of captured error, warning, or informational messages.}
 }
 \description{
 Run an \code{f2dbTaskFunction}.

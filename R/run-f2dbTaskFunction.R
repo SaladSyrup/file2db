@@ -15,7 +15,7 @@
 #' \item{object}{The type of object being run.}
 #' \item{name}{The name of the object being run.}
 #' \item{output}{Task function output}
-#' \item{messages}{Captured error, warning, or informational messages.}
+#' \item{messages}{A list of captured error, warning, or informational messages.}
 #'
 #' @name f2dbRun,f2dbTaskFunction-method
 #' @docType methods
@@ -25,10 +25,29 @@
 methods::setMethod(
   "f2dbRun", "f2dbTaskFunction",
   function(object, input = NA, item = NA) {
+    msgs <- list()
+    success <- TRUE
+    output <- NULL
+
+    saveMsgs <- function(cnd) {
+      msgs <<- append(msgs, paste0(class(cnd)[1], ": ", rlang::cnd_message(cnd)))
+      rlang::cnd_muffle(cnd)
+    }
+
     callEnv <- rlang::env(rlang::caller_env(), taskInput = input, batchItem = item)
 
-    output <- eval(taskCall(object), callEnv)
+    tryCatch(
+      error = function(cnd) {
+        success <<- FALSE
+        msgs <<- append(msgs, rlang::cnd_message(cnd))
+      },
+      withCallingHandlers(
+        message = saveMsgs,
+        warning = saveMsgs,
+        output <- eval(taskCall(object), callEnv)
+      )
+    )
 
-    list(success = TRUE, object = class(object)[1], name = name(object), output = output, messages = "")
+    list(success = success, object = class(object)[1], name = name(object), output = output, messages = msgs)
   }
 )
