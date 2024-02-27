@@ -18,7 +18,9 @@ methods::setMethod(
            inputName,
            itemName) {
     stopifnot(methods::validObject(job))
-    env <- rlang::caller_env()
+
+    n <- sys.parent()
+    env <- rlang::caller_env(n)
     params <- list()
 
     if (methods::hasArg(name)) params[["name"]] <- rlang::enexpr(name)
@@ -30,10 +32,10 @@ methods::setMethod(
     taskCall <- rlang::expr(f2dbTask(!!!params))
     task <- eval(taskCall, env)
 
-    jobSymbol <- match.call(addNewTask, rlang::current_call())$job
+    jobSymbol <- match.call(addNewTask, sys.call(-n))$job
     stopifnot(is.symbol(jobSymbol))
 
-    appendTask(job, task, jobSymbol, env)
+    appendTask(job, task, rlang::as_string(jobSymbol), env)
 
     invisible()
   }
