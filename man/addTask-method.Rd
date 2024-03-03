@@ -44,7 +44,7 @@ function. If \code{itemName} is provided, the job item will be passed using
 \item{followNext}{Recursively adds \code{nextTask}}
 }
 \value{
-\code{NULL}, invisibly.
+An \code{f2dbJob} with the added task.
 }
 \description{
 Add a \code{f2dbTask} object to the end of the task list and update the \code{nextTask}

@@ -32,11 +32,6 @@ methods::setMethod(
     taskCall <- rlang::expr(f2dbTask(!!!params))
     task <- eval(taskCall, env)
 
-    jobSymbol <- match.call(addNewTask, sys.call(-n))$job
-    stopifnot(is.symbol(jobSymbol))
-
-    appendTask(job, task, rlang::as_string(jobSymbol), env)
-
-    invisible()
+    addTask(job, task)
   }
 )

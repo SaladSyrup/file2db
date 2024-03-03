@@ -38,6 +38,7 @@ methods::setMethod(
       return(result)
     }
 
+    show(nextTask(object))
     resultNextTask <- f2dbRun(nextTask(object), functionOutput$output, item)
     if (!rlang::is_list(resultNextTask[[1]])) {
       resultNextTask <- list(resultNextTask)

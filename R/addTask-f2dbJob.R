@@ -8,7 +8,7 @@
 #' @param followNext Recursively adds `nextTask`
 #' @inheritParams f2dbTask
 #'
-#' @returns `NULL`, invisibly.
+#' @returns An `f2dbJob` with the added task.
 #'
 #' @name addTask-method
 #' @aliases addTask
@@ -29,21 +29,29 @@ methods::setMethod(
     stopifnot(methods::validObject(task))
     stopifnot(is.logical(followNext))
 
-    n <- sys.parent()
-    env <- rlang::caller_env(n)
-    addCall <- match.call(addTask, sys.call(-n))
+    taskNames <- names(job@taskList)
+    numTasks <- length(job@taskList)
 
-    jobSymbol <- addCall$job
-    stopifnot(is.symbol(jobSymbol))
+    if (numTasks != 0) {
+      if (isa(job@taskList[[numTasks]], "f2dbEndTask")) {
+        stop("Cannot add new tasks after an end task")
+      }
 
-    appendTask(job, task, rlang::as_string(jobSymbol), env)
-
-    if ((followNext == TRUE) && (isa(nextTask(task), "f2dbTask"))) {
-      addCall[["task"]] <- nextTask(task)
-      eval(addCall, env)
+      job@taskList <- append(job@taskList, task)
+      nextTask(job@taskList[[numTasks]]) <- job@taskList[[numTasks + 1]]
+    } else {
+      job@taskList <- list(task)
     }
 
-    invisible()
+    taskNames <- c(taskNames, name(task))
+    taskNames <- make.names(taskNames, unique = TRUE)
+    names(job@taskList) <- taskNames
+
+    if ((followNext == TRUE) && (isa(nextTask(task), "f2dbTask"))) {
+      job <- addTask(job, nextTask(task), followNext)
+    }
+
+    return(job)
   }
 )
 
@@ -55,16 +63,10 @@ methods::setMethod(
   function(job, task, followNext = FALSE) {
     stopifnot(methods::validObject(job))
 
-    task <- as.list(task)
-    n <- sys.parent()
-    env <- rlang::caller_env(n)
-    addCall <- match.call(addTask, sys.call(-n))
-
     for (t in task) {
-      addCall[["task"]] <- t
-      eval(addCall, env)
+      job <- addTask(job, t, followNext)
     }
 
-    invisible()
+    return(job)
   }
 )
