@@ -104,3 +104,40 @@ methods::setMethod(
     object
   }
 )
+
+#-------------------------------------------------------------------------------
+# Internal methods
+#-------------------------------------------------------------------------------
+#' linkTaskList
+#'
+#' This is an internal function.
+#'
+#' @param job A job containing tasks to be linked. Tasks are linked in the same
+#' order as the taskList.
+#'
+#' @returns A job containing linked tasks.
+#'
+#' @name linkTaskList-method
+#' @docType methods
+#' @noRd
+linkTaskList <- function(job) {
+  numTasks <- length(job@taskList)
+  taskNames <- names(job@taskList)
+
+  if (numTasks <= 1) {
+    return(job)
+  }
+
+  linkedTasks <- list(job@taskList[[numTasks]])
+
+  for (i in (numTasks - 1):1) {
+    task <- job@taskList[[i]]
+    nextTask(task) <- linkedTasks[[1]]
+    linkedTasks <- c(task, linkedTasks)
+  }
+
+  names(linkedTasks) <- taskNames
+  job@taskList <- linkedTasks
+
+  return(job)
+}

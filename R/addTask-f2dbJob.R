@@ -38,7 +38,6 @@ methods::setMethod(
       }
 
       job@taskList <- append(job@taskList, task)
-      nextTask(job@taskList[[numTasks]]) <- job@taskList[[numTasks + 1]]
     } else {
       job@taskList <- list(task)
     }
@@ -51,7 +50,7 @@ methods::setMethod(
       job <- addTask(job, nextTask(task), followNext)
     }
 
-    return(job)
+    linkTaskList(job)
   }
 )
 
