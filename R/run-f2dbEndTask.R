@@ -13,7 +13,7 @@
 #' \item{object}{The type of object being run.}
 #' \item{name}{The name of the object being run.}
 #' \item{item}{The job item.}
-#' \item{messages}{`character()`.}
+#' \item{messages}{An empty list.}
 #'
 #' @name f2dbRun,f2dbEndTask-method
 #' @docType methods
@@ -25,7 +25,7 @@ methods::setMethod(
   function(object, input = NA, item = NA) {
     list(
       success = TRUE, object = class(object)[1],
-      name = name(object), item = item, messages = character()
+      name = name(object), item = item, messages = list()
     )
   }
 )

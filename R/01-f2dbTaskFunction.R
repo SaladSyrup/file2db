@@ -62,7 +62,7 @@ f2dbTaskFunction <- function(taskFunction,
   }
   stopifnot(rlang::is_callable(taskFunction))
 
-  params <- c(as.symbol("taskInput"), ...)
+  params <- list(as.symbol("taskInput"))
 
   if (methods::hasArg(inputName)) {
     stopifnot(identical(inputName, make.names(inputName)))
@@ -74,7 +74,13 @@ f2dbTaskFunction <- function(taskFunction,
     params[[itemName]] <- as.symbol("jobItem")
   }
 
-  methods::new("f2dbTaskFunction", name = rlang::expr_deparse(taskFunction), taskCall = rlang::call2(taskFunction, !!!params))
+  taskName <- rlang::expr_deparse(taskFunction)
+  if ((length(taskName) > 1) || (nchar(taskName[[1]], type = "width") >= 30)) {
+    taskName <- strtrim(taskName[[1]], 30)
+    taskName <- paste0(taskName, "...")
+  }
+
+  methods::new("f2dbTaskFunction", name = taskName, taskCall = rlang::call2(taskFunction, !!!params, ...))
 }
 
 #-------------------------------------------------------------------------------

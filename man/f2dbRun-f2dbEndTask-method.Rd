@@ -20,7 +20,7 @@ A list:
 \item{object}{The type of object being run.}
 \item{name}{The name of the object being run.}
 \item{item}{The job item.}
-\item{messages}{\code{character()}.}
+\item{messages}{An empty list.}
 }
 \description{
 Run an \code{f2dbEndTask}.

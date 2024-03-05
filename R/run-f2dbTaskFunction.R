@@ -50,6 +50,8 @@ methods::setMethod(
       )
     )
 
+    ## TODO: Deal with problem attribute from readr:: methods
+
     list(success = success, object = class(object)[1], name = name(object), output = output, messages = msgs)
   }
 )
