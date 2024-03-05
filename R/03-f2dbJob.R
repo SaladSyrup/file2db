@@ -122,22 +122,13 @@ methods::setMethod(
 #' @noRd
 linkTaskList <- function(job) {
   numTasks <- length(job@taskList)
-  taskNames <- names(job@taskList)
 
-  if (numTasks <= 1) {
-    return(job)
-  }
-
-  linkedTasks <- list(job@taskList[[numTasks]])
+  if (numTasks > 1) {
 
   for (i in (numTasks - 1):1) {
-    task <- job@taskList[[i]]
-    nextTask(task) <- linkedTasks[[1]]
-    linkedTasks <- c(task, linkedTasks)
+    nextTask(job@taskList[[i]]) <- job@taskList[[i + 1]]
   }
-
-  names(linkedTasks) <- taskNames
-  job@taskList <- linkedTasks
+  }
 
   return(job)
 }
