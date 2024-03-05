@@ -16,6 +16,7 @@
 #' successful. Otherwise, `FALSE` is returned.}
 #' \item{object}{The type of object being run.}
 #' \item{name}{The name of the object being run.}
+#' \item{item}{The job item.}
 #' \item{messages}{Captured error, warning, or informational messages.}
 #'
 #' Subsequent lists contain the output from running `nextTask`.
@@ -31,7 +32,7 @@ methods::setMethod(
     functionOutput <- f2dbRun(taskFunction(object), input, item)
     result <- list(
       success = functionOutput$success, object = class(object)[1],
-      name = name(object), messages = functionOutput$messages
+      name = name(object), item = item, messages = functionOutput$messages
     )
 
     if (functionOutput$success == FALSE) {

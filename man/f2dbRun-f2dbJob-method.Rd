@@ -17,7 +17,8 @@ A list:
 indicated.}
 \item{object}{The type of object being run.}
 \item{name}{The name of the object being run.}
-\item{messages}{Captured error, warning, or informational messages.}
+\item{messages}{The \code{f2dbRun} output of tasks with error, warning, or
+informational messages.}
 }
 \description{
 Run an \code{f2dbJob}.

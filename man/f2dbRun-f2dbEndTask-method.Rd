@@ -5,19 +5,22 @@
 \alias{f2dbRun,f2dbEndTask-method}
 \title{f2dbRun}
 \usage{
-\S4method{f2dbRun}{f2dbEndTask}(object, ...)
+\S4method{f2dbRun}{f2dbEndTask}(object, input = NA, item = NA)
 }
 \arguments{
 \item{object}{An \code{f2dbEndTask} to run.}
 
-\item{...}{<\code{\link[rlang:dyn-dots]{dynamic-dots}}> Unused.}
+\item{input}{Input to pass to the underlying task function.}
+
+\item{item}{The job item being processed.}
 }
 \value{
 A list:
 \item{success}{\code{TRUE}.}
 \item{object}{The type of object being run.}
 \item{name}{The name of the object being run.}
-\item{messages}{Character vector "".}
+\item{item}{The job item.}
+\item{messages}{\code{character()}.}
 }
 \description{
 Run an \code{f2dbEndTask}.

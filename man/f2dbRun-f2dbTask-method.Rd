@@ -21,6 +21,7 @@ A list of lists. The first list contains:
 successful. Otherwise, \code{FALSE} is returned.}
 \item{object}{The type of object being run.}
 \item{name}{The name of the object being run.}
+\item{item}{The job item.}
 \item{messages}{Captured error, warning, or informational messages.}
 
 Subsequent lists contain the output from running \code{nextTask}.
