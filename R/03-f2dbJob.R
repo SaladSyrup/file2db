@@ -124,10 +124,9 @@ linkTaskList <- function(job) {
   numTasks <- length(job@taskList)
 
   if (numTasks > 1) {
-
-  for (i in (numTasks - 1):1) {
-    nextTask(job@taskList[[i]]) <- job@taskList[[i + 1]]
-  }
+    for (i in (numTasks - 1):1) {
+      nextTask(job@taskList[[i]]) <- job@taskList[[i + 1]]
+    }
   }
 
   return(job)
