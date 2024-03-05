@@ -28,7 +28,8 @@ methods::setMethod(
     if (length(object@taskList) == 0) {
       return(list(
         success = TRUE, object = class(object)[1],
-        name = name(object), messages = list("No tasks to run.")))
+        name = name(object), messages = list("No tasks to run.")
+      ))
     }
 
     taskListOutput <- f2dbRun(object@taskList[[1]], object@jobInput, object@jobInput)
