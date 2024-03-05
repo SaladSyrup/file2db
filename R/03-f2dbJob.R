@@ -48,13 +48,32 @@ f2dbJob <- function(name, input) {
 }
 
 #-------------------------------------------------------------------------------
+#' listTasks
+#'
+#' Shows job tasks.
+#'
+#' @param object An `f2dbJob` object.
+#'
+#' @returns A list of named character vectors describing each task.
+#'
+#' @name listTasks-method
+#' @aliases listTasks
+#' @docType methods
+#' @family f2dbJob
+#' @export
+methods::setGeneric("listTasks",
+  function(object) standardGeneric("listTasks"),
+  signature = "object"
+)
+
+#-------------------------------------------------------------------------------
 # Accessors
 #-------------------------------------------------------------------------------
 #' jobInput
 #'
 #' Returns job input to the first task
 #'
-#' @param object An `f2dbJob` object
+#' @param object An `f2dbJob` object.
 #'
 #' @returns `jobInput
 #'

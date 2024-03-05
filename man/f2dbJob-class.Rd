@@ -21,7 +21,8 @@ A container for job tasks.
 Other f2dbJob: 
 \code{\link{addNewTask-method}},
 \code{\link{f2dbJob}},
-\code{\link{jobInput-set-method}}
+\code{\link{jobInput-set-method}},
+\code{\link{listTasks-method}}
 
 Other f2db classes: 
 \code{\link{f2dbEndTask-class}},

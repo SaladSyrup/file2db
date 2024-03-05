@@ -23,6 +23,7 @@ Sets job input to the first task
 Other f2dbJob: 
 \code{\link{addNewTask-method}},
 \code{\link{f2dbJob}},
-\code{\link{f2dbJob-class}}
+\code{\link{f2dbJob-class}},
+\code{\link{listTasks-method}}
 }
 \concept{f2dbJob}

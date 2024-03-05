@@ -21,6 +21,7 @@ An \code{f2dbJob} object.
 Other f2dbJob: 
 \code{\link{addNewTask-method}},
 \code{\link{f2dbJob-class}},
-\code{\link{jobInput-set-method}}
+\code{\link{jobInput-set-method}},
+\code{\link{listTasks-method}}
 }
 \concept{f2dbJob}

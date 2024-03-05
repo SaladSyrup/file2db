@@ -54,6 +54,7 @@ slot of the next-to-last task to point to the newly added task.
 Other f2dbJob: 
 \code{\link{f2dbJob}},
 \code{\link{f2dbJob-class}},
-\code{\link{jobInput-set-method}}
+\code{\link{jobInput-set-method}},
+\code{\link{listTasks-method}}
 }
 \concept{f2dbJob}

@@ -12,7 +12,7 @@ jobInput(object)
 \S4method{jobInput}{f2dbJob}(object)
 }
 \arguments{
-\item{object}{An \code{f2dbJob} object}
+\item{object}{An \code{f2dbJob} object.}
 }
 \value{
 `jobInput
