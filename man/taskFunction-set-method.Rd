@@ -26,6 +26,7 @@ Sets the \code{f2dbTaskFunction} held by the \code{f2dbTask}.
 Other f2dbTask: 
 \code{\link{f2dbEndTask-class}},
 \code{\link{f2dbRun,f2dbEndTask-method}},
+\code{\link{f2dbRun,f2dbJob-method}},
 \code{\link{f2dbRun,f2dbTask-method}},
 \code{\link{f2dbTask}},
 \code{\link{f2dbTask-class}},
