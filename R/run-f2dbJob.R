@@ -15,7 +15,8 @@
 #' indicated.}
 #' \item{object}{The type of object being run.}
 #' \item{name}{The name of the object being run.}
-#' \item{messages}{Captured error, warning, or informational messages.}
+#' \item{messages}{The `f2dbRun` output of tasks with error, warning, or
+#' informational messages.}
 #'
 #' @name f2dbRun,f2dbJob-method
 #' @docType methods
@@ -34,11 +35,16 @@ methods::setMethod(
 
     taskListOutput <- f2dbRun(object@taskList[[1]], object@jobInput, object@jobInput)
 
-    result <- list(
-      success = taskListOutput[[1]]$success, object = class(object)[1],
-      name = name(object), messages = taskListOutput[[1]]$messages
-    )
+    taskMessages <- list()
+    for (taskOutput in taskListOutput) {
+      if (length(taskOutput$messages) > 0) {
+        taskMessages <- append(taskMessages, list(taskOutput))
+      }
+    }
 
-    return(result)
+    list(
+      success = taskListOutput[[1]]$success, object = class(object)[1],
+      name = name(object), messages = taskMessages
+    )
   }
 )

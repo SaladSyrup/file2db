@@ -42,7 +42,7 @@ f2dbJob <- function(name, input) {
     name <- as.character(name)
   }
 
-  if (!methods::hasArg(input)) input <- ""
+  if (!methods::hasArg(input)) input <- NA
 
   methods::new("f2dbJob", name = name, jobInput = input)
 }
