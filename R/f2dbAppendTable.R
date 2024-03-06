@@ -18,4 +18,4 @@ methods::setClass("f2dbAppendTable", contains = c("f2dbTask"))
 #'
 #' @family f2dbTask
 #' @export
-f2dbAppendTable <- function(){}
+f2dbAppendTable <- function() {}
