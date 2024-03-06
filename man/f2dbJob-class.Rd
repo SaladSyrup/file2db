@@ -24,6 +24,7 @@ Other f2dbJob:
 \code{\link{taskList-set-method}}
 
 Other f2db classes: 
+\code{\link{f2dbAppendTable-class}},
 \code{\link{f2dbEndTask-class}},
 \code{\link{f2dbObject-class}},
 \code{\link{f2dbTask-class}},

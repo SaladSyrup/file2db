@@ -35,6 +35,8 @@ When called on an \code{f2dbTask} object, \code{f2dbRun} will run \code{taskFunc
 }
 \seealso{
 Other f2dbTask: 
+\code{\link{f2dbAppendTable}},
+\code{\link{f2dbAppendTable-class}},
 \code{\link{f2dbEndTask-class}},
 \code{\link{f2dbRun,f2dbEndTask-method}},
 \code{\link{f2dbRun,f2dbJob-method}},

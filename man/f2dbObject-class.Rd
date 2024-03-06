@@ -21,6 +21,7 @@ Other f2dbObject:
 \code{\link{name-method}}
 
 Other f2db classes: 
+\code{\link{f2dbAppendTable-class}},
 \code{\link{f2dbEndTask-class}},
 \code{\link{f2dbJob-class}},
 \code{\link{f2dbTask-class}},

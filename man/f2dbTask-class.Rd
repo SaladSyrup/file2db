@@ -21,6 +21,8 @@ job sequence. \code{nextTask} takes the output of the current task as its input.
 
 \seealso{
 Other f2dbTask: 
+\code{\link{f2dbAppendTable}},
+\code{\link{f2dbAppendTable-class}},
 \code{\link{f2dbEndTask-class}},
 \code{\link{f2dbRun,f2dbEndTask-method}},
 \code{\link{f2dbRun,f2dbJob-method}},
@@ -32,6 +34,7 @@ Other f2dbTask:
 \code{\link{taskFunction-set-method}}
 
 Other f2db classes: 
+\code{\link{f2dbAppendTable-class}},
 \code{\link{f2dbEndTask-class}},
 \code{\link{f2dbJob-class}},
 \code{\link{f2dbObject-class}},
