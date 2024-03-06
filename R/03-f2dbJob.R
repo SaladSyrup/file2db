@@ -69,7 +69,6 @@ methods::setGeneric("jobInput",
 )
 
 #-------------------------------------------------------------------------------
-#' @name jobInput,f2dbJob-method
 #' @rdname jobInput-method
 #' @export
 methods::setMethod("jobInput", "f2dbJob", function(object) object@jobInput)
@@ -93,7 +92,6 @@ methods::setGeneric("jobInput<-",
 )
 
 #-------------------------------------------------------------------------------
-#' @name jobInput<-,f2dbJob-method
 #' @rdname jobInput-set-method
 #' @export
 methods::setMethod(
@@ -117,7 +115,7 @@ methods::setMethod(
 #' @name taskList-method
 #' @aliases taskList
 #' @docType methods
-#' @family f2dbJob`
+#' @family f2dbJob
 #' @export
 methods::setGeneric("taskList",
   function(object) standardGeneric("taskList"),
@@ -125,7 +123,6 @@ methods::setGeneric("taskList",
 )
 
 #-------------------------------------------------------------------------------
-#' @name taskList,f2dbJob-method
 #' @rdname taskList-method
 #' @export
 methods::setMethod("taskList", "f2dbJob", function(object) object@taskList)
@@ -150,7 +147,6 @@ methods::setGeneric("taskList<-",
 )
 
 #-------------------------------------------------------------------------------
-#' @name taskList<-,f2dbJob-method
 #' @rdname taskList-set-method
 #' @export
 methods::setMethod(
@@ -181,7 +177,6 @@ methods::setMethod(
 )
 
 #-------------------------------------------------------------------------------
-#' @name taskList<-,list-method
 #' @rdname taskList-set-method
 #' @export
 methods::setMethod(

@@ -21,7 +21,10 @@ A list of \code{f2dbTask}s.
 Returns task List
 }
 \seealso{
-Other f2dbJob`: 
-\code{\link{jobInput-method}}
+Other f2dbJob: 
+\code{\link{f2dbJob}},
+\code{\link{f2dbJob-class}},
+\code{\link{jobInput-set-method}},
+\code{\link{taskList-set-method}}
 }
-\concept{f2dbJob`}
+\concept{f2dbJob}

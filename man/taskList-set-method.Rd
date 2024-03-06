@@ -4,8 +4,8 @@
 \name{taskList-set-method}
 \alias{taskList-set-method}
 \alias{taskList<-}
-\alias{taskList<-,f2dbJob-method}
-\alias{taskList<-,list-method}
+\alias{taskList<-,f2dbJob,f2dbTask-method}
+\alias{taskList<-,f2dbJob,list-method}
 \title{taskList<-}
 \usage{
 taskList(object) <- value
@@ -27,6 +27,7 @@ slot of the next-to-last task to point to the newly added task.
 Other f2dbJob: 
 \code{\link{f2dbJob}},
 \code{\link{f2dbJob-class}},
-\code{\link{jobInput-set-method}}
+\code{\link{jobInput-set-method}},
+\code{\link{taskList-method}}
 }
 \concept{f2dbJob}

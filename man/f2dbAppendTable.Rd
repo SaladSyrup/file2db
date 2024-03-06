@@ -7,14 +7,14 @@
 f2dbAppendTable()
 }
 \value{
-An \code{f2dbAppendTable} object.
+An \code{f2dbTask} object.
 }
 \description{
-\code{f2dbAppendTable} constructor.
+Creates an \code{f2dbTask} for writing data to a database using
+\code{DBI::dbAppendTable}.
 }
 \seealso{
 Other f2dbTask: 
-\code{\link{f2dbAppendTable-class}},
 \code{\link{f2dbEndTask-class}},
 \code{\link{f2dbRun,f2dbEndTask-method}},
 \code{\link{f2dbRun,f2dbJob-method}},

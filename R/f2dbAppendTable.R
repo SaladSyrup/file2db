@@ -1,20 +1,9 @@
 #' f2dbAppendTable
 #'
-#' A `f2dbTask` for appending data to a database table.
+#' Creates an `f2dbTask` for writing data to a database using
+#' `DBI::dbAppendTable`.
 #'
-#' @name f2dbAppendTable-class
-#' @docType class
-#' @family f2dbTask
-#' @family f2db classes
-#' @export
-methods::setClass("f2dbAppendTable", contains = c("f2dbTask"))
-
-#-------------------------------------------------------------------------------
-#' f2dbAppendTable
-#'
-#' `f2dbAppendTable` constructor.
-#'
-#' @returns An `f2dbAppendTable` object.
+#' @returns An `f2dbTask` object.
 #'
 #' @family f2dbTask
 #' @export

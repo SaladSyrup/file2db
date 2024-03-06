@@ -20,8 +20,4 @@ jobInput(object)
 \description{
 Returns job input to the first task
 }
-\seealso{
-Other f2dbJob`: 
-\code{\link{taskList-method}}
-}
 \concept{f2dbJob`}
