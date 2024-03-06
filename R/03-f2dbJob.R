@@ -48,25 +48,6 @@ f2dbJob <- function(name, input) {
 }
 
 #-------------------------------------------------------------------------------
-#' listTasks
-#'
-#' Shows job tasks.
-#'
-#' @param object An `f2dbJob` object.
-#'
-#' @returns A list of named character vectors describing each task.
-#'
-#' @name listTasks-method
-#' @aliases listTasks
-#' @docType methods
-#' @family f2dbJob
-#' @export
-methods::setGeneric("listTasks",
-  function(object) standardGeneric("listTasks"),
-  signature = "object"
-)
-
-#-------------------------------------------------------------------------------
 # Accessors
 #-------------------------------------------------------------------------------
 #' jobInput
@@ -121,6 +102,99 @@ methods::setMethod(
   function(object, value) {
     object@jobInput <- value
     object
+  }
+)
+
+#-------------------------------------------------------------------------------
+#' taskList
+#'
+#' Returns task List
+#'
+#' @param object An `f2dbJob` object.
+#'
+#' @returns A list of `f2dbTask`s.
+#'
+#' @name taskList-method
+#' @aliases taskList
+#' @docType methods
+#' @family f2dbJob`
+#' @export
+methods::setGeneric("taskList",
+  function(object) standardGeneric("taskList"),
+  signature = "object"
+)
+
+#-------------------------------------------------------------------------------
+#' @name taskList,f2dbJob-method
+#' @rdname taskList-method
+#' @export
+methods::setMethod("taskList", "f2dbJob", function(object) object@taskList)
+
+#-------------------------------------------------------------------------------
+#' taskList<-
+#'
+#' Add `f2dbTask` objects to the end of the task list and update the `nextTask`
+#' slot of the next-to-last task to point to the newly added task.
+#'
+#' @param object An `f2dbJob`
+#' @param value An `f2dbTask`
+#'
+#' @name taskList-set-method
+#' @aliases taskList<-
+#' @docType methods
+#' @family f2dbJob
+#' @export
+methods::setGeneric("taskList<-",
+  function(object, value) standardGeneric("taskList<-"),
+  signature = c("object", "value")
+)
+
+#-------------------------------------------------------------------------------
+#' @name taskList<-,f2dbJob-method
+#' @rdname taskList-set-method
+#' @export
+methods::setMethod(
+  "taskList<-",
+  signature(object = "f2dbJob", value = "f2dbTask"),
+  function(object, value) {
+    stopifnot(methods::validObject(object))
+    stopifnot(methods::validObject(value))
+
+    taskNames <- names(object@taskList)
+    numTasks <- length(object@taskList)
+
+    if (numTasks != 0) {
+      if (isa(object@taskList[[numTasks]], "f2dbEndTask")) {
+        stop("Cannot add new tasks after an end task")
+      }
+      object@taskList <- append(object@taskList, value)
+    } else {
+      object@taskList <- list(value)
+    }
+
+    taskNames <- c(taskNames, name(value))
+    taskNames <- make.names(taskNames, unique = TRUE)
+    names(object@taskList) <- taskNames
+
+    linkTaskList(object)
+  }
+)
+
+#-------------------------------------------------------------------------------
+#' @name taskList<-,list-method
+#' @rdname taskList-set-method
+#' @export
+methods::setMethod(
+  "taskList<-",
+  signature(object = "f2dbJob", value = "list"),
+  function(object, value) {
+    stopifnot(methods::validObject(object))
+
+    for (task in value) {
+      taskList(object) <- task
+    }
+
+    return(object)
   }
 )
 

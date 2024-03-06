@@ -5,12 +5,3 @@ methods::setMethod("f2dbShow", "f2dbJob", function(object) {
   x <- c(x, jobInput = paste0("jobInput: ", jobInput(object)))
   c(x, taskCount = paste0("Num tasks: ", length(object@taskList)))
 })
-
-#-------------------------------------------------------------------------------
-#' @name listTasks,f2dbJob-method
-#' @rdname listTasks-method
-#' @export
-methods::setMethod(
-  "listTasks", "f2dbJob",
-  function(object) lapply(object@taskList, f2dbShow)
-)
