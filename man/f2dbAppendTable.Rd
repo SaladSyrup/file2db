@@ -4,7 +4,15 @@
 \alias{f2dbAppendTable}
 \title{f2dbAppendTable}
 \usage{
-f2dbAppendTable()
+f2dbAppendTable(dbConn, dbTable, ...)
+}
+\arguments{
+\item{dbConn}{A \code{DBI::DBIConnection} object, as returned by \code{DBI::dbConnect()}.}
+
+\item{dbTable}{A table name.}
+
+\item{...}{<\code{\link[rlang:dyn-dots]{dynamic-dots}}> Parameters passed to other
+methods.}
 }
 \value{
 An \code{f2dbTask} object.

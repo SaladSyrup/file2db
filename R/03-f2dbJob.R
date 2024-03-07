@@ -206,7 +206,6 @@ methods::setMethod(
 #' @returns A job containing linked tasks.
 #'
 #' @name linkTaskList-method
-#' @docType methods
 #' @noRd
 linkTaskList <- function(job) {
   numTasks <- length(job@taskList)
