@@ -4,10 +4,10 @@
 \alias{f2dbTask}
 \title{f2dbTask}
 \usage{
-f2dbTask(name, taskFunction, ..., inputName, itemName)
+f2dbTask(taskName, taskFunction, ..., inputName, itemName)
 }
 \arguments{
-\item{name}{Task name.}
+\item{taskName}{Task name.}
 
 \item{taskFunction}{Function to call when running the task.}
 
@@ -30,7 +30,6 @@ An \code{f2dbTask} object.
 }
 \seealso{
 Other f2dbTask: 
-\code{\link{f2dbAppendTable}()},
 \code{\link{f2dbEndTask-class}},
 \code{\link{f2dbRun,f2dbEndTask-method}},
 \code{\link{f2dbRun,f2dbJob-method}},

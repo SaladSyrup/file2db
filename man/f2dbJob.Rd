@@ -4,10 +4,10 @@
 \alias{f2dbJob}
 \title{f2dbJob}
 \usage{
-f2dbJob(name, input)
+f2dbJob(jobName, input)
 }
 \arguments{
-\item{name}{Job name. This should be unique within the job batch.}
+\item{jobName}{Job name. This should be unique within the job batch.}
 
 \item{input}{Input supplied to the first task.}
 }

@@ -30,7 +30,6 @@ and job \code{item}.
 }
 \seealso{
 Other f2dbTask: 
-\code{\link{f2dbAppendTable}()},
 \code{\link{f2dbEndTask-class}},
 \code{\link{f2dbRun,f2dbEndTask-method}},
 \code{\link{f2dbRun,f2dbTask-method}},

@@ -15,7 +15,6 @@ modified.
 }
 \seealso{
 Other f2dbTask: 
-\code{\link{f2dbAppendTable}()},
 \code{\link{f2dbRun,f2dbEndTask-method}},
 \code{\link{f2dbRun,f2dbJob-method}},
 \code{\link{f2dbRun,f2dbTask-method}},

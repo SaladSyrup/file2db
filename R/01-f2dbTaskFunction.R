@@ -58,7 +58,7 @@ f2dbTaskFunction <- function(taskFunction,
   if (methods::hasArg("taskFunction")) {
     taskFunction <- rlang::enexpr(taskFunction)
   } else {
-    taskFunction <- function(x) x
+    taskFunction <- rlang::expr(function(x) x)
   }
   stopifnot(rlang::is_callable(taskFunction))
 

@@ -36,7 +36,7 @@ methods::setMethod(
       rlang::cnd_muffle(cnd)
     }
 
-    callEnv <- rlang::env(rlang::caller_env(), taskInput = input, batchItem = item)
+    callData <- list(taskInput = input, batchItem = item)
 
     tryCatch(
       error = function(cnd) {
@@ -46,7 +46,7 @@ methods::setMethod(
       withCallingHandlers(
         message = saveMsgs,
         warning = saveMsgs,
-        output <- eval(taskCall(object), callEnv)
+        output <- rlang::eval_tidy(taskCall(object), callData)
       )
     )
 

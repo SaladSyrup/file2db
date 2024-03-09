@@ -28,23 +28,23 @@ methods::setClass("f2dbJob",
 #'
 #' `f2dbJob` constructor.
 #'
-#' @param name Job name. This should be unique within the job batch.
+#' @param jobName Job name. This should be unique within the job batch.
 #' @param input Input supplied to the first task.
 #'
 #' @returns An `f2dbJob` object.
 #'
 #' @family f2dbJob
 #' @export
-f2dbJob <- function(name, input) {
-  if (!methods::hasArg(name)) {
+f2dbJob <- function(jobName, input) {
+  if (!methods::hasArg(jobName)) {
     name <- "Unnamed"
   } else {
-    name <- as.character(name)
+    jobName <- as.character(jobName)
   }
 
   if (!methods::hasArg(input)) input <- NA
 
-  methods::new("f2dbJob", name = name, jobInput = input)
+  methods::new("f2dbJob", name = jobName, jobInput = input)
 }
 
 #-------------------------------------------------------------------------------
