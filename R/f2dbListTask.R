@@ -27,8 +27,13 @@ f2dbListTask <- function(taskName,
                          ...,
                          inputName,
                          itemName) {
-  params <- rlang::enquos(taskName, taskFunction, ..., inputName, itemName)
-  taskCall <- rlang::expr(f2dbTask(!!!params))
-  #methods::new("f2dbListTask", rlang::eval_tidy(taskCall))
-  rlang::arg_match(formals())
+  parentConst <- rlang::call_match()
+  parentConst[[1]] <- as.name("f2dbTask")
+  methods::new("f2dbListTask", rlang::eval_tidy(parentConst))
 }
+
+#estFunc <- rlang::new_function(formals(f2dbTask), rlang::expr({
+# parentConst <- rlang::call_match()
+# parentConst[[1]] <- as.name("f2dbTask")
+# methods::new("f2dbListTask", rlang::eval_tidy(parentConst))
+#))
