@@ -25,7 +25,7 @@ methods::setMethod(
   function(object, input = NA, item = NA) {
     list(
       success = TRUE, object = class(object)[1],
-      name = name(object), item = item, messages = list()
+      name = name(object), item = item, messages = list(), nextResult = list()
     )
   }
 )

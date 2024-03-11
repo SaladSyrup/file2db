@@ -18,8 +18,7 @@
 #' \item{name}{The name of the object being run.}
 #' \item{item}{The job item.}
 #' \item{messages}{Captured error, warning, or informational messages.}
-#'
-#' Subsequent lists contain the output from running `nextTask`.
+#' \item{nextResult}{Results of running `nextTask`.}
 #'
 #' @name f2dbRun,f2dbTask-method
 #' @docType methods
@@ -32,19 +31,19 @@ methods::setMethod(
     functionOutput <- f2dbRun(taskFunction(object), input, item)
     result <- list(
       success = functionOutput$success, object = class(object)[1],
-      name = name(object), item = item, messages = functionOutput$messages
+      name = name(object), item = item, messages = functionOutput$messages,
+      nextResult = list()
     )
 
     if (functionOutput$success == FALSE) {
       return(result)
     }
 
-    resultNextTask <- f2dbRun(nextTask(object), functionOutput$output, item)
-    if (!rlang::is_list(resultNextTask[[1]])) {
-      resultNextTask <- list(resultNextTask)
-    }
+    nextResult <- f2dbRun(nextTask(object), functionOutput$output, item)
 
-    result$success <- (result$success && resultNextTask[[1]]$success)
-    c(list(result), resultNextTask)
+    result$success <- result$success && nextResult$success
+    result$nextResult <- append(result$nextResult, list(nextResult))
+
+    result
   }
 )

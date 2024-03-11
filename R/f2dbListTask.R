@@ -22,18 +22,8 @@ methods::setClass("f2dbListTask", contains = c("f2dbTask"))
 #'
 #' @family f2dbListTask
 #' @export
-f2dbListTask <- function(taskName,
-                         taskFunction,
-                         ...,
-                         inputName,
-                         itemName) {
+f2dbListTask <- rlang::new_function(formals(f2dbTask), rlang::expr({
   parentConst <- rlang::call_match()
   parentConst[[1]] <- as.name("f2dbTask")
   methods::new("f2dbListTask", rlang::eval_tidy(parentConst))
-}
-
-#estFunc <- rlang::new_function(formals(f2dbTask), rlang::expr({
-# parentConst <- rlang::call_match()
-# parentConst[[1]] <- as.name("f2dbTask")
-# methods::new("f2dbListTask", rlang::eval_tidy(parentConst))
-#))
+}))

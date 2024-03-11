@@ -22,7 +22,8 @@ Other f2dbTask:
 \code{\link{taskFunction-set-method}}
 
 Other f2dbListTask: 
-\code{\link{f2dbListTask}}
+\code{\link{f2dbListTask}},
+\code{\link{f2dbRun,f2dbListTask}}
 
 Other f2db classes: 
 \code{\link{f2dbEndTask-class}},
