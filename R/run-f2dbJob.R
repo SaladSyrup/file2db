@@ -33,17 +33,17 @@ methods::setMethod(
       ))
     }
 
-    taskListResult <- f2dbRun(object@taskList[[1]], object@jobInput, object@jobInput)
+    taskListOutput <- f2dbRun(object@taskList[[1]], object@jobInput, object@jobInput)
 
     taskMessages <- list()
     for (taskOutput in taskListOutput) {
-      if (length(taskOutput$messages) > 0) {
+      if (length(taskOutput["messages"]) > 0) {
         taskMessages <- append(taskMessages, list(taskOutput))
       }
     }
 
     list(
-      success = taskListResult$success, object = class(object)[1],
+      success = taskListOutput$success, object = class(object)[1],
       name = name(object), messages = taskMessages
     )
   }

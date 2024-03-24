@@ -31,6 +31,8 @@ methods::setMethod(
     success <- TRUE
     output <- NULL
 
+    # logInfo(f2dbLogger, "Running", name(object), task)
+
     saveMsgs <- function(cnd) {
       msgs <<- append(msgs, paste0(class(cnd)[1], ": ", rlang::cnd_message(cnd)))
       rlang::cnd_muffle(cnd)
