@@ -48,7 +48,7 @@ Other f2dbTask:
 Other f2dbRun methods: 
 \code{\link{f2dbRun,f2dbEndTask-method}},
 \code{\link{f2dbRun,f2dbJob-method}},
-\code{\link{f2dbRun,f2dbListTask}},
+\code{\link{f2dbRun,f2dbListTask-method}},
 \code{\link{f2dbRun,f2dbObject-method}},
 \code{\link{f2dbRun,f2dbTaskFunction-method}},
 \code{\link{f2dbRun-method}}

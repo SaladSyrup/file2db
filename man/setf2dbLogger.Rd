@@ -13,20 +13,7 @@ setf2dbLogger(logger)
 Sets the file2db logger.
 }
 \details{
-\code{file2db} uses the package \code{log4r} to maintain two logs:
-\itemize{
-\item \code{f2db.log} documents the process of running an \code{f2dbObject}; e.g., name,
-number of tasks, task function, etc. The default \code{f2db.log} is
+\code{file2db} uses the package \code{log4r}. The default log is
 \code{log4r::logger("INFO", appenders = log4r::file_appender("f2db.log"))}.
-\item \code{task.log} logs the results of executing a task function. The default
-\code{task.log} is
-\code{log4r::logger("INFO", appenders = log4r::file_appender("task.log"))}
-}
-
-Use \code{setf2dbLogger} and \code{setTaskLogger} to modify the default loggers.
-}
-\seealso{
-Other logging: 
-\code{\link{setTaskLogger}()}
 }
 \concept{logging}

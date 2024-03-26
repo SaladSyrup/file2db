@@ -31,6 +31,6 @@ An \code{f2dbListTask} object.
 \seealso{
 Other f2dbListTask: 
 \code{\link{f2dbListTask-class}},
-\code{\link{f2dbRun,f2dbListTask}}
+\code{\link{f2dbRun,f2dbListTask-method}}
 }
 \concept{f2dbListTask}

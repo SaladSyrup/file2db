@@ -12,7 +12,7 @@
 #'
 #' @inherit f2dbRun,f2dbTask-method return
 #'
-#' @name f2dbRun,f2dbListTask
+#' @name f2dbRun,f2dbListTask-method
 #' @docType methods
 #' @family f2dbListTask
 #' @family f2dbRun methods
