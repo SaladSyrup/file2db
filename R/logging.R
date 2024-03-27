@@ -9,7 +9,11 @@
 #'
 #' @family logging
 #' @export
-setf2dbLogger <- function(logger) f2dbLogger <<- logger
+setf2dbLogger <- function(logger) {
+  assign("f2dbLogger", logger, pos = asNamespace("file2db"))
+
+#  ns$f2dbLogger <- logger
+}
 
 #-------------------------------------------------------------------------------
 # Internal methods
@@ -21,28 +25,28 @@ setf2dbLogger <- function(logger) f2dbLogger <<- logger
 #' @param ... One or more items to log.
 #'
 #' @noRd
-logDebug <- function(...) log4r::debug(f2dbLogger, ...)
+debug <- function(...) log4r::debug(f2dbLogger, ...)
 
 #' logInfo
 #'
 #' @inherit logDebug
 #' @noRd
-logInfo <- function(...) log4r::info(f2dbLogger, ...)
+info <- function(...) log4r::info(f2dbLogger, ...)
 
 #' logWarn
 #'
 #' @inherit logDebug
 #' @noRd
-logWarn <- function(...) log4r::warn(f2dbLogger, ...)
+warn <- function(...) log4r::warn(f2dbLogger, ...)
 
 #' logError
 #'
 #' @inherit logDebug
 #' @noRd
-logError <- function(...) log4r::error(f2dbLogger, ...)
+error <- function(...) log4r::error(f2dbLogger, ...)
 
 #' logFatal
 #'
 #' @inherit logDebug
 #' @noRd
-logFatal <- function(...) log4r::fatal(f2dbLogger, ...)
+fatal <- function(...) log4r::fatal(f2dbLogger, ...)

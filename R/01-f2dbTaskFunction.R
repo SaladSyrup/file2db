@@ -74,11 +74,7 @@ f2dbTaskFunction <- function(taskFunction,
     params[[itemName]] <- as.symbol("jobItem")
   }
 
-  taskName <- rlang::expr_deparse(taskFunction)
-  if ((length(taskName) > 1) || (nchar(taskName[[1]], type = "width") >= 30)) {
-    taskName <- strtrim(taskName[[1]], 30)
-    taskName <- paste0(taskName, "...")
-  }
+  taskName <- rlang::quo_name(taskFunction)
 
   methods::new("f2dbTaskFunction", name = taskName, taskCall = rlang::call2(taskFunction, !!!params, ...))
 }
