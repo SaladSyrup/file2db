@@ -28,6 +28,12 @@
 methods::setMethod(
   "f2dbRun", "f2dbTask",
   function(object, input = NA, item = NA) {
+    debug("Running ", f2dbShow(object)[["name"]])
+    debug("  taskFunction: ", f2dbShow(taskFunction(object))[["name"]])
+    debug("  nextTask: ", f2dbShow(nextTask(object))[["name"]])
+    debug("  taskInput: ", typeof(input))
+    debug("  taskItem: ", item)
+
     functionOutput <- f2dbRun(taskFunction(object), input, item)
     result <- list(
       success = functionOutput$success, object = class(object)[1],
