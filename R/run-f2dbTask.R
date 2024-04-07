@@ -35,6 +35,11 @@ methods::setMethod(
     debug("  taskItem: ", item)
 
     functionOutput <- f2dbRun(taskFunction(object), input, item)
+
+    if (length(functionOutput["warning"]) > 0) {
+      info(name(object), ": Task function ", name(taskFunction(object)), " generated the following messages:")
+    }
+
     result <- list(
       success = functionOutput$success, object = class(object)[1],
       name = name(object), item = item, messages = functionOutput$messages,
