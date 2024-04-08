@@ -36,8 +36,9 @@ methods::setMethod(
 
     functionOutput <- f2dbRun(taskFunction(object), input, item)
 
-    if (length(functionOutput["warning"]) > 0) {
+    if (length(functionOutput[["cnds"]]) > 0) {
       info(name(object), ": Task function ", name(taskFunction(object)), " generated the following messages:")
+      lapply(functionOutput[["cnds"]], logCondition)
     }
 
     result <- list(
@@ -58,3 +59,28 @@ methods::setMethod(
     result
   }
 )
+
+#-------------------------------------------------------------------------------
+# Internal methods
+#-------------------------------------------------------------------------------
+#' logCondition
+#'
+#' This is an internal function.
+#'
+#' @param cnd A condition to be logged.
+#'
+#' @returns invisible()
+#' @noRd
+logCondition <- function(cnd) {
+  if (rlang::cnd_inherits(cnd, "message") == TRUE) {
+    info(rlang::cnd_message(cnd))
+  } else if (rlang::cnd_inherits(cnd, "warning") == TRUE) {
+    warn(rlang::cnd_message(cnd))
+  } else if (rlang::cnd_inherits(cnd, "error") == TRUE) {
+    error(rlang::cnd_message(cnd))
+  } else if (rlang::cnd_inherits(cnd, "condition") == TRUE) {
+    info(rlang::cnd_message(cnd))
+  } else {
+    error("Unrecognized condition")
+  }
+}
