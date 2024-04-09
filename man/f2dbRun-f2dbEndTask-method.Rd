@@ -15,12 +15,7 @@
 \item{item}{The job item being processed.}
 }
 \value{
-A list:
-\item{success}{\code{TRUE}.}
-\item{object}{The type of object being run.}
-\item{name}{The name of the object being run.}
-\item{item}{The job item.}
-\item{messages}{An empty list.}
+\code{TRUE}
 }
 \description{
 Run an \code{f2dbEndTask}.

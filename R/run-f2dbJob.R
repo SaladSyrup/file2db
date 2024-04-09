@@ -9,14 +9,8 @@
 #' @param object An `f2dbJob` to run.
 #'
 #' @returns
-#' A list:
-#' \item{success}{Logical value indicating success (`TRUE`) or failure
-#' (`FALSE`). There may be warning or informational messages even if success is
-#' indicated.}
-#' \item{object}{The type of object being run.}
-#' \item{name}{The name of the object being run.}
-#' \item{messages}{The `f2dbRun` output of tasks with error, warning, or
-#' informational messages.}
+#' Logical value indicating success (`TRUE`) or failure (`FALSE`). There may be
+#' warning or informational messages even if success is indicated.
 #'
 #' @name f2dbRun,f2dbJob-method
 #' @docType methods
@@ -26,25 +20,28 @@
 methods::setMethod(
   "f2dbRun", "f2dbJob",
   function(object) {
-    if (length(object@taskList) == 0) {
-      return(list(
-        success = TRUE, object = class(object)[1],
-        name = name(object), messages = list("No tasks to run.")
-      ))
+    info("Running ", f2dbShow(object)[["name"]])
+    info("  jobInput: ", object@jobInput)
+
+    numTasks <- length(object@taskList)
+    if (numTasks == 0) {
+      info(name(object), ": No tasks to run")
+      return(TRUE)
     }
 
-    taskListOutput <- f2dbRun(object@taskList[[1]], object@jobInput, object@jobInput)
-
-    taskMessages <- list()
-    for (taskOutput in taskListOutput) {
-      if (length(taskOutput["messages"]) > 0) {
-        taskMessages <- append(taskMessages, list(taskOutput))
-      }
+    for (n in 1:numTasks) {
+      info("Task ", n, "/", numTasks)
+      info("  ", name(object@taskList[[n]]))
+      info("  ", rlang::quo_name(taskFunction(object@taskList[[n]])@taskCall))
     }
 
-    list(
-      success = taskListOutput$success, object = class(object)[1],
-      name = name(object), messages = taskMessages
-    )
+    debug(name(object), ": Calling first task")
+    success <- f2dbRun(object@taskList[[1]], object@jobInput, object@jobInput)
+
+    if (success == TRUE) {
+      info(name(object), ": Job completed successfully")
+    } else {
+      error(name(object), ": Job unsuccessful")
+    }
   }
 )

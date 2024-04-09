@@ -36,13 +36,13 @@ methods::setMethod(
     cnds <- list()
 
     logWarning <- function(cnd) {
-      cnds <<- append(cnds, cnd)
+      cnds <<- append(cnds, list(cnd))
       debug(name(object), ": ", rlang::cnd_message(cnd))
       rlang::cnd_muffle(cnd)
     }
 
     logInfo <- function(cnd) {
-      cnds <<- append(cnds, cnd)
+      cnds <<- append(cnds, list(cnd))
       debug(name(object), ": ", rlang::cnd_message(cnd))
       rlang::cnd_muffle(cnd)
     }
@@ -52,7 +52,7 @@ methods::setMethod(
     tryCatch(
       error = function(cnd) {
         success <<- FALSE
-        cnds <<- append(cnds, cnd)
+        cnds <<- append(cnds, list(cnd))
         debug(name(object), ": ", rlang::cnd_message(cnd))
       },
       withCallingHandlers(

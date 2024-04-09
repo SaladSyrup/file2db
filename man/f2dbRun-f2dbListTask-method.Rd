@@ -15,15 +15,9 @@
 \item{item}{The job item being processed.}
 }
 \value{
-A list of lists. The first list contains:
-\item{success}{Logical value indicating success (\code{TRUE}) or failure
+Logical value indicating success (\code{TRUE}) or failure
 (\code{FALSE}). \code{TRUE} is returned if both \code{taskFunction} and \code{nextTask} are
-successful. Otherwise, \code{FALSE} is returned.}
-\item{object}{The type of object being run.}
-\item{name}{The name of the object being run.}
-\item{item}{The job item.}
-\item{messages}{Captured error, warning, or informational messages.}
-\item{nextResult}{Results of running \code{nextTask}.}
+successful. Otherwise, \code{FALSE} is returned.
 }
 \description{
 Run an \code{f2dbListTask}.

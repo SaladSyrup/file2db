@@ -9,16 +9,9 @@
 #' @param input Input to pass to the underlying task function.
 #' @param item The job item being processed.
 #'
-#' @returns
-#' A list of lists. The first list contains:
-#' \item{success}{Logical value indicating success (`TRUE`) or failure
+#' @returns Logical value indicating success (`TRUE`) or failure
 #' (`FALSE`). `TRUE` is returned if both `taskFunction` and `nextTask` are
-#' successful. Otherwise, `FALSE` is returned.}
-#' \item{object}{The type of object being run.}
-#' \item{name}{The name of the object being run.}
-#' \item{item}{The job item.}
-#' \item{messages}{Captured error, warning, or informational messages.}
-#' \item{nextResult}{Results of running `nextTask`.}
+#' successful. Otherwise, `FALSE` is returned.
 #'
 #' @name f2dbRun,f2dbTask-method
 #' @docType methods
@@ -36,27 +29,29 @@ methods::setMethod(
 
     functionOutput <- f2dbRun(taskFunction(object), input, item)
 
-    if (length(functionOutput[["cnds"]]) > 0) {
-      info(name(object), ": Task function ", name(taskFunction(object)), " generated the following messages:")
+    numCnds <- length(functionOutput[["cnds"]])
+    if (numCnds > 0) {
+      info(name(object), ": Task function generated ", numCnds, " messages")
+      info("  taskFunction: ", f2dbShow(taskFunction(object))[["name"]])
+      info("  taskCall: ",  rlang::quo_name(taskFunction(object)@taskCall))
+      info("  taskInput: ", typeof(input))
+      info("  taskItem: ", item)
       lapply(functionOutput[["cnds"]], logCondition)
+    } else {
+      debug(name(object), ": Task function generated no messages")
     }
-
-    result <- list(
-      success = functionOutput$success, object = class(object)[1],
-      name = name(object), item = item, messages = functionOutput$messages,
-      nextResult = list()
-    )
 
     if (functionOutput$success == FALSE) {
-      return(result)
+      error(name(object), ": Task function unsuccessful")
+      info("  taskFunction: ", f2dbShow(taskFunction(object))[["name"]])
+      info("  taskCall: ",  rlang::quo_name(taskFunction(object)@taskCall))
+      info("  taskInput: ", typeof(input))
+      info("  taskItem: ", item)
+      return(FALSE)
     }
 
-    nextResult <- f2dbRun(nextTask(object), functionOutput$output, item)
-
-    result$success <- result$success && nextResult$success
-    result$nextResult <- append(result$nextResult, list(nextResult))
-
-    result
+    debug(name(object), ": Task function returned successfully")
+    f2dbRun(nextTask(object), functionOutput$output, item)
   }
 )
 

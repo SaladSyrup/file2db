@@ -19,6 +19,8 @@
 methods::setMethod(
   "f2dbRun", "f2dbObject",
   function(object, ...) {
-    list(success = TRUE, object = class(object)[1], name = name(object))
+    debug("Running ", f2dbShow(object)[["name"]])
+    debug(name(object), ": f2dbObject returning TRUE")
+    return(TRUE)
   }
 )

@@ -11,14 +11,8 @@
 \item{object}{An \code{f2dbJob} to run.}
 }
 \value{
-A list:
-\item{success}{Logical value indicating success (\code{TRUE}) or failure
-(\code{FALSE}). There may be warning or informational messages even if success is
-indicated.}
-\item{object}{The type of object being run.}
-\item{name}{The name of the object being run.}
-\item{messages}{The \code{f2dbRun} output of tasks with error, warning, or
-informational messages.}
+Logical value indicating success (\code{TRUE}) or failure (\code{FALSE}). There may be
+warning or informational messages even if success is indicated.
 }
 \description{
 Run an \code{f2dbJob}.

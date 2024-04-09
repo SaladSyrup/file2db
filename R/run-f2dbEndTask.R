@@ -7,13 +7,7 @@
 #' @param object An `f2dbEndTask` to run.
 #' @inheritParams f2dbRun,f2dbTask-method
 #'
-#' @returns
-#' A list:
-#' \item{success}{`TRUE`.}
-#' \item{object}{The type of object being run.}
-#' \item{name}{The name of the object being run.}
-#' \item{item}{The job item.}
-#' \item{messages}{An empty list.}
+#' @returns `TRUE`
 #'
 #' @name f2dbRun,f2dbEndTask-method
 #' @docType methods
@@ -23,9 +17,7 @@
 methods::setMethod(
   "f2dbRun", "f2dbEndTask",
   function(object, input = NA, item = NA) {
-    list(
-      success = TRUE, object = class(object)[1],
-      name = name(object), item = item, messages = list(), nextResult = list()
-    )
+    debug("END: End of task list")
+    return(TRUE)
   }
 )
