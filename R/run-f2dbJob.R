@@ -43,5 +43,7 @@ methods::setMethod(
     } else {
       error(name(object), ": Job unsuccessful")
     }
+
+    success
   }
 )

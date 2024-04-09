@@ -20,24 +20,63 @@
 methods::setMethod(
   "f2dbRun", "f2dbListTask",
   function(object, input = NA, item = NA) {
+    debug("Running ", f2dbShow(object)[["name"]])
+    debug("  taskFunction: ", f2dbShow(taskFunction(object))[["name"]])
+    debug("  nextTask: ", f2dbShow(nextTask(object))[["name"]])
+    debug("  taskInput: ", typeof(input))
+    debug("  taskItem: ", item)
+
     functionOutput <- f2dbRun(taskFunction(object), input, item)
-    result <- list(
-      success = functionOutput$success, object = class(object)[1],
-      name = name(object), item = item, messages = functionOutput$messages,
-      nextResult = list()
-    )
+
+    numCnds <- length(functionOutput[["cnds"]])
+    if (numCnds > 0) {
+      info(name(object), ": Task function generated ", numCnds, " messages")
+      info("  taskFunction: ", f2dbShow(taskFunction(object))[["name"]])
+      info("  taskCall: ",  rlang::quo_name(taskFunction(object)@taskCall))
+      info("  taskInput: ", typeof(input))
+      info("  taskItem: ", item)
+      lapply(functionOutput[["cnds"]], logCondition)
+    } else {
+      debug(name(object), ": Task function generated no messages")
+    }
 
     if (functionOutput$success == FALSE) {
-      return(result)
+      error(name(object), ": Task function unsuccessful")
+      info("  taskFunction: ", f2dbShow(taskFunction(object))[["name"]])
+      info("  taskCall: ",  rlang::quo_name(taskFunction(object)@taskCall))
+      info("  taskInput: ", typeof(input))
+      info("  taskItem: ", item)
+      return(FALSE)
     }
 
-    for (element in as.list(functionOutput$output)) {
-      nextResult <- f2dbRun(nextTask(object), element, element)
-
-      result$success <- (result$success && nextResult$success)
-      result$nextResult <- append(result$nextResult, list(nextResult))
+    itemList <- as.list(functionOutput$output)
+    numItems <- length(itemList)
+    if (numItems == 0) {
+      info(name(object), ": List task returned no items")
+      return(TRUE)
     }
 
-    result
+    success <- TRUE
+    failedItems <- 0
+    info(name(object), ": List task returned ", numItems, " items")
+    for (n in 1:numItems) {
+      info("Item ", n, "/", numItems, ": ", itemList[[n]])
+
+      if (f2dbRun(nextTask(object), itemList[[n]], itemList[[n]]) == FALSE) {
+        success <- FALSE
+        failedItems <- failedItems + 1
+        error("Item ", n, "/", numItems, ": Item unsuccessful")
+      } else {
+        debug("Item ", n, "/", numItems, ": Completed successfully")
+      }
+    }
+
+    if (success == TRUE) {
+      info(name(object), ": Completed ", numItems, " items successfully")
+    } else {
+      error(name(object), ": ", failedItems, "/", numItems, " items unsuccessful")
+    }
+
+    success
   }
 )
