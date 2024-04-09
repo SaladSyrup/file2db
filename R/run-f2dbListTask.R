@@ -32,7 +32,7 @@ methods::setMethod(
     if (numCnds > 0) {
       info(name(object), ": Task function generated ", numCnds, " messages")
       info("  taskFunction: ", f2dbShow(taskFunction(object))[["name"]])
-      info("  taskCall: ", rlang::quo_name(taskFunction(object)@taskCall))
+      info("  taskCall: ", rlang::expr_deparse(taskFunction(object)@taskCall))
       info("  taskInput: ", typeof(input))
       info("  taskItem: ", item)
       lapply(functionOutput[["cnds"]], logCondition)
@@ -43,7 +43,7 @@ methods::setMethod(
     if (functionOutput$success == FALSE) {
       error(name(object), ": Task function unsuccessful")
       info("  taskFunction: ", f2dbShow(taskFunction(object))[["name"]])
-      info("  taskCall: ", rlang::quo_name(taskFunction(object)@taskCall))
+      info("  taskCall: ", rlang::expr_deparse(taskFunction(object)@taskCall))
       info("  taskInput: ", typeof(input))
       info("  taskItem: ", item)
       return(FALSE)

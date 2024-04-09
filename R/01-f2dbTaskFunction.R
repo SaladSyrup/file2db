@@ -74,7 +74,7 @@ f2dbTaskFunction <- function(taskFunction,
     params[[itemName]] <- as.symbol("jobItem")
   }
 
-  taskName <- rlang::quo_name(taskFunction)
+  taskName <- rlang::as_label(taskFunction)
 
   methods::new("f2dbTaskFunction", name = taskName, taskCall = rlang::call2(taskFunction, !!!params, ...))
 }

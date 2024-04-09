@@ -32,7 +32,7 @@ methods::setMethod(
     for (n in 1:numTasks) {
       info("Task ", n, "/", numTasks)
       info("  ", name(object@taskList[[n]]))
-      info("  ", rlang::quo_name(taskFunction(object@taskList[[n]])@taskCall))
+      info("  ", rlang::expr_deparse(taskFunction(object@taskList[[n]])@taskCall))
     }
 
     debug(name(object), ": Calling first task")
