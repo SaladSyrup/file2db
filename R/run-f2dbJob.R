@@ -21,7 +21,7 @@ methods::setMethod(
   "f2dbRun", "f2dbJob",
   function(object) {
     info("Running ", f2dbShow(object)[["name"]])
-    info("  jobInput: ", object@jobInput)
+    info("jobInput: ", object@jobInput)
 
     numTasks <- length(object@taskList)
     if (numTasks == 0) {
@@ -30,9 +30,8 @@ methods::setMethod(
     }
 
     for (n in 1:numTasks) {
-      info("Task ", n, "/", numTasks)
-      info("  ", name(object@taskList[[n]]))
-      info("  ", rlang::expr_deparse(taskFunction(object@taskList[[n]])@taskCall))
+      info("Task ", n, "/", numTasks, ": ", name(object@taskList[[n]]))
+      info(rlang::expr_deparse(taskFunction(object@taskList[[n]])@taskCall))
     }
 
     debug(name(object), ": Calling first task")

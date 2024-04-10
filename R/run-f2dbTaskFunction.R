@@ -26,9 +26,9 @@ methods::setMethod(
   "f2dbRun", "f2dbTaskFunction",
   function(object, input = NA, item = NA) {
     debug("Running ", f2dbShow(object)[["name"]])
-    debug("  taskCall: ", rlang::expr_deparse(object@taskCall))
-    debug("  taskInput: ", typeof(input))
-    debug("  taskItem: ", item)
+    debug("taskCall: ", rlang::expr_deparse(object@taskCall))
+    debug("taskInput: ", typeof(input))
+    debug("taskItem: ", item)
 
     success <- TRUE
     output <- NULL
