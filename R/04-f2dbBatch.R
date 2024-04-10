@@ -58,9 +58,9 @@ f2dbBatch <- function(batchName) {
 #' @family f2dbBatch
 #' @export
 methods::setGeneric("jobList",
-                    function(object) standardGeneric("jobList"),
-                    signature = "object"
-                    )
+  function(object) standardGeneric("jobList"),
+  signature = "object"
+)
 
 #-------------------------------------------------------------------------------
 #' @rdname jobList-method
@@ -81,40 +81,43 @@ methods::setMethod("jobList", "f2dbBatch", function(object) object@jobList)
 #' @family f2dbBatch
 #' @export
 methods::setGeneric("jobList<-",
-                    function(object, value) standardGeneric("jobList<-"),
-                    signature = c("object", "value")
-                    )
+  function(object, value) standardGeneric("jobList<-"),
+  signature = c("object", "value")
+)
 
 #-------------------------------------------------------------------------------
 #' @rdname jobList-set-method
 #' @export
-methods::setMethod("jobList<-",
-                   signature(object = "f2dbBatch", value = "f2dbJob"),
-                   function(object, value) {
-                     stopifnot(methods::validObject(object))
-                     stopifnot(methods::validObject(value))
+methods::setMethod(
+  "jobList<-",
+  signature(object = "f2dbBatch", value = "f2dbJob"),
+  function(object, value) {
+    stopifnot(methods::validObject(object))
+    stopifnot(methods::validObject(value))
 
-                     if (length(object@jobList) == 0) {
-                       object@jobList <- list(value)
-                     } else {
-                       object@jobList <- append(object@jobList, value)
-                     }
+    if (length(object@jobList) == 0) {
+      object@jobList <- list(value)
+    } else {
+      object@jobList <- append(object@jobList, value)
+    }
 
-                     return(object)
-                     }
-                   )
+    return(object)
+  }
+)
 
 #-------------------------------------------------------------------------------
 #' @rdname jobList-set-method
 #' @export
-methods::setMethod("jobList<-",
-                   signature(object = "f2dbBatch", value = "list"),
-                   function(object, value) {
-                     stopifnot(methods::validObject(object))
+methods::setMethod(
+  "jobList<-",
+  signature(object = "f2dbBatch", value = "list"),
+  function(object, value) {
+    stopifnot(methods::validObject(object))
 
-                     for (job in value) {
-                       jobList(object) <- job
-                     }
+    for (job in value) {
+      jobList(object) <- job
+    }
 
-                     return(object)
-                   })
+    return(object)
+  }
+)
