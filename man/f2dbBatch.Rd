@@ -18,6 +18,7 @@ An \code{f2dbBatch} object.
 \seealso{
 Other f2dbBatch: 
 \code{\link{f2dbBatch-class}},
+\code{\link{f2dbRun,f2dbBatch-method}},
 \code{\link{jobList-method}},
 \code{\link{jobList-set-method}}
 }

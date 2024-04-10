@@ -24,6 +24,7 @@ Returns jobList.
 Other f2dbBatch: 
 \code{\link{f2dbBatch}},
 \code{\link{f2dbBatch-class}},
+\code{\link{f2dbRun,f2dbBatch-method}},
 \code{\link{jobList-set-method}}
 }
 \concept{f2dbBatch}

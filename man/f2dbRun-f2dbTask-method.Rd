@@ -40,6 +40,7 @@ Other f2dbTask:
 \code{\link{taskFunction-set-method}}
 
 Other f2dbRun methods: 
+\code{\link{f2dbRun,f2dbBatch-method}},
 \code{\link{f2dbRun,f2dbEndTask-method}},
 \code{\link{f2dbRun,f2dbJob-method}},
 \code{\link{f2dbRun,f2dbListTask-method}},

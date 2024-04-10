@@ -26,6 +26,7 @@ Add \code{f2dbJob} objects to the end of the job list.
 Other f2dbBatch: 
 \code{\link{f2dbBatch}},
 \code{\link{f2dbBatch-class}},
+\code{\link{f2dbRun,f2dbBatch-method}},
 \code{\link{jobList-method}}
 }
 \concept{f2dbBatch}
