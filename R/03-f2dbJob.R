@@ -4,7 +4,7 @@
 #'
 #' @slot name Job name. This should be unique within the job batch.
 #' @slot jobInput Input supplied to the first task.
-#' @slot tasks List of job tasks.
+#' @slot taskList List of job tasks.
 #'
 #' @name f2dbJob-class
 #' @docType class
@@ -37,7 +37,7 @@ methods::setClass("f2dbJob",
 #' @export
 f2dbJob <- function(jobName, input) {
   if (!methods::hasArg(jobName)) {
-    name <- "Unnamed"
+    jobName <- "Unnamed"
   } else {
     jobName <- as.character(jobName)
   }
@@ -106,7 +106,7 @@ methods::setMethod(
 #-------------------------------------------------------------------------------
 #' taskList
 #'
-#' Returns task List
+#' Returns taskList.
 #'
 #' @param object An `f2dbJob` object.
 #'
@@ -133,8 +133,8 @@ methods::setMethod("taskList", "f2dbJob", function(object) object@taskList)
 #' Add `f2dbTask` objects to the end of the task list and update the `nextTask`
 #' slot of the next-to-last task to point to the newly added task.
 #'
-#' @param object An `f2dbJob`
-#' @param value An `f2dbTask`
+#' @param object An `f2dbJob`.
+#' @param value An `f2dbTask`.
 #'
 #' @name taskList-set-method
 #' @aliases taskList<-

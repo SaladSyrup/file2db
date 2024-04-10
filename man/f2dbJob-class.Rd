@@ -14,7 +14,7 @@ A container for job tasks.
 
 \item{\code{jobInput}}{Input supplied to the first task.}
 
-\item{\code{tasks}}{List of job tasks.}
+\item{\code{taskList}}{List of job tasks.}
 }}
 
 \seealso{
@@ -25,6 +25,7 @@ Other f2dbJob:
 \code{\link{taskList-set-method}}
 
 Other f2db classes: 
+\code{\link{f2dbBatch-class}},
 \code{\link{f2dbEndTask-class}},
 \code{\link{f2dbListTask-class}},
 \code{\link{f2dbObject-class}},

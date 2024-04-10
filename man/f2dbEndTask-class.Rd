@@ -30,6 +30,7 @@ Other f2dbEndTask:
 \code{\link{f2dbEndTask}}
 
 Other f2db classes: 
+\code{\link{f2dbBatch-class}},
 \code{\link{f2dbJob-class}},
 \code{\link{f2dbListTask-class}},
 \code{\link{f2dbObject-class}},

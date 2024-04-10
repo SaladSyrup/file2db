@@ -18,7 +18,7 @@ taskList(object)
 A list of \code{f2dbTask}s.
 }
 \description{
-Returns task List
+Returns taskList.
 }
 \seealso{
 Other f2dbJob: 

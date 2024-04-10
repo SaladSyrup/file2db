@@ -33,6 +33,7 @@ Other f2dbTask:
 \code{\link{taskFunction-set-method}}
 
 Other f2db classes: 
+\code{\link{f2dbBatch-class}},
 \code{\link{f2dbEndTask-class}},
 \code{\link{f2dbJob-class}},
 \code{\link{f2dbListTask-class}},

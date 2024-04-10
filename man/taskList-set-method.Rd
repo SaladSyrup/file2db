@@ -15,9 +15,9 @@ taskList(object) <- value
 \S4method{taskList}{f2dbJob,list}(object) <- value
 }
 \arguments{
-\item{object}{An \code{f2dbJob}}
+\item{object}{An \code{f2dbJob}.}
 
-\item{value}{An \code{f2dbTask}}
+\item{value}{An \code{f2dbTask}.}
 }
 \description{
 Add \code{f2dbTask} objects to the end of the task list and update the \code{nextTask}
