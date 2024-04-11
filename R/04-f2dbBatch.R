@@ -73,7 +73,7 @@ methods::setMethod("jobList", "f2dbBatch", function(object) object@jobList)
 #' Add `f2dbJob` objects to the end of the job list.
 #'
 #' @param object An `f2dbBatch`.
-#' @param value An `f2dbJob`.
+#' @param value An `f2dbJob`. Set to `NULL` to clear jobList.
 #'
 #' @name jobList-set-method
 #' @aliases jobList<-
@@ -117,6 +117,21 @@ methods::setMethod(
     for (job in value) {
       jobList(object) <- job
     }
+
+    return(object)
+  }
+)
+
+#-------------------------------------------------------------------------------
+#' @rdname jobList-set-method
+#' @export
+methods::setMethod(
+  "jobList<-",
+  signature(object = "f2dbBatch", value = "NULL"),
+  function(object, value) {
+    stopifnot(methods::validObject(object))
+
+    object@jobList <- list()
 
     return(object)
   }

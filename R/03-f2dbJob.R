@@ -194,6 +194,21 @@ methods::setMethod(
 )
 
 #-------------------------------------------------------------------------------
+#' @rdname taskList-set-method
+#' @export
+methods::setMethod(
+  "taskList<-",
+  signature(object = "f2dbJob", value = "NULL"),
+  function(object, value) {
+    stopifnot(methods::validObject(object))
+
+    object@taskList <- list()
+
+    return(object)
+  }
+)
+
+#-------------------------------------------------------------------------------
 # Internal methods
 #-------------------------------------------------------------------------------
 #' linkTaskList
