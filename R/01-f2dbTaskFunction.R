@@ -71,7 +71,7 @@ f2dbTaskFunction <- function(taskFunction,
 
   if (methods::hasArg(itemName)) {
     stopifnot(identical(itemName, make.names(itemName)))
-    params[[itemName]] <- as.symbol("jobItem")
+    params[[itemName]] <- as.symbol("taskItem")
   }
 
   taskName <- rlang::as_label(taskFunction)

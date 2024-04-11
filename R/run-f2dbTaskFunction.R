@@ -47,7 +47,7 @@ methods::setMethod(
       rlang::cnd_muffle(cnd)
     }
 
-    callData <- list(taskInput = input, batchItem = item)
+    callData <- list(taskInput = input, taskItem = item)
 
     tryCatch(
       error = function(cnd) {
