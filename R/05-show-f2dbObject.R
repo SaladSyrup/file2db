@@ -15,7 +15,7 @@ methods::setGeneric("f2dbShow", function(object) standardGeneric("f2dbShow"), si
 #' @name f2dbShow,f2dbObject-method
 #' @docType methods
 #' @noRd
-methods::setMethod("f2dbShow", "f2dbObject", function(object) c(name = paste0("<", class(object)[1], ">: ", name(object))))
+methods::setMethod("f2dbShow", "f2dbObject", function(object) c(name = paste0("<", class(object)[1], "> ", name(object))))
 
 #-------------------------------------------------------------------------------
 #' show

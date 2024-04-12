@@ -18,6 +18,7 @@
 methods::setMethod(
   "f2dbRun", "f2dbBatch",
   function(object) {
+    info("=============================================")
     info("Running ", f2dbShow(object)[["name"]])
 
     numJobs <- length(object@jobList)
@@ -26,8 +27,9 @@ methods::setMethod(
       return(TRUE)
     }
 
+    info(name(object), ": ", numJobs, " jobs in batch:")
     for (n in 1:numJobs) {
-      info("Job ", n, "/", numJobs, ": ", name(object@jobList[[n]]))
+      info("+--> ", n, "/", numJobs, ": ", name(object@jobList[[n]]))
     }
 
     success <- TRUE

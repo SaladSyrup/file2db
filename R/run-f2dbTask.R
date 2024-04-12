@@ -22,20 +22,16 @@ methods::setMethod(
   "f2dbRun", "f2dbTask",
   function(object, input = NA, item = NA) {
     debug("Running ", f2dbShow(object)[["name"]])
-    debug("taskFunction: ", f2dbShow(taskFunction(object))[["name"]])
-    debug("nextTask: ", f2dbShow(nextTask(object))[["name"]])
-    debug("taskInput: ", typeof(input))
-    debug("taskItem: ", item)
+    debug("+--> taskFunction: ", f2dbShow(taskFunction(object))[["name"]])
+    debug("+--> nextTask: ", f2dbShow(nextTask(object))[["name"]])
+    debug("+--> taskInput: ", typeof(input))
+    debug("+--> taskItem: ", item)
 
     functionOutput <- f2dbRun(taskFunction(object), input, item)
 
     numCnds <- length(functionOutput[["cnds"]])
     if (numCnds > 0) {
       info(name(object), ": Task function generated ", numCnds, " messages")
-      info("taskFunction: ", f2dbShow(taskFunction(object))[["name"]])
-      info("taskCall: ", rlang::expr_deparse(taskFunction(object)@taskCall))
-      info("taskInput: ", typeof(input))
-      info("taskItem: ", item)
       lapply(functionOutput[["cnds"]], logCondition)
     } else {
       debug(name(object), ": Task function generated no messages")
@@ -43,10 +39,6 @@ methods::setMethod(
 
     if (functionOutput$success == FALSE) {
       error(name(object), ": Task function unsuccessful")
-      info("taskFunction: ", f2dbShow(taskFunction(object))[["name"]])
-      info("taskCall: ", rlang::expr_deparse(taskFunction(object)@taskCall))
-      info("taskInput: ", typeof(input))
-      info("taskItem: ", item)
       return(FALSE)
     }
 
