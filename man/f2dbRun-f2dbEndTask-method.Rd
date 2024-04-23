@@ -26,7 +26,7 @@ Run an \code{f2dbEndTask}.
 \seealso{
 Other f2dbTask: 
 \code{\link{f2dbEndTask-class}},
-\code{\link{f2dbListTask-class}},
+\code{\link{f2dbIterateTask-class}},
 \code{\link{f2dbRun,f2dbJob-method}},
 \code{\link{f2dbRun,f2dbTask-method}},
 \code{\link{f2dbTask}},
@@ -38,8 +38,8 @@ Other f2dbTask:
 
 Other f2dbRun methods: 
 \code{\link{f2dbRun,f2dbBatch-method}},
+\code{\link{f2dbRun,f2dbIterateTask-method}},
 \code{\link{f2dbRun,f2dbJob-method}},
-\code{\link{f2dbRun,f2dbListTask-method}},
 \code{\link{f2dbRun,f2dbObject-method}},
 \code{\link{f2dbRun,f2dbTask-method}},
 \code{\link{f2dbRun,f2dbTaskFunction-method}},

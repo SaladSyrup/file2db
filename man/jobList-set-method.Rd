@@ -6,6 +6,7 @@
 \alias{jobList<-}
 \alias{jobList<-,f2dbBatch,f2dbJob-method}
 \alias{jobList<-,f2dbBatch,list-method}
+\alias{jobList<-,f2dbBatch,NULL-method}
 \title{jobList<-}
 \usage{
 jobList(object) <- value
@@ -13,11 +14,13 @@ jobList(object) <- value
 \S4method{jobList}{f2dbBatch,f2dbJob}(object) <- value
 
 \S4method{jobList}{f2dbBatch,list}(object) <- value
+
+\S4method{jobList}{f2dbBatch,NULL}(object) <- value
 }
 \arguments{
 \item{object}{An \code{f2dbBatch}.}
 
-\item{value}{An \code{f2dbJob}.}
+\item{value}{An \code{f2dbJob}. Set to \code{NULL} to clear jobList.}
 }
 \description{
 Add \code{f2dbJob} objects to the end of the job list.

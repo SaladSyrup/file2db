@@ -15,7 +15,7 @@ modified.
 }
 \seealso{
 Other f2dbTask: 
-\code{\link{f2dbListTask-class}},
+\code{\link{f2dbIterateTask-class}},
 \code{\link{f2dbRun,f2dbEndTask-method}},
 \code{\link{f2dbRun,f2dbJob-method}},
 \code{\link{f2dbRun,f2dbTask-method}},
@@ -31,8 +31,8 @@ Other f2dbEndTask:
 
 Other f2db classes: 
 \code{\link{f2dbBatch-class}},
+\code{\link{f2dbIterateTask-class}},
 \code{\link{f2dbJob-class}},
-\code{\link{f2dbListTask-class}},
 \code{\link{f2dbObject-class}},
 \code{\link{f2dbTask-class}},
 \code{\link{f2dbTaskFunction-class}}

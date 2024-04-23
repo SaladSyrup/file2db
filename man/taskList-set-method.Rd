@@ -6,6 +6,7 @@
 \alias{taskList<-}
 \alias{taskList<-,f2dbJob,f2dbTask-method}
 \alias{taskList<-,f2dbJob,list-method}
+\alias{taskList<-,f2dbJob,NULL-method}
 \title{taskList<-}
 \usage{
 taskList(object) <- value
@@ -13,6 +14,8 @@ taskList(object) <- value
 \S4method{taskList}{f2dbJob,f2dbTask}(object) <- value
 
 \S4method{taskList}{f2dbJob,list}(object) <- value
+
+\S4method{taskList}{f2dbJob,NULL}(object) <- value
 }
 \arguments{
 \item{object}{An \code{f2dbJob}.}
