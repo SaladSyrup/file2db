@@ -3,6 +3,8 @@
 #' A `f2dbIterateTask` iterates over `taskInput`, running running
 #' subsequent `taskFunction`s with each element as input.
 #'
+#' The `taskFunction` slot of a `f2dbIterateTask` object cannot be modified.
+#'
 #' @name f2dbIterateTask-class
 #' @docType class
 #' @family f2dbTask
@@ -16,14 +18,30 @@ methods::setClass("f2dbIterateTask", contains = c("f2dbTask"))
 #'
 #' `f2dbIterateTask` constructor.
 #'
-#' @inheritParams f2dbTask
+#' @param taskName Task name.
 #'
 #' @returns An `f2dbIterateTask` object.
 #'
 #' @family f2dbIterateTask
 #' @export
-f2dbIterateTask <- rlang::new_function(formals(f2dbTask), rlang::expr({
-  parentConst <- rlang::call_match()
-  parentConst[[1]] <- as.name("f2dbTask")
-  methods::new("f2dbIterateTask", rlang::eval_tidy(parentConst))
-}))
+f2dbIterateTask <- function(taskName) {
+  if (!methods::hasArg(taskName)) {
+    taskName <- "f2dbIterateTask"
+  } else {
+    taskName <- as.character(taskName)
+  }
+
+  methods::new("f2dbIterateTask", name = taskName, taskFunction = f2dbTaskFunction(), nextTask = f2dbObject("END"))
+}
+
+#-------------------------------------------------------------------------------
+# Accessors
+#-------------------------------------------------------------------------------
+#' @name taskFunction<-,f2dbEndTask,f2dbTaskFunction-method
+#' @rdname taskFunction-set-method
+#' @export
+methods::setMethod(
+  "taskFunction<-",
+  signature(object = "f2dbIterateTask", value = "f2dbTaskFunction"),
+  function(object, value) stop("Cannot modify the taskFunction of a f2dbIterateTask object")
+)

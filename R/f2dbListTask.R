@@ -13,5 +13,7 @@ f2dbListTask <- rlang::new_function(formals(f2dbTask), rlang::expr({
   parentConst[[1]] <- as.name("f2dbTask")
   listTask <- methods::new("f2dbTask", rlang::eval_tidy(parentConst))
 
-  nextTask(listTask) <- f2dbIterateTask
+  nextTask(listTask) <- f2dbIterateTask()
+
+  listTask
 }))

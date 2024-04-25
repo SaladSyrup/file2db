@@ -4,23 +4,10 @@
 \alias{f2dbIterateTask}
 \title{f2dbIterateTask}
 \usage{
-f2dbIterateTask(taskName, taskFunction, ..., inputName, itemName)
+f2dbIterateTask(taskName)
 }
 \arguments{
 \item{taskName}{Task name.}
-
-\item{taskFunction}{Function to call when running the task.}
-
-\item{...}{<\code{\link[rlang:dyn-dots]{dynamic-dots}}> Parameters passed to the task
-function.}
-
-\item{inputName}{By default, task input is passed to the task function as an
-unnamed first parameter. If \code{inputName} is provided, task input will be
-passed using \code{inputName}.}
-
-\item{itemName}{By default, the current job item is not passed to the task
-function. If \code{itemName} is provided, the job item will be passed using
-\code{itemName}.}
 }
 \value{
 An \code{f2dbIterateTask} object.

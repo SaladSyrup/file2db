@@ -8,6 +8,9 @@
 A \code{f2dbIterateTask} iterates over \code{taskInput}, running running
 subsequent \code{taskFunction}s with each element as input.
 }
+\details{
+The \code{taskFunction} slot of a \code{f2dbIterateTask} object cannot be modified.
+}
 \seealso{
 Other f2dbTask: 
 \code{\link{f2dbEndTask-class}},

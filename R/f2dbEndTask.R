@@ -2,7 +2,7 @@
 #'
 #' A `f2dbEndTask` object marks the end of a task list.
 #'
-#' The `taskFunction` and `nextTask` slots of a `f2dbEndTask` object cannont be
+#' The `taskFunction` and `nextTask` slots of a `f2dbEndTask` object cannot be
 #' modified.
 #'
 #' `f2dbRun(f2dbEndTask)` will always return `TRUE`.

@@ -8,7 +8,7 @@
 A \code{f2dbEndTask} object marks the end of a task list.
 }
 \details{
-The \code{taskFunction} and \code{nextTask} slots of a \code{f2dbEndTask} object cannont be
+The \code{taskFunction} and \code{nextTask} slots of a \code{f2dbEndTask} object cannot be
 modified.
 
 \code{f2dbRun(f2dbEndTask)} will always return \code{TRUE}.
